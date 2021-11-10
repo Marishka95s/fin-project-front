@@ -9,6 +9,7 @@ function App() {
         <p>
           Hello) I'm a wallet and I believe in you!
         </p>
+        
       </header>
     </div>
   );
