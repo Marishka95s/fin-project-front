@@ -2,7 +2,8 @@
 
 .App {
     text-align: center;
-    background-color: $additional-text-color; // Приклад використання змінних з загального scss файлу
+    background-color: #FFD8D0;
+    color: $button-text-color; // Приклад використання змінних з загального scss файлу 
 }
   
 .App-logo {
@@ -23,11 +24,6 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  
-.App-link {
-    color: #61dafb;
   }
   
 @keyframes App-logo-spin {
