@@ -54,6 +54,9 @@
     ]
   },
   "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
+    "prettier": "^2.4.1",
     "redux-devtools": "^3.7.0",
     "redux-devtools-extension": "^2.13.9"
   }
