@@ -1,0 +1,38 @@
+@import '../../stylesheet/fonts.scss';
+@import '../../stylesheet/vars.scss';
+
+// Контейнер
+.diagram {
+  /* Заголовок */
+  &__title {
+    font-size: 30px;
+    line-height: 45px;
+    font-family: $poppins;
+    font-weight: normal;
+  }
+
+  /* Diagram-контейнер*/
+  &__data {
+    margin-top: 10px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .diagram {
+    /* График-контейнер*/
+    &__data {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .diagram {
+    display: flex;
+    flex-direction: column;
+    &__title {
+      margin-bottom: 0px;
+    }
+  }
+}
