@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-// import Chart from './components/statistic/Chart';
-import Chart from './components/statistic/Chart/index';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -19,7 +17,6 @@ ReactDOM.render(
       >
         <BrowserRouter>
           <App />
-          <Chart />
         </BrowserRouter>
       </PersistGate>
     </Provider>
