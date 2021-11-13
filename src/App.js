@@ -1,16 +1,11 @@
-import logo from './wallet-logo.svg';
+// import logo from './wallet-logo.svg';
 import './App.scss';
+import Balance from './components/dashboard/Balance';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello) I'm a wallet and I believe in you!
-        </p>
-        
-      </header>
+      <Balance />
     </div>
   );
 }
