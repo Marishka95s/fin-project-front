@@ -1,4 +1,3 @@
-// @import '../../stylesheet/fonts.scss';
 @import '../../stylesheet/vars.scss';
 
 // Контейнер
@@ -21,7 +20,7 @@
     /* График-контейнер*/
     &__data {
       display: flex;
-      justify-content: space-between;
+      justify-content: end;
       margin-top: 20px;
     }
   }

@@ -9,6 +9,7 @@ import Diagram from '../src/components/statistic/Diagram';
 function App() {
   return (
     <div className="App">
+      <Diagram />
       <Balance />
 
       <header className="App-header">
