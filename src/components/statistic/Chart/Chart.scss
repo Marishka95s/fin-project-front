@@ -1,0 +1,45 @@
+@import '../../stylesheet/fonts.scss';
+@import '../../stylesheet/vars.scss';
+
+/* пончик- */
+.chart {
+  position: relative;
+  width: 280px;
+  height: 280px;
+
+  &__contents {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* баланс внутри пончика */
+  &__ballance {
+    font-size: 18px;
+    line-height: 26px;
+    color: $main-text-color;
+    font-family: $circe;
+    font-weight: bold;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .chart {
+    width: 320px;
+    height: 320px;
+    margin-right: 35px;
+
+    &__ballance {
+      font-size: 18px;
+      line-height: 27px;
+    }
+  }
+}

@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+// import Chart from './components/statistic/Chart';
+import Chart from './components/statistic/Chart/index';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -11,13 +13,16 @@ import 'modern-normalize/modern-normalize.css';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={<h3>Загружаем локальное хранилище</h3>} persistor={persistor}>
+      <PersistGate
+        loading={<h3>Загружаем локальное хранилище</h3>}
+        persistor={persistor}
+      >
         <BrowserRouter>
           <App />
+          <Chart />
         </BrowserRouter>
       </PersistGate>
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
-

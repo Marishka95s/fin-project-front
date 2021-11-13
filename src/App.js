@@ -1,9 +1,8 @@
 import './App.scss';
 import { Routes, Route } from 'react-router';
-
 import RegistrationPage from './views/RegistrationPage/RegistrationPage';
 import LoginPage from './views/LoginPage/LoginPage';
-
+import Diagram from '../src/components/statistic/Diagram';
 
 function App() {
   return (
