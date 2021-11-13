@@ -1,4 +1,6 @@
+// import logo from './wallet-logo.svg';
 import './App.scss';
+import Balance from './components/dashboard/Balance';
 import { Routes, Route } from 'react-router';
 import RegistrationPage from './views/RegistrationPage/RegistrationPage';
 import LoginPage from './views/LoginPage/LoginPage';
@@ -7,6 +9,8 @@ import Diagram from '../src/components/statistic/Diagram';
 function App() {
   return (
     <div className="App">
+      <Balance />
+
       <header className="App-header">
         <Routes>
           <Route path="/fin-project-front/" element={<p>Допиши /registration или /login</p>} />
