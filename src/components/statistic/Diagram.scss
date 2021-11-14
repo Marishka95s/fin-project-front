@@ -8,6 +8,8 @@
     line-height: 45px;
     font-family: $poppins;
     font-weight: normal;
+    color:$main-text-color;
+    margin-bottom: 0px;
   }
 
   /* Diagram-контейнер*/
@@ -20,7 +22,7 @@
     /* График-контейнер*/
     &__data {
       display: flex;
-      justify-content: end;
+      justify-content: flex-end;
       margin-top: 20px;
     }
   }

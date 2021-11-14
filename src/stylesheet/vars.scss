@@ -5,9 +5,10 @@ $inversion-text-color: #FFFFFF;
 $button-text-color: #4A56E2;
 $main-accent-color: #24CCA7;
 $additional-accent-color: #FF6596;
+$background-color-main:#e7eaf2;
 
 //Шрифт
-$poppins: 'Poppins';
-$circe: 'Circe';
+$poppins: 'Poppins', sans-serif;
+$circe: 'Circe', sans-serif;
 
 $timing-function: cubic-bezier(0.4, 0, 0.2, 1);
