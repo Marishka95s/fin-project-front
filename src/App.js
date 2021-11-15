@@ -1,5 +1,6 @@
 // import logo from './wallet-logo.svg';
 import './App.scss';
+import Currency from './components/currency/Currency';
 import Navigation from './components/dashboard/Navigation';
 import Balance from './components/dashboard/Balance';
 import { Routes, Route } from 'react-router';
@@ -15,6 +16,11 @@ function App() {
       <Balance />
 
       <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Hello) I'm a wallet and I believe in you!
+        </p>
+        <Currency/>
         <Routes>
           <Route
             path="/fin-project-front/"
@@ -27,6 +33,7 @@ function App() {
           <Route path="/fin-project-front/login" element={<LoginPage />} />
         </Routes>
       </header>
+
     </div>
   );
 }
