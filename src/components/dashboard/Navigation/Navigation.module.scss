@@ -1,14 +1,17 @@
+@import '../../../stylesheet/vars.scss';
+
 .navigation_link {
-    display: none;
     display: flex;
     text-decoration: none;
-    font-family: Poppins;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 27px;
     align-items: center;
     color: #000000;
+    &:focus {
+        font-weight: bold;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -23,19 +26,6 @@
         padding-top: 13px;
         justify-content: space-evenly;
     }
-
-    // .navigation_link {
-    //     display: none;
-    //     display: flex;
-    //     text-decoration: none;
-    //     font-family: Poppins;
-    //     font-style: normal;
-    //     font-weight: normal;
-    //     font-size: 18px;
-    //     line-height: 27px;
-    //     align-items: center;
-    //     color: #000000;
-    // }
 
     .navigation_home_icon,
     .navigation_stat_icon,
@@ -64,9 +54,9 @@
 
     .navigation_link {
         display: flex;
-        &:focus {
-            font-weight: bold;
-        }
+        // &:focus {
+        //     font-weight: bold;
+        // }
     }
 
     .navigation_home_icon,
