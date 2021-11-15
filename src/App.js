@@ -1,6 +1,6 @@
 import logo from './wallet-logo.svg';
 import './App.scss';
-
+import Currency from './components/currency/Currency';
 function App() {
   return (
     <div className="App">
@@ -9,8 +9,9 @@ function App() {
         <p>
           Hello) I'm a wallet and I believe in you!
         </p>
-        
+        <Currency/>
       </header>
+
     </div>
   );
 }
