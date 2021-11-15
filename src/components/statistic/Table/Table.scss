@@ -1,11 +1,15 @@
 // @import '../../../stylesheet/fonts.scss';
 @import '../../../stylesheet/vars.scss';
 
-
 /* Фильтры (месяц и год) */
 .table {
   width: 280px;
   margin-top: 30px;
+
+  .table_select {
+    display: flex;
+    justify-content: space-between;
+  }
 
   .filter {
     &__input {
@@ -16,9 +20,6 @@
       box-sizing: border-box;
       border-radius: 30px;
       background: transparent;
-
-
-
 
       &::placeholder {
         color: $main-text-color;
@@ -52,7 +53,6 @@
     border-radius: 30px;
     margin-top: 20px;
   }
-
 
   /* Категория . Сумма li */
   &__menu-item {
@@ -162,5 +162,3 @@
     }
   }
 }
-
-

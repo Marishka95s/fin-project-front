@@ -44,7 +44,7 @@ import { Doughnut } from 'react-chartjs-2';
 //         <span className="chart__ballance">&#8372; {24000}</span>
 //        </div>
 //      </div>
-  
+
 //   );
 // }
 
@@ -52,7 +52,7 @@ export default function Chart() {
   const data = {
     datasets: [
       {
-       data: [20, 50, 100, 250, 500, 25, 36, 48, 1000],
+        data: [20, 50, 100, 250, 500, 25, 36, 48, 1000],
         backgroundColor: [
           '#FED057',
           '#FFD8D0',

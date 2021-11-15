@@ -1,13 +1,13 @@
 //Переменные цвета
 $main-text-color: #000000;
-$additional-text-color: #BDBDBD;
-$inversion-text-color: #FFFFFF;
-$button-text-color: #4A56E2;
-$main-accent-color: #24CCA7;
-$additional-accent-color: #FF6596;
+$additional-text-color: #bdbdbd;
+$inversion-text-color: #ffffff;
+$button-text-color: #4a56e2;
+$main-accent-color: #24cca7;
+$additional-accent-color: #ff6596;
 
 //Шрифт
-$poppins: 'Poppins';
-$circe: 'Circe';
+$poppins: 'Poppins', sans-serif;
+$circe: 'Circe', sans-serif;
 
 $timing-function: cubic-bezier(0.4, 0, 0.2, 1);

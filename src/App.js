@@ -13,9 +13,16 @@ function App() {
 
       <header className="App-header">
         <Routes>
-          <Route path="/fin-project-front/" element={<p>Допиши /registration или /login</p>} />
-          <Route path="/fin-project-front/registration" element={<RegistrationPage />} />
+          <Route
+            path="/fin-project-front/"
+            element={<p>Допиши /registration или /login или /statistics</p>}
+          />
+          <Route
+            path="/fin-project-front/registration"
+            element={<RegistrationPage />}
+          />
           <Route path="/fin-project-front/login" element={<LoginPage />} />
+          <Route path="/fin-project-front/statistics" element={<Diagram />} />
         </Routes>
       </header>
     </div>
