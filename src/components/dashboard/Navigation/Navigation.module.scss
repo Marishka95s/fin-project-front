@@ -1,0 +1,118 @@
+.navigation_link {
+    display: none;
+    display: flex;
+    text-decoration: none;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    align-items: center;
+    color: #000000;
+}
+
+@media screen and (max-width: 767px) {
+    .navigation_container {
+        width: 320px;
+        height: 60px;
+        margin: auto;
+    }
+
+    .navigation_nav_link {
+        display: flex;
+        padding-top: 13px;
+        justify-content: space-evenly;
+    }
+
+    // .navigation_link {
+    //     display: none;
+    //     display: flex;
+    //     text-decoration: none;
+    //     font-family: Poppins;
+    //     font-style: normal;
+    //     font-weight: normal;
+    //     font-size: 18px;
+    //     line-height: 27px;
+    //     align-items: center;
+    //     color: #000000;
+    // }
+
+    .navigation_home_icon,
+    .navigation_stat_icon,
+    .navigation_dollar_icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .navigation_page_home,
+    .navigation_page_stat {
+    display: none;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .navigation_container {
+        width: 768px;
+        height: 80px;
+        margin: auto;
+    }
+
+    .navigation_nav_link {
+        margin-left: 43px;
+        padding-top: 30px;
+    }
+
+    .navigation_link {
+        display: flex;
+        &:focus {
+            font-weight: bold;
+        }
+    }
+
+    .navigation_home_icon,
+    .navigation_stat_icon {
+        width: 18px;
+        height: 18px;
+        margin-right: 23px;
+    }
+
+.navigation_dollar_icon {
+    display: none;
+}
+
+    .navigation_page_home {
+    margin-bottom: 10px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .navigation_container {
+        width: 1280px;
+        height: 80px;
+        margin: auto;
+    }
+
+    .navigation_nav_link {
+        margin-left: 88px;
+        padding-top: 40px;
+    }
+
+    .navigation_link {
+        display: flex;
+    }
+
+    .navigation_home_icon,
+    .navigation_stat_icon {
+        width: 18px;
+        height: 18px;
+        margin-right: 23px;
+    }
+
+.navigation_dollar_icon {
+    display: none;
+}
+
+    .navigation_page_home {
+    margin-bottom: 10px;
+    }
+}

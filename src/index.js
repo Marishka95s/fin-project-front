@@ -11,13 +11,15 @@ import 'modern-normalize/modern-normalize.css';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={<h3>Загружаем локальное хранилище</h3>} persistor={persistor}>
+      <PersistGate
+        loading={<h3>Загружаем локальное хранилище</h3>}
+        persistor={persistor}
+      >
         <BrowserRouter>
           <App />
         </BrowserRouter>
       </PersistGate>
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
-

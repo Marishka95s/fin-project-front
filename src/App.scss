@@ -1,37 +1,64 @@
-@import "./stylesheet/vars.scss"; // Приклад імпорту змінних з загального scss файлу
+@import './stylesheet/vars.scss'; // Приклад імпорту змінних з загального scss файлу
 
 .App {
-    text-align: center;
-    background-color: #FFD8D0;
-    color: $button-text-color; // Приклад використання змінних з загального scss файлу 
-}
-  
+  text-align: center;
+  // background-color: #FFD8D0;
+  color: $button-text-color; // Приклад використання змінних з загального scss файлу
+  }
+
 .App-logo {
-    height: 10vmin;
-    pointer-events: none;
+  height: 10vmin;
+  pointer-events: none;
 }
-  
+
 @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
-  
+
 .App-header {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-  }
-  
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // font-size: calc(10px + 2vmin);
+}
+
 @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
   }
-  
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+body {
+  font-family: $circe;
+  font-style: normal;
+  // background: rgba(255, 255, 255, 0.4);
+  // backdrop-filter: blur(50px);
+  background-color: $background-color-main;
+
+  @media screen and (min-width: 768px) {
+    background: url('../src/images/tablet/ellipse-rose-tablet.svg')
+        100% 0 no-repeat,
+      url('../src/images/tablet/ellipse-purple-tablet.svg')
+      0 100% no-repeat ;
+    background-color: $background-color-main;
+
+  }
+  @media screen and (min-width: 1280px) {
+    background: url('../src/images/desktop/ellipse-rose-desktop.svg')
+        100% 0  no-repeat,
+      url('../src/images/desktop/ellipse-purple-desktop.svg') 0 100% no-repeat;
+    background-color: $background-color-main;
+  }
+}
+#root{
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(50px);
+}
