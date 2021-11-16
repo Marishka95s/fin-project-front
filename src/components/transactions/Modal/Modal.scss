@@ -1,0 +1,23 @@
+.Modal__backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.25);
+  }
+  
+  .Modal__content {
+    position: absolute;
+    width: 540px;
+    min-height: 540px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+  }
