@@ -10,6 +10,7 @@ const HomePage = lazy(() => import('./views/HomePage/HomePage'));
 export default function App() {
   const dispatch = useDispatch();
 
+  
     // useEffect(() => {
     //     dispatch();
     // }, [dispatch]);
