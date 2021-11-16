@@ -1,0 +1,22 @@
+.ButtonAddTransaction {
+    background: #24cca7;
+    box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    border: none;
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+  
+    @media screen and (min-width: 768px) {
+      right: 40px;
+      bottom: 40px;
+      cursor: pointer;
+    }
+  
+    @media screen and (min-width: 1280px) {
+      right: 85px;
+      bottom: 40px;
+    }
+  }

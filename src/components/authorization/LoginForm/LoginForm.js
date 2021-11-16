@@ -1,12 +1,13 @@
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom'
+import operations from '../../../redux/auth/auth-operations';
 import '../authForm.scss'
 
 
 
 export default function LoginForm() {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -23,7 +24,7 @@ export default function LoginForm() {
 
     const handleSubmit = e => {
         e.preventDefault();
-        // dispatch(operations.logIn({ email, password }));
+        dispatch(operations.login({ email, password }));
         setEmail('');
         setPassword('');
     };
@@ -37,7 +38,7 @@ export default function LoginForm() {
                     className="auth-form"
                     onSubmit={handleSubmit}
                 >
-                    <label className="form-label">
+                    <label className="form-label" type="email">
                         <input
                             className="form-input"
                             placeholder="E-mail"
@@ -47,7 +48,7 @@ export default function LoginForm() {
                             onChange={handleChange}
                         />
                     </label>
-                    <label className="form-label">
+                    <label className="form-label" type="password">
                         <input
                             className="form-input"
                             placeholder="Пароль"
@@ -61,7 +62,7 @@ export default function LoginForm() {
                     <NavLink
                         className="nav-button"
                         to="/fin-project-front/registration"
-                        exact
+                    // exact
                     >
                         Регистрация
                     </NavLink>

@@ -3,7 +3,6 @@ import RegistrationForm from '../../components/authorization/RegistrationForm/Re
 
 
 export default function RegistrationView() {
-
     return (
         <>
             <Media query="(max-width: 767px)" render={() =>

@@ -1,0 +1,63 @@
+.userMenu{
+    display: flex;
+    justify-content: flex-end;
+    background-color: bisque;
+    /* width: 624px; */
+    /* padding: 10px; */
+    font-size: 14px;
+    margin-left: 10px;
+}
+.email{
+    padding: 10px;
+    margin: 0;
+    color: tomato;
+    font-size: 18px;
+    text-decoration: underline;
+    font-variant: small-caps;
+}
+.logOutButton{
+    /* padding: 10px;
+    background-color: transparent; */
+    border: none;
+    margin-top: 3px;
+    margin-right: 3px;
+    color: brown;
+    background-color:bisque;
+    padding: 0;
+    /* border-bottom: thick double brown; */
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.logOutButton:hover{
+    color: black;
+}
+.link {
+    display: inline-block;
+    text-decoration: none;
+    color: brown;
+    padding: 0;
+    margin: 0;
+    margin-right: 7px;
+}
+.link:hover{
+    fill: black;
+}
+
+.link:active {
+    color:crimson;
+}
+.icon {
+    display: inline-block;
+    align-items: flex-end;
+    margin-right: 5px;
+}
+path {
+    display: inline-block;
+    width: 14px;
+    padding: 3px;
+    color: brown;
+}
+.link:hover path {
+    fill: black;
+}
