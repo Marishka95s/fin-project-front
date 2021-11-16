@@ -1,7 +1,6 @@
 import Media from 'react-media';
 
-// import AuthBar from '../../components/authorization/AuthBar/AuthBar';
-import UserMenu from '../../components/userMenu/UserMenu';
+import AuthBar from '../../components/authorization/AuthBar/AuthBar';
 import Currency from '../../components/currency/Currency';
 import NavigationBtns from '../../components/dashboard/Navigation';
 import Balance from '../../components/dashboard/Balance/Balance';
@@ -11,7 +10,7 @@ export default function RegistrationView() {
     return (
         <>
             <Media query="(max-width: 767px)" render={() =>
-            (<> <UserMenu />
+            (<> <AuthBar />
                 <div className="left-side-block" style={{"width" : "320px"}}>
                     
                     <NavigationBtns />
@@ -25,7 +24,7 @@ export default function RegistrationView() {
             )}
             />
             <Media query="(min-width: 768px) and (max-width: 1279px)" render={() =>
-            (<> <UserMenu />
+            (<> <AuthBar />
                 <div className="left-side-block" style={{"width" : "768px"}}>                    
                     <NavigationBtns />
                     <Balance /> 
@@ -40,7 +39,7 @@ export default function RegistrationView() {
             )}
             />
             <Media query="(min-width: 1280px)" render={() =>
-            (<> <UserMenu />
+            (<> <AuthBar />
                 <div className="left-side-block" style={{"width" : "465px"}}>                    
                     <NavigationBtns />
                     <Balance /> 

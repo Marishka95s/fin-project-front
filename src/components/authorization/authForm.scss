@@ -1,3 +1,4 @@
+@import '../../assets/fonts/poppins-v15-latin/stylesheet.css';
 @import '../../stylesheet/vars.scss';
 .container {
   padding-left: 20px;
@@ -126,7 +127,7 @@
   }
 }
 .nav-button {
-  // font-family: $circe;
+  font-family: $circe;
   text-transform: uppercase;
   text-decoration: none;
   border: none;
@@ -223,6 +224,7 @@
 .app-name {
   font-style: normal;
   font-weight: normal;
+  font-family: $poppins;
   font-size: 30px;
   line-height: 1.5;
   align-items: center;
