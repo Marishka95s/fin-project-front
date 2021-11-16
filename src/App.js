@@ -1,4 +1,4 @@
-// import logo from './wallet-logo.svg';
+import logo from './wallet-logo.svg';
 import './App.scss';
 import Currency from './components/currency/Currency';
 import Navigation from './components/dashboard/Navigation';
@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router';
 import RegistrationPage from './views/RegistrationPage/RegistrationPage';
 import LoginPage from './views/LoginPage/LoginPage';
 import Diagram from '../src/components/statistic/Diagram';
+import TableTransactions from './components/dashboard/TableTransactions';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <p>
           Hello) I'm a wallet and I believe in you!
         </p>
+        <TableTransactions/>
         <Currency/>
         <Routes>
           <Route
@@ -35,7 +37,7 @@ function App() {
       </header>
 
     </div>
-  );
+  )
 }
 
 export default App;
