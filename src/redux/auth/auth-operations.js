@@ -24,14 +24,30 @@ const registration = ({ email, password, name }) => dispatch => {
 }
 const login = ({ email, password }) => dispatch => {
   dispatch(actions.loginRequest())
-  axios.post('auth/login', { data: JSON.stringify({ email, password }) })
-    .then(data => {
-      token.set(data.token)
-      return data
+  axios.post('auth/login', { email, password })
+    .then(response => {
+      token.set(response.token)
+      dispatch(actions.loginSuccess(response))
+      return response
     }).catch((error) => {
       alert(error)
     })
 }
+// const login =
+//   ({ email, password }) =>
+//     async dispatch => {
+//       dispatch(actions.loginRequest());
+
+//       try {
+//         const { data } = await axios.post('/auth/login', { email, password });
+//         token.set(data.token);
+//         dispatch(actions.loginSuccess(data));
+//         alert('Логинизация выполнена!');
+//       } catch (error) {
+//         dispatch(actions.loginError(error.message));
+//         alert(error.message);
+//       }
+//     };
 // const register = createAsyncThunk('auth/register', async (credentials, thunkAPI) => {
 //   try {
 //     const { data } = await axios.post('/auth/signup', credentials);
