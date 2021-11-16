@@ -9,7 +9,8 @@ export default function UserMenu() {
                 <svg className="logout-icon">
                     <use href="../../../../images/icons/logout-icon.svg"></use>
                 </svg>
-                Выйти</button>
+                <span className="exit-button-text">Выйти</span>
+            </button>
         </div>
 
     )

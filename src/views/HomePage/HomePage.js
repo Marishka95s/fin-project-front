@@ -4,9 +4,10 @@ import AuthBar from '../../components/authorization/AuthBar/AuthBar';
 import Currency from '../../components/currency/Currency';
 import NavigationBtns from '../../components/dashboard/Navigation';
 import Balance from '../../components/dashboard/Balance/Balance';
+import TableTransactions from '../../components/dashboard/TableTransactions';
 
 
-export default function RegistrationView() {
+export default function HomePage() {
     return (
         <>
             <Media query="(max-width: 767px)" render={() =>
@@ -18,7 +19,7 @@ export default function RegistrationView() {
                     {/* <Currency/> */}
                 </div>
                 <div className="right-side-block" style={{"width" : "320px"}}>                    
-                    {/* main part */}
+                    <TableTransactions/>
                 </div>
             </>
             )}
@@ -33,7 +34,7 @@ export default function RegistrationView() {
                     </div>
                 </div>
                 <div className="right-side-block" style={{"width" : "768px"}}>                    
-                    {/* main part */}
+                    <TableTransactions/>
                 </div>
             </>
             )}
@@ -48,7 +49,7 @@ export default function RegistrationView() {
                     </div>
                 </div>
                 <div className="right-side-block" style={{"width" : "815px"}}>                    
-                    {/* main part */}
+                    <TableTransactions/>
                 </div>
             </>
             )}
