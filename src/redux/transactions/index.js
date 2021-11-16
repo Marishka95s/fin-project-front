@@ -1,4 +1,4 @@
-export * as TransactionsActions from './transactions-actions';
-export * as TransactionsOperations from './transactions-operations';
-export { default as CombineReducers } from './transactions-reducer';
-export * as TransactionsSelectors from './transactions-selectors';
+export { default as transactionsOperations } from './transactions-operations';
+export { default as transactionsSelectors } from './transactions-selectors';
+export * from './transactions-actions';
+export { default as transactionsReducer } from './transactions-reducer';
