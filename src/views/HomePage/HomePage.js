@@ -1,5 +1,6 @@
 import Media from 'react-media';
 
+// import AuthBar from '../../components/authorization/AuthBar/AuthBar';
 import UserMenu from '../../components/userMenu/UserMenu';
 import Currency from '../../components/currency/Currency';
 import NavigationBtns from '../../components/dashboard/Navigation';
