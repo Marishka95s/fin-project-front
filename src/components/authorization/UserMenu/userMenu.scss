@@ -1,0 +1,52 @@
+.user-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-name {
+  //   font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #bdbdbd;
+  text-align: center;
+  align-items: center;
+  display: flex;
+
+  &::after {
+    content: '';
+    width: 1px;
+    height: 30px;
+    display: block;
+    background-color: #bdbdbd;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+.logout-button {
+  display: flex;
+  height: 24px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #fff;
+  color: #bdbdbd;
+
+  //   font-family: $circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.5;
+}
+.logout-icon {
+  display: block;
+  background-image: url('../../../images/icons/logout-icon.svg');
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+}
