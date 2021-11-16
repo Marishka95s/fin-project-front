@@ -9,8 +9,8 @@ import PublicRoute from './components/PublicRoute'
 import './App.scss';
 import Currency from './components/currency/Currency';
 import Navigation from './components/dashboard/Navigation';
-import Balance from './components/dashboard/Balance';
-import { Routes, Route } from 'react-router';
+import Balance from './components/dashboard/Balance/Balance';
+// import { Routes, Route } from 'react-router';
 import RegistrationPage from './views/RegistrationPage/RegistrationPage';
 import LoginPage from './views/LoginPage/LoginPage';
 import Diagram from '../src/components/statistic/Diagram';
@@ -47,7 +47,7 @@ export default function App() {
           Hello) I'm a wallet and I believe in you!
         </p>
         <Currency/>
-        <Routes>
+        {/* <Routes>
           <Route
             path="/fin-project-front/"
             element={<p>Допиши /registration или /login или /statistics</p>}
@@ -58,7 +58,7 @@ export default function App() {
           />
           <Route path="/fin-project-front/login" element={<LoginPage />} />
           <Route path="/fin-project-front/statistics" element={<Diagram />} />
-        </Routes>
+        </Routes> */}
       </header>
 
     </div>
