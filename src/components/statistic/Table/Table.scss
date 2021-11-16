@@ -1,6 +1,5 @@
-@import '../../stylesheet/fonts.scss';
-@import '../../stylesheet/vars.scss';
-
+@import '../../../stylesheet/fonts.scss';
+@import '../../../stylesheet/vars.scss';
 
 /* Фильтры (месяц и год) */
 .table {
@@ -16,9 +15,6 @@
       box-sizing: border-box;
       border-radius: 30px;
       background: transparent;
-
-
-
 
       &::placeholder {
         color: $main-text-color;
@@ -52,7 +48,6 @@
     border-radius: 30px;
     margin-top: 20px;
   }
-
 
   /* Категория . Сумма li */
   &__menu-item {
@@ -122,12 +117,12 @@
     line-height: 24px;
     font-weight: bold;
 
-    &--expenses {
-      $additional-accent-color;
-    }
-    &--income {
-      $main-accent-color;
-    }
+    // &--expenses {
+    //   $additional-accent-color;
+    // }
+    // &--income {
+    //   $main-accent-color;
+    // }
   }
 }
 
@@ -162,5 +157,3 @@
     }
   }
 }
-
-

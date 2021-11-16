@@ -1,8 +1,12 @@
-import { useState } from 'react';
-import '../authForm.scss'
+import { useState, useCallback } from 'react';
+import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import operations from '../../../redux/auth/auth-operations';
+import '../authForm.scss'
+
 
 export default function RegistrationForm() {
+    const dispatch = useDispatch()
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -25,10 +29,14 @@ export default function RegistrationForm() {
 
     const handleSubmit = e => {
         e.preventDefault();
-        // dispatch(operations.register({ name, email, password }));
-        setName('');
-        setEmail('');
-        setPassword('');
+
+        password === confirmPassword ?
+            dispatch(operations.registration({ email, password, name })) :
+            alert('Пароли должны совпадать!')
+
+        setName('')
+        setEmail('')
+        setPassword('')
         setConfirmPassword('')
     };
     return (
@@ -38,7 +46,7 @@ export default function RegistrationForm() {
                 <form
                     className="auth-form"
                     onSubmit={handleSubmit}>
-                    <label className="form-label">
+                    <label className="form-label" type="email">
                         <input
                             className="form-input"
                             placeholder="E-mail"
@@ -48,7 +56,7 @@ export default function RegistrationForm() {
                             onChange={handleChange}
                         />
                     </label>
-                    <label className="form-label">
+                    <label className="form-label" type="password">
                         <input
                             className="form-input"
                             placeholder="Пароль"
@@ -58,7 +66,7 @@ export default function RegistrationForm() {
                             onChange={handleChange}
                         />
                     </label>
-                    <label className="form-label">
+                    <label className="form-label" type="password">
                         <input
                             className="form-input"
                             placeholder="Подтвердите пароль"
@@ -69,7 +77,7 @@ export default function RegistrationForm() {
                         />
                     </label>
                     <progress value="1" max="4"></progress>
-                    <label className="form-label" >
+                    <label className="form-label" type="text">
                         <input
                             className="form-input"
                             placeholder="Ваше имя"
@@ -83,7 +91,7 @@ export default function RegistrationForm() {
                     <NavLink
                         className="nav-button"
                         to="/fin-project-front/login"
-                        exact
+                    // exact
                     >
                         Вход
                     </NavLink>
