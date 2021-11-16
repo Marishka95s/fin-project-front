@@ -24,13 +24,14 @@ function App() {
         <Routes>
           <Route
             path="/fin-project-front/"
-            element={<p>Допиши /registration или /login</p>}
+            element={<p>Допиши /registration или /login или /statistics</p>}
           />
           <Route
             path="/fin-project-front/registration"
             element={<RegistrationPage />}
           />
           <Route path="/fin-project-front/login" element={<LoginPage />} />
+          <Route path="/fin-project-front/statistics" element={<Diagram />} />
         </Routes>
       </header>
 
