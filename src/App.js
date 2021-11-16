@@ -10,6 +10,7 @@ import PublicRoute from './components/PublicRoute'
 import PrivateRoute from './components/PrivateRoute'
 
 import './App.scss';
+
 // import { Routes, Route } from 'react-router';
 // import RegistrationPage from './views/RegistrationPage/RegistrationPage';
 // import LoginPage from './views/LoginPage/LoginPage';
@@ -91,8 +92,6 @@ export default function App() {
           <Route path="/fin-project-front/statistics" element={<Diagram />} />
         </Routes> */}
       {/* </header> */}
-
-      
     </div>
   ));
 }
