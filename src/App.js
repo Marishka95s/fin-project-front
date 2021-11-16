@@ -10,12 +10,10 @@ import PublicRoute from './components/PublicRoute'
 import PrivateRoute from './components/PrivateRoute'
 
 import './App.scss';
-import Currency from './components/currency/Currency';
-import Navigation from './components/dashboard/Navigation';
-import Balance from './components/dashboard/Balance/Balance';
 // import { Routes, Route } from 'react-router';
 // import RegistrationPage from './views/RegistrationPage/RegistrationPage';
 // import LoginPage from './views/LoginPage/LoginPage';
+
 import Diagram from '../src/components/statistic/Diagram';
 
 const HomePage = lazy(() => import('./views/HomePage/HomePage'))
@@ -34,36 +32,41 @@ export default function App() {
   }, [dispatch]);
 
   
-  return( !isFetchingCurrentUser &&(
+  return( 
+    /* !isFetchingCurrentUser && */
+    (
     <div className="App">
       <Suspense fallback={<Loader type="ThreeDots" color="brown" height={80} width={80} />}>
 
         <Switch>
-          <PublicRoute exact path="/registration" >
+          <PublicRoute exact path="/fin-project-front/registration" >
             <RegistrationPage />
           </PublicRoute>
 
-          <PublicRoute path="/login" restricted redirectTo="/login">
+          <PublicRoute path="/fin-project-front/login" restricted redirectTo="/fin-project-front/login">
             <LoginPage />
           </PublicRoute>
 
-          <PrivateRoute path="/home" redirectTo="/home">
+{/* CHANGE INTO PrivateRoute */}
+          <PublicRoute path="/fin-project-front/home" redirectTo="/fin-project-front/home">
             <HomePage />
-          </PrivateRoute>
+          </PublicRoute>
 
-          <PrivateRoute path="/statistics" redirectTo="/statistics">
+{/* CHANGE INTO PrivateRoute */}
+          <PublicRoute path="/fin-project-front/statistics" redirectTo="/fin-project-front/statistics">
             <StatisticPage />
-          </PrivateRoute>     
+          </PublicRoute>     
 
           <PublicRoute>
-            <Redirect to="/registration" />
+            <Redirect to="/fin-project-front/registration" />
           </PublicRoute>     
         </Switch>
       </Suspense>
 
         
 
-          {/* <Navigation />
+          {/* 
+          <Navigation />
           <Diagram />
           <Balance /> 
           <Currency/>

@@ -11,12 +11,12 @@ const Navigation = () => {
           <p className={S.navigation_page_home}>Главная</p>
         </NavLink>
 
-        <NavLink to="/" className={S.navigation_link}>
+        <NavLink to="/statistics" className={S.navigation_link}>
           <Icons name="statistic" className={S.navigation_stat_icon} />
           <p className={S.navigation_page_stat}>Статистика</p>
         </NavLink>
 
-        <NavLink to="/" className={S.navigation_link}>
+        <NavLink to="/currency" className={S.navigation_link}>
           <Icons name="dollar" className={S.navigation_dollar_icon} />
         </NavLink>
       </nav>

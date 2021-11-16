@@ -82,7 +82,7 @@ export default function RegistrationForm() {
                     <button className="login-button" type="submit">Регистрация</button>
                     <NavLink
                         className="nav-button"
-                        to="/login"
+                        to="/fin-project-front/login"
                         exact
                     >
                         Вход
