@@ -16,6 +16,7 @@ import './App.scss';
 // import LoginPage from './views/LoginPage/LoginPage';
 
 import Diagram from '../src/components/statistic/Diagram';
+import TableTransactions from './components/dashboard/TableTransactions';
 
 const HomePage = lazy(() => import('./views/HomePage/HomePage'))
 const StatisticPage = lazy(() => import('./views/StatisticPage/StatisticPage'))
