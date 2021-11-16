@@ -1,4 +1,3 @@
-// @import '../../../stylesheet/fonts.scss';
 @import '../../../stylesheet/vars.scss';
 
 /* Фильтры (месяц и год) */
@@ -20,6 +19,7 @@
       box-sizing: border-box;
       border-radius: 30px;
       background: transparent;
+      font-family: $circe;
 
       &::placeholder {
         color: $main-text-color;
@@ -48,10 +48,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    height: 28px; // ??????
+    height: 58px; 
     background-color: $inversion-text-color;
     border-radius: 30px;
     margin-top: 20px;
+    outline: 1px solid red;   //  Временно.Убрать!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+  
   }
 
   /* Категория . Сумма li */
@@ -60,6 +62,7 @@
     line-height: 27px;
     color: $main-text-color;
     font-weight: 700;
+    font-family: $circe;
   }
   /* иконка категории */
   &__item {
@@ -72,6 +75,7 @@
     font-size: 16px;
     line-height: 18px;
     color: $main-text-color;
+    font-family: $circe;
 
     &:first-of-type {
       margin-top: 9px;
@@ -110,20 +114,23 @@
   }
 
   /* тип (Расходы доходы) */
-  &__type {
+  .outcome__type {
     font-size: 16px;
     line-height: 24px;
     color: $main-text-color;
     font-weight: bold;
+    font-size: $circe;
   }
   /* сумма расходы доходы */
   &__total {
     font-size: 16px;
     line-height: 24px;
     font-weight: bold;
+    font-size: $circe;
 
     &--expenses {
       color: $additional-accent-color;
+
     }
     &--income {
       color: $main-accent-color;

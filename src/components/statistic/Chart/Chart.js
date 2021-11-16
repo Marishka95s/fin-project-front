@@ -47,7 +47,6 @@ import { Doughnut } from 'react-chartjs-2';
 
 //   );
 // }
-
 export default function Chart() {
   const data = {
     datasets: [
@@ -76,6 +75,7 @@ export default function Chart() {
           '#00AD84',
         ],
         borderWidth: 1,
+        hoverOffset: 4,
         cutout: 99,
       },
     ],
