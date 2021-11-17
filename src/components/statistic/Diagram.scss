@@ -2,6 +2,7 @@
 
 // Контейнер
 .diagram {
+  width: 320px; //attention
   // background-color: rgba(255, 255, 255, 0.7);
   background-color: transparent;
   backdrop-filter: blur(5px);
@@ -16,8 +17,9 @@
     line-height: 45px;
     font-family: $circe;
     font-weight: normal;
-    color:$main-text-color;
+    color: $main-text-color;
     margin-bottom: 0px;
+    margin-left: 30px;  //attention
     margin-top: 0;
     text-align: left;
     padding-left: 20px;
@@ -32,6 +34,7 @@
 }
 @media screen and (min-width: 768px) {
   .diagram {
+    width: 768px; //attention
     // padding-left: 40px;
     /* График-контейнер*/
     &__data {
@@ -44,6 +47,9 @@
 
 @media screen and (min-width: 1280px) {
   .diagram {
+    width: 815px;
+    border-left: 1px #fff solid;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     

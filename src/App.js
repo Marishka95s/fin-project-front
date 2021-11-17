@@ -34,7 +34,6 @@ export default function App() {
   //   dispatch(authOperations.fetchCurrentUser());
   // }, [dispatch]);
 
-  
   return( 
     /* !isFetchingCurrentUser && */
     (
