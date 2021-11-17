@@ -1,0 +1,33 @@
+.auth-bar {
+  // width: 768px;
+  padding: 20px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  @media screen and(min-width:768px) {
+    padding: 20px 40px;
+  }
+  @media screen and(min-width:1280px) {
+    padding: 20px 85px;
+  }
+}
+.logo {
+  margin-bottom: 50px;
+  width: 120px;
+  height: 30px;
+  display: inline-block;
+  background-image: url('../../../images/icons/logo-icon.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @media screen and (min-width: 768px) {
+    width: 180px;
+    height: 40px;
+  }
+  &.bar-logo {
+    margin-bottom: 0px;
+    margin-right: auto;
+  }
+}

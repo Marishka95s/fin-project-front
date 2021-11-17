@@ -1,25 +1,18 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
+import { Route, Redirect } from "react-router-dom";
+import { authSelectors } from '../redux/auth';
 
-/**
- * - Если маршрут ограниченный, и пользователь залогинен, рендерит редирект на /todos
- * - В противном случае рендерит компонент
- */
-export default function PublicRoute({
+export default function PublicRoute({ 
+    component: Component,
     redirectTo,
     children,
     ...routeProps
-}) {
-    const isLoggedIn = useSelector();
-
+ }) {
+    const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+    const shouldRedirect = isLoggedIn && routeProps.restricted;
     return (
         <Route {...routeProps}>
-            {/* {isLoggedIn && routeProps.restricted ? (
-                <Redirect to={redirectTo} />
-            ) : (
-                children
-            )} */}
+            {shouldRedirect ? <Redirect to={redirectTo}/> : children }
         </Route>
     );
 }

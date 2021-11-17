@@ -1,19 +1,22 @@
 @import '../../../stylesheet/vars.scss';
 
 .wrapper {
-    width: 100%;
+    width: 280px;
     margin-top: 13px;
     padding: 8px 40px 13px 40px;
     margin: 0 auto;
     background-color: #ffffff;
     border-radius: 30px;
+    margin-top: 13px;
    
     @media screen and (min-width: 768px) {
       margin-top: 20px;
+      width: 334px;
     }
   
     @media screen and (min-width: 1280px) {
       margin-top: 30px;
+      width: 350px;
     }
   }
   
