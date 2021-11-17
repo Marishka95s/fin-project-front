@@ -4,7 +4,7 @@ import React, { Suspense, lazy, useEffect } from 'react';
 import { Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import PublicRoute from './components/PublicRoute'
+import PublicRoute from './components/PublicRoute';
 
 import './App.scss';
 import Currency from './components/currency/Currency';
@@ -15,38 +15,34 @@ import RegistrationPage from './views/RegistrationPage/RegistrationPage';
 import LoginPage from './views/LoginPage/LoginPage';
 import Diagram from '../src/components/statistic/Diagram';
 
-const HomePage = lazy(() => import('./views/HomePage/HomePage'))
+const HomePage = lazy(() => import('./views/HomePage/HomePage'));
 
 export default function App() {
   const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     dispatch();
-    // }, [dispatch]);
+  // useEffect(() => {
+  //     dispatch();
+  // }, [dispatch]);
 
-  return( 
+  return (
     <div className="App">
-        <Suspense fallback={<p>Загружаем...</p>}>
-
-        <Switch>
-          {/* <PublicRoute exact path="/">
+      <Suspense fallback={<p>Загружаем...</p>}>
+        {/* <Switch> */}
+        {/* <PublicRoute exact path="/">
           <HomePage />
           </PublicRoute> */}
-          <HomePage />
-        </Switch>
-
-        </Suspense>
+        {/* <HomePage />
+        </Switch> */}
+      </Suspense>
 
       <Navigation />
       <Diagram />
-      <Balance />
+      {/* <Balance /> */}
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello) I'm a wallet and I believe in you!
-        </p>
-        <Currency/>
+        <p>Hello) I'm a wallet and I believe in you!</p>
+        {/* <Currency/> */}
         {/* <Routes>
           <Route
             path="/fin-project-front/"
@@ -60,7 +56,6 @@ export default function App() {
           <Route path="/fin-project-front/statistics" element={<Diagram />} />
         </Routes> */}
       </header>
-
     </div>
   );
 }
