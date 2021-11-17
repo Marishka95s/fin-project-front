@@ -1,0 +1,101 @@
+// @import '../../../assets/fonts/poppins-v15-latin/stylesheet.css';
+@import '../../stylesheet/vars.scss';
+
+/* список  транзакций*/
+.statisticsPage {
+    // width: 700px;
+    // margin-top: 20px;
+    // padding-left: 0px;
+}
+@media screen and (min-width: 1280px) {
+    .statisticsPage {
+        display: flex;
+        flex-direction: row;
+        // width: 700px;
+        // margin-top: 20px;
+        // padding-left: 0px;
+    } 
+}
+
+  
+    // /* меню списка транзакций(хедер таблицы) */
+    // &__menu {
+    //   display: flex;
+    //   justify-content: space-between;
+    //   align-items: center;
+    //   padding: 16px 21px 15px 20px;
+    //   height: 58px; 
+    //   background-color: $inversion-text-color;
+    //   border-radius: 30px;
+    //   margin-top: 20px;  
+    // }
+  
+    // /* Категория . Сумма li */
+    // &__menu-item {
+    //   font-size: 18px;
+    //   line-height: 27px;
+    //   color: $main-text-color;
+    //   font-weight: 700;
+    //   font-family: $circe;
+    // }
+    // /* иконка категории */
+    // &__item {
+    //   height: 54px;
+    //   border-bottom: 1px solid #dcdcdf;
+    //   box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+    //   display: flex;
+    //   align-items: flex-end;
+    //   padding: 15px;
+    //   font-size: 16px;
+    //   line-height: 18px;
+    //   color: $main-text-color;
+    //   font-family: $circe;
+  
+    //   &:first-of-type {
+    //     margin-top: 9px;
+    //   }
+    
+  
+    /* суммы расходов */
+//     &__costs {
+//       font-size: 16px;
+//       line-height: 24px;
+//       // margin-left: auto;
+//       margin-right: 30px;
+//       min-width: 60px;
+//       text-align: left;
+//     }
+// }
+  
+//   @media screen and (min-width: 768px) {
+//     .table {
+//       width: 350px;
+//       margin-top: 0;
+  
+//       .filter {
+//         width: 350px;
+//         &__input {
+//           width: 166px;
+  
+//           &::placeholder {
+//             font-size: 16px;
+//             line-height: 24px;
+//           }
+  
+//           &:last-of-type {
+//             margin-left: 18px;
+//             margin-top: 0;
+//           }
+//         }
+//       }
+//     }
+  
+//     .transactions {
+//       &__item {
+//         height: 54px;
+//         font-size: 16px;
+//         line-height: 24px;
+//       }
+//     }
+//   }
+  

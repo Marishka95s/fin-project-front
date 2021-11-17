@@ -6,6 +6,7 @@ import NavigationBtns from '../../components/dashboard/Navigation';
 import Balance from '../../components/dashboard/Balance/Balance';
 import TableTransactions from '../../components/dashboard/TableTransactions';
 
+import './HomePage.scss';
 
 export default function HomePage() {
     return (
@@ -16,7 +17,6 @@ export default function HomePage() {
                     
                     <NavigationBtns />
                     <Balance /> 
-                    {/* <Currency/> */}
                 </div>
                 <div className="right-side-block" style={{"width" : "320px"}}>                    
                     <TableTransactions/>
@@ -26,18 +26,19 @@ export default function HomePage() {
             />
             <Media query="(min-width: 768px) and (max-width: 1279px)" render={() =>
             (<> <AuthBar />
-                <div className="left-side-block" style={{"width" : "768px"}}>                    
-                    <NavigationBtns />
-                    <Balance /> 
-                    <div style={{"width" : "334px"}}>
-                    <Currency/>
+                <div className="left-side-block tablet-placement" style={{"width" : "768px"}}>         
+                    <div className="sub-division-tablet">           
+                        <NavigationBtns />
+                        <Balance /> 
                     </div>
+                <div style={{"width" : "334px", "display": "inline-flex"}}>
+                    <Currency/>
+                </div>
                 </div>
                 <div className="right-side-block" style={{"width" : "768px"}}>                    
                     <TableTransactions/>
                 </div>
-            </>
-            )}
+            </>)}
             />
             <Media query="(min-width: 1280px)" render={() =>
             (<> <AuthBar />
@@ -45,11 +46,11 @@ export default function HomePage() {
                 <div className="left-side-block" style={{"width" : "465px"}}>                    
                     <NavigationBtns />
                     <Balance /> 
-                    <div style={{"width" : "348px", "display": "inline-flex"}}>
-                    <Currency/>
+                    <div style={{"width" : "348px", "display": "inline-flex", "marginTop": "30px"}}>
+                        <Currency/>
                     </div>
                 </div>
-                <div className="right-side-block" style={{"width" : "815px"}}>                    
+                <div className="right-side-block" >                    
                     <TableTransactions/>
                 </div>
             </div>

@@ -2,8 +2,13 @@
 
 // Контейнер
 .diagram {
-  background-color: rgba(255, 255, 255, 0.7);
+  // background-color: rgba(255, 255, 255, 0.7);
+  background-color: transparent;
   backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
 
   /* Заголовок */
   &__title {
@@ -13,20 +18,26 @@
     font-weight: normal;
     color:$main-text-color;
     margin-bottom: 0px;
+    margin-top: 0;
+    text-align: left;
+    padding-left: 20px;
   }
 
   /* Diagram-контейнер*/
   &__data {
     margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 @media screen and (min-width: 768px) {
   .diagram {
+    // padding-left: 40px;
     /* График-контейнер*/
     &__data {
       display: flex;
       justify-content: flex-end;
-      margin-top: 20px;
+      margin-top: 40px;
     }
   }
 }
@@ -35,8 +46,16 @@
   .diagram {
     display: flex;
     flex-direction: column;
+    
+    
+    &__data {
+      margin-left: auto;
+      margin-right: auto;
+    }
     &__title {
       margin-bottom: 0px;
+      margin-top: 0;
+      padding-left: 30px;
     }
   }
 }

@@ -15,11 +15,12 @@ import './App.scss';
 // import RegistrationPage from './views/RegistrationPage/RegistrationPage';
 // import LoginPage from './views/LoginPage/LoginPage';
 
-import Diagram from '../src/components/statistic/Diagram';
+
 import TableTransactions from './components/dashboard/TableTransactions';
 
 const HomePage = lazy(() => import('./views/HomePage/HomePage'))
 const StatisticPage = lazy(() => import('./views/StatisticPage/StatisticPage'))
+const CurrencyPage = lazy(() => import('./views/CurrencyPage/CurrencyPage'))
 
 const RegistrationPage = lazy(() => import('./views/RegistrationPage/RegistrationPage' /* webpackChunkName: "RegisterView"*/),);
 const LoginPage = lazy(() => import('./views/LoginPage/LoginPage' /* webpackChunkName: "LoginView"*/),);
@@ -57,7 +58,12 @@ export default function App() {
 {/* CHANGE INTO PrivateRoute */}
           <PublicRoute path="/fin-project-front/statistics" redirectTo="/fin-project-front/statistics">
             <StatisticPage />
-          </PublicRoute>     
+          </PublicRoute>    
+
+{/* CHANGE INTO PrivateRoute */}
+          <PublicRoute path="/fin-project-front/currency" redirectTo="/fin-project-front/currency">
+            <CurrencyPage />
+          </PublicRoute> 
 
           <PublicRoute>
             <Redirect to="/fin-project-front/registration" />

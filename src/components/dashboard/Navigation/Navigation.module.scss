@@ -13,11 +13,16 @@
         font-weight: bold;
     }
 }
+.navigation_container {
+    // width: 320px;
+    // height: 60px;
+    margin: auto;
+}
 
 @media screen and (max-width: 767px) {
     .navigation_container {
-        width: 320px;
-        height: 60px;
+        // width: 320px;
+        // height: 60px;
         margin: auto;
     }
 
@@ -42,8 +47,8 @@
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
     .navigation_container {
-        width: 768px;
-        height: 80px;
+        // width: 768px;
+        // height: 80px;
         margin: auto;
     }
 
@@ -77,8 +82,8 @@
 
 @media screen and (min-width: 1280px) {
     .navigation_container {
-        width: 1280px;
-        height: 80px;
+        // width: 1280px;
+        // height: 80px;
         margin: auto;
     }
 
