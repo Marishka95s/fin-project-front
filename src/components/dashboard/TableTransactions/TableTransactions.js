@@ -70,24 +70,24 @@ class TableTransactions extends Component {
       <div style={{display: "flex", justifyContent: "center"}}>
         {/* {this.state.transactions && ( */}
           {transactions && (
-            <ul className="statistics list">
-              <li className="statistics__menu">
-                <span className="statistics__menu-item">Дата</span>
-                <span className="statistics__menu-item">Тип</span>
-                <span className="statistics__menu-item">Категория</span>
-                <span className="statistics__menu-item">Комментарий</span>
-                <span className="statistics__menu-item">Сумма</span>
-                <span className="statistics__menu-item">Баланс</span>
+            <ul className="transactions list">
+              <li className="transactions__menu">
+                <span className="transactions__menu-item">Дата</span>
+                <span className="transactions__menu-item">Тип</span>
+                <span className="transactions__menu-item">Категория</span>
+                <span className="transactions__menu-item">Комментарий</span>
+                <span className="transactions__menu-item">Сумма</span>
+                <span className="transactions__menu-item">Баланс</span>
               </li>
               {transactions.map(row => {
                   return (
-                      <li className="statistics__item" id={row._id}>
-                        <span className="statistics__costs">{row.date}</span>
-                        <span className="statistics__costs">{row.type}</span>
-                        <span className="statistics__costs">{row.category}</span>
-                        <span className="statistics__costs">{row.comment}</span>
-                        <span className="statistics__costs">{row.sum}</span>
-                        <span className="statistics__costs">{row.balance}</span>
+                      <li className="transactions__item" id={row._id}>
+                        <span className="transactions__costs">{row.date}</span>
+                        <span className="transactions__costs">{row.type}</span>
+                        <span className="transactions__costs">{row.category}</span>
+                        <span className="transactions__costs">{row.comment}</span>
+                        <span className="transactions__costs">{row.sum}</span>
+                        <span className="transactions__costs">{row.balance}</span>
                       </li>
               )})}
             </ul>

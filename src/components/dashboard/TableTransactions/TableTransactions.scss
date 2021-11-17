@@ -1,60 +1,23 @@
 @import '../../../assets/fonts/poppins-v15-latin/stylesheet.css';
 @import '../../../stylesheet/vars.scss';
 
-/* Фильтры (месяц и год) */
-.table {
-  width: 280px;
-  margin-top: 30px;
-
-  .table_select {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .filter {
-    &__input {
-      width: 100%;
-      height: 50px;
-      padding: 12px 21px;
-      border: 1px solid $main-text-color;
-      box-sizing: border-box;
-      border-radius: 30px;
-      background: transparent;
-      font-family: $circe;
-
-      &::placeholder {
-        color: $main-text-color;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 24px;
-      }
-
-      &:last-of-type {
-        margin-top: 20px;
-      }
-    }
-  }
-}
-
-/* список  статистики*/
-.statistics {
-  width: 100%;
+  
+/* список  транзакций*/
+.transactions {
+  width: 700px;
   margin-top: 20px;
   padding-left: 0px;
 
-  /* меню списка статистики(Категория и Сумма) */
+  /* меню списка транзакций(хедер таблицы) */
   &__menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 16px 21px 15px 20px;
     height: 58px; 
     background-color: $inversion-text-color;
     border-radius: 30px;
-    margin-top: 20px;
-    outline: 1px solid red;   //  Временно.Убрать!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
-  
+    margin-top: 20px;  
   }
 
   /* Категория . Сумма li */
@@ -83,59 +46,14 @@
     }
   }
 
-  /* цвет иконок */
-  &__color {
-    width: 24px;
-    height: 24px;
-    margin-right: 16px;
-    background-color: rgb(14, 75, 241); // временно //
-  }
   /* суммы расходов */
   &__costs {
     font-size: 16px;
     line-height: 24px;
-    margin-left: auto;
+    // margin-left: auto;
+    margin-right: 30px;
     min-width: 60px;
-    text-align: right;
-  }
-}
-/* total  */
-.outcome {
-  width: 100%;
-  margin-top: 15px;
-  padding-left: 0;
-  /* total li */
-  &__item {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    &:last-of-type {
-      padding-bottom: 30px;
-    }
-  }
-
-  /* тип (Расходы доходы) */
-  .outcome__type {
-    font-size: 16px;
-    line-height: 24px;
-    color: $main-text-color;
-    font-weight: bold;
-    font-size: $circe;
-  }
-  /* сумма расходы доходы */
-  &__total {
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: bold;
-    font-size: $circe;
-
-    &--expenses {
-      color: $additional-accent-color;
-
-    }
-    &--income {
-      color: $main-accent-color;
-    }
+    text-align: left;
   }
 }
 
@@ -162,7 +80,7 @@
     }
   }
 
-  .statistics {
+  .transactions {
     &__item {
       height: 54px;
       font-size: 16px;
