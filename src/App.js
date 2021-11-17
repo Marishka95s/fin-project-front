@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from './redux/auth';
 import Loader from 'react-loader-spinner';
 
-import PublicRoute from './components/PublicRoute'
-import PrivateRoute from './components/PrivateRoute'
+import PublicRoute from './components/PublicRoute';
+import PrivateRoute from './components/PrivateRoute';
 
 import './App.scss';
 
@@ -16,62 +16,79 @@ import './App.scss';
 // import LoginPage from './views/LoginPage/LoginPage';
 
 import Diagram from '../src/components/statistic/Diagram';
+import Navigation from './components/dashboard/Navigation';
+import Balance from './components/dashboard/Balance/Balance';
+import Currency from './components/currency/Currency';
 
-const HomePage = lazy(() => import('./views/HomePage/HomePage'))
-const StatisticPage = lazy(() => import('./views/StatisticPage/StatisticPage'))
+const HomePage = lazy(() => import('./views/HomePage/HomePage'));
+const StatisticPage = lazy(() => import('./views/StatisticPage/StatisticPage'));
 
-const RegistrationPage = lazy(() => import('./views/RegistrationPage/RegistrationPage' /* webpackChunkName: "RegisterView"*/),);
-const LoginPage = lazy(() => import('./views/LoginPage/LoginPage' /* webpackChunkName: "LoginView"*/),);
+const RegistrationPage = lazy(() =>
+  import(
+    './views/RegistrationPage/RegistrationPage' /* webpackChunkName: "RegisterView"*/
+  ),
+);
+const LoginPage = lazy(() =>
+  import('./views/LoginPage/LoginPage' /* webpackChunkName: "LoginView"*/),
+);
 
 export default function App() {
   const dispatch = useDispatch();
 
-  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrentUser);
+  const isFetchingCurrentUser = useSelector(
+    authSelectors.getIsFetchingCurrentUser,
+  );
 
   // useEffect(() => {
   //   dispatch(authOperations.fetchCurrentUser());
   // }, [dispatch]);
 
-  
-  return( 
+  return (
     /* !isFetchingCurrentUser && */
-    (
     <div className="App">
-      <Suspense fallback={<Loader type="ThreeDots" color="brown" height={80} width={80} />}>
-
+      <Suspense
+        fallback={
+          <Loader type="ThreeDots" color="brown" height={80} width={80} />
+        }
+      >
         <Switch>
-          <PublicRoute exact path="/fin-project-front/registration" >
+          <PublicRoute exact path="/fin-project-front/registration">
             <RegistrationPage />
           </PublicRoute>
 
-          <PublicRoute path="/fin-project-front/login" restricted redirectTo="/fin-project-front/login">
+          <PublicRoute
+            path="/fin-project-front/login"
+            restricted
+            redirectTo="/fin-project-front/login"
+          >
             <LoginPage />
           </PublicRoute>
 
-{/* CHANGE INTO PrivateRoute */}
-          <PublicRoute path="/fin-project-front/home" redirectTo="/fin-project-front/home">
+          {/* CHANGE INTO PrivateRoute */}
+          <PublicRoute
+            path="/fin-project-front/home"
+            redirectTo="/fin-project-front/home"
+          >
             <HomePage />
           </PublicRoute>
 
-{/* CHANGE INTO PrivateRoute */}
-          <PublicRoute path="/fin-project-front/statistics" redirectTo="/fin-project-front/statistics">
+          {/* CHANGE INTO PrivateRoute */}
+          <PublicRoute
+            path="/fin-project-front/statistics"
+            redirectTo="/fin-project-front/statistics"
+          >
             <StatisticPage />
-          </PublicRoute>     
+          </PublicRoute>
 
           <PublicRoute>
             <Redirect to="/fin-project-front/registration" />
-          </PublicRoute>     
+          </PublicRoute>
         </Switch>
       </Suspense>
-
-        
-
-          {/* 
-          <Navigation />
-          <Diagram />
-          <Balance /> 
-          <Currency/>
-          */}
+      <Navigation />
+      <Diagram />
+      <Balance />
+      <Currency />
 
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -79,7 +96,7 @@ export default function App() {
           Hello) I'm a wallet and I believe in you!
         </p>
          */}
-        {/* <Routes>
+      {/* <Routes>
           <Route
             path="/fin-project-front/"
             element={<p>Допиши /registration или /login или /statistics</p>}
@@ -93,7 +110,7 @@ export default function App() {
         </Routes> */}
       {/* </header> */}
     </div>
-  ));
+  );
 }
 // class App extends Component {
 //   state = {
