@@ -1,5 +1,5 @@
 @import '../../stylesheet/vars.scss';
-.container {
+.form-container {
   padding-left: 20px;
   padding-right: 20px;
   width: 320px;
@@ -154,6 +154,8 @@
 
 .auth-block {
   background-color: #e7eaf2;
+  margin-left: auto;
+  margin-right: auto;
 
   @media screen and(min-width:768px) {
     width: 768px;

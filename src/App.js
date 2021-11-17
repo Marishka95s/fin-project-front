@@ -29,11 +29,11 @@ export default function App() {
   const dispatch = useDispatch();
 
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrentUser);
-
-  // useEffect(() => {
-  //   dispatch(authOperations.fetchCurrentUser());
-  // }, [dispatch]);
-
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn)
+  useEffect(() => {
+    dispatch(authOperations.getCurrentUser());
+  }, [dispatch]);
+  
   return( 
     /* !isFetchingCurrentUser && */
     (
