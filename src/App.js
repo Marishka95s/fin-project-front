@@ -28,53 +28,53 @@ export default function App() {
   const dispatch = useDispatch();
 
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrentUser);
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn)
+  useEffect(() => {
+    dispatch(authOperations.getCurrentUser());
+  }, [dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(authOperations.fetchCurrentUser());
-  // }, [dispatch]);
 
-  
-  return( 
+  return (
     /* !isFetchingCurrentUser && */
     (
-    <div className="App">
-      <Suspense fallback={<Loader type="ThreeDots" color="brown" height={80} width={80} />}>
+      <div className="App">
+        <Suspense fallback={<Loader type="ThreeDots" color="brown" height={80} width={80} />}>
 
-        <Switch>
-          <PublicRoute exact path="/fin-project-front/registration" >
-            <RegistrationPage />
-          </PublicRoute>
+          <Switch>
+            <PublicRoute exact path="/fin-project-front/registration" >
+              <RegistrationPage />
+            </PublicRoute>
 
-          <PublicRoute path="/fin-project-front/login" restricted redirectTo="/fin-project-front/login">
-            <LoginPage />
-          </PublicRoute>
+            <PublicRoute path="/fin-project-front/login" restricted redirectTo="/fin-project-front/login">
+              <LoginPage />
+            </PublicRoute>
 
-{/* CHANGE INTO PrivateRoute */}
-          <PublicRoute path="/fin-project-front/home" redirectTo="/fin-project-front/home">
-            <HomePage />
-          </PublicRoute>
+            {/* CHANGE INTO PrivateRoute */}
+            <PublicRoute path="/fin-project-front/home" redirectTo="/fin-project-front/home">
+              <HomePage />
+            </PublicRoute>
 
-{/* CHANGE INTO PrivateRoute */}
-          <PublicRoute path="/fin-project-front/statistics" redirectTo="/fin-project-front/statistics">
-            <StatisticPage />
-          </PublicRoute>     
+            {/* CHANGE INTO PrivateRoute */}
+            <PublicRoute path="/fin-project-front/statistics" redirectTo="/fin-project-front/statistics">
+              <StatisticPage />
+            </PublicRoute>
 
-          <PublicRoute>
-            <Redirect to="/fin-project-front/registration" />
-          </PublicRoute>     
-        </Switch>
-      </Suspense>
+            <PublicRoute>
+              <Redirect to="/fin-project-front/registration" />
+            </PublicRoute>
+          </Switch>
+        </Suspense>
 
-        
 
-          {/* 
+
+        {/* 
           <Navigation />
           <Diagram />
           <Balance /> 
           <Currency/>
           */}
 
-      {/* <header className="App-header">
+        {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Hello) I'm a wallet and I believe in you!
@@ -92,9 +92,9 @@ export default function App() {
           <Route path="/fin-project-front/login" element={<LoginPage />} />
           <Route path="/fin-project-front/statistics" element={<Diagram />} />
         </Routes> */}
-      {/* </header> */}
-    </div>
-  ));
+        {/* </header> */}
+      </div>
+    ));
 }
 // class App extends Component {
 //   state = {

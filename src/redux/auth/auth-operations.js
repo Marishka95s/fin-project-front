@@ -15,92 +15,59 @@ const token = {
 const registration = ({ email, password, name }) => dispatch => {
   dispatch(actions.registrationRequest())
   axios.post('/auth/signup', { email, password, name })
-    .then((response) => {
-      console.log(response)
-      dispatch(actions.registrationSuccess(response))
+    .then((data) => {
+      token.set(data.token);
+      // dispatch(actions.registrationSuccess(data))
     }).catch((error) => {
-      alert(error)
+      dispatch(actions.registrationError(error.message))
     })
 }
 const login = ({ email, password }) => dispatch => {
   dispatch(actions.loginRequest())
   axios.post('auth/login', { email, password })
-    .then(response => {
-      token.set(response.token)
-      dispatch(actions.loginSuccess(response))
-      return response
+    .then(data => {
+      token.set(data.token)
+      dispatch(actions.loginSuccess(data))
     }).catch((error) => {
-      alert(error)
+      dispatch(actions.loginError(error.message))
     })
 }
-// const login =
-//   ({ email, password }) =>
-//     async dispatch => {
-//       dispatch(actions.loginRequest());
 
-//       try {
-//         const { data } = await axios.post('/auth/login', { email, password });
-//         token.set(data.token);
-//         dispatch(actions.loginSuccess(data));
-//         alert('Логинизация выполнена!');
-//       } catch (error) {
-//         dispatch(actions.loginError(error.message));
-//         alert(error.message);
-//       }
-//     };
-// const register = createAsyncThunk('auth/register', async (credentials, thunkAPI) => {
-//   try {
-//     const { data } = await axios.post('/auth/signup', credentials);
-//     token.set(data.token);
-//     return data;
-//   } catch (error) {
-//     return thunkAPI.rejectWithValue(error.message);
-//   }
-// });
 
-// const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
-//   try {
-//     const { data } = await axios.post('/users/login', credentials);
-//     token.set(data.token);
-//     return data;
-//   } catch (error) {
-//     return thunkAPI.rejectWithValue(error.message);
-//   }
-// });
+const logout = () => dispatch => {
+  dispatch(actions.loginRequest())
+  axios.post('/auth/logout')
+    .then(() => {
+      token.unset();
+      dispatch(actions.logoutSuccess());
+    }).catch(error => {
+      dispatch(actions.logoutError(error.message));
+    })
+}
 
-// const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
-//   try {
-//     await axios.post('/users/logout');
-//     token.unset();
-//   } catch (error) {
-//     return thunkAPI.rejectWithValue(error.message);
-//   }
-// });
 
-// const fetchCurrentUser = createAsyncThunk(
-//   'auth/refresh',
-//   async (_, thunkAPI) => {
-//     const state = thunkAPI.getState();
-//     const persistedToken = state.auth.token;
+const getCurrentUser = () => async (dispatch, getState) => {
+  const {
+    auth: { token: persistedToken },
+  } = getState();
 
-//     if (persistedToken === null) {
-//       return thunkAPI.rejectWithValue('None token');
-//     }
+  if (!persistedToken) return;
+  token.set(persistedToken);
+  dispatch(actions.getCurrentUserRequest());
 
-//     token.set(persistedToken);
-//     try {
-//       const { data } = await axios.get('/users/current');
-//       return data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   },
-// );
+  axios.get('/users/current')
+    .then((data) => {
+      dispatch(actions.getCurrentUserSuccess(data))
+    }).catch((error) => {
+      token.unset();
+      dispatch(actions.getCurrentUserError(error.message))
+    })
+};
 
 const operations = {
   registration,
   login,
-  // logOut,
-  // fetchCurrentUser,
+  logout,
+  getCurrentUser
 };
 export default operations;

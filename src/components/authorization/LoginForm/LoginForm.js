@@ -32,7 +32,7 @@ export default function LoginForm() {
     return (
 
         <div className="form-block">
-            <div className="container">
+            <div className="form-container">
                 <span className="logo"></span>
                 <form
                     className="auth-form"

@@ -3,7 +3,7 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import transactionsReducer from './transactions/transactions-reducer';
 import { authReducer } from './auth';
-import { balance } from './balance';
+import { balance } from './Balance';
 import { logger } from 'redux-logger';
 import {
   persistStore,
@@ -20,7 +20,7 @@ import storage from 'redux-persist/lib/storage';
 const middleware = [
   ...getDefaultMiddleware({
     serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
     },
   }),
   logger,
@@ -46,7 +46,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     transactions: transactionsReducer,
-    balance: balance,
+    // balance: balance,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
