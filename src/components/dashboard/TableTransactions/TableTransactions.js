@@ -1,77 +1,96 @@
 import React from 'react';
 import { Component } from 'react';
+import './TableTransactions.scss';
+
 // import PropTypes from 'prop-types';
-// import { withStyles } from '@material-ui/core/styles';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  Paper,
-} from '@material-ui/core';
 
-
-
-// const styles = theme => ({
-//   root: {
-//     width: '100%',
-//     marginTop: theme.spacing(3),
-//     overflowX: 'auto',
-//   },
-//   table: {
-//     minWidth: 700,
-//   },
-// });
-
+const transactions = [
+  {
+  "_id":{"$oid":"61942c4ce33e22d9ad42c309"},
+  "type":"income",
+  "category":"Остальные",
+  "sum":10000,
+  "comment":"ЗП",
+  "date":"14.11.21",
+  "month":11,
+  "year":2021,
+  "balance":"10000",
+  "owner":{
+  "$oid":"619026dfb66c91afd41aa62b"},
+  "createdAt":{"$date":"2021-11-16T22:10:20.576Z"},
+  "updatedAt":{"$date":"2021-11-16T22:10:20.576Z"}
+},{
+  "_id":{"$oid":"61942c4ce33e22d9ad42c309"},
+  "type":"income",
+  "category":"Остальные5",
+  "sum":300,
+  "comment":"ЗП2",
+  "date":"16.11.21",
+  "month":10,
+  "year":2021,
+  "balance":"300",
+  "owner":{
+  "$oid":"619026dfb66c91afd41aa62b"},
+  "createdAt":{"$date":"2021-11-16T22:10:20.576Z"},
+  "updatedAt":{"$date":"2021-11-16T22:10:20.576Z"}
+},
+{
+  "_id":{"$oid":"61942c4ce33e22d9ad42c309"},
+  "type":"income",
+  "category":"Остальные1",
+  "sum":6000,
+  "comment":"ЗП3",
+  "date":"10.11.21",
+  "month":9,
+  "year":2021,
+  "balance":"10000",
+  "owner":{
+  "$oid":"619026dfb66c91afd41aa62b"},
+  "createdAt":{"$date":"2021-11-16T22:10:20.576Z"},
+  "updatedAt":{"$date":"2021-11-16T22:10:20.576Z"}
+}
+]
 
 class TableTransactions extends Component {
   state = {
     transactions: null,
   };
-  componentDidMount() {
-     fetch('http://localhost:3030/api/transactions/', )
-      .then(res => res.json())
-      .then(transactions => {        
-        this.setState({ transactions :  transactions.data.transactions})
-        console.log(this.state);
-      });
-  }
+  // componentDidMount() {
+  //    fetch('http://localhost:3030/api/transactions/', )
+  //     .then(res => res.json())
+  //     .then(transactions => {        
+  //       this.setState({ transactions :  transactions.data.transactions})
+  //       console.log(this.state);
+  //     });
+  // }
+  
 
   render() {
     return (
-      <div>
-        {this.state.transactions && (
-          <Paper>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Дата</TableCell>
-                  <TableCell>Тип</TableCell>
-                  <TableCell>Категория</TableCell>
-                  <TableCell>Комментарий</TableCell>
-                  <TableCell>Сумма</TableCell>
-                  <TableCell>Баланс</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {this.state.transactions.map(row => {
+      <div style={{display: "flex", justifyContent: "center"}}>
+        {/* {this.state.transactions && ( */}
+          {transactions && (
+            <ul className="statistics list">
+              <li className="statistics__menu">
+                <span className="statistics__menu-item">Дата</span>
+                <span className="statistics__menu-item">Тип</span>
+                <span className="statistics__menu-item">Категория</span>
+                <span className="statistics__menu-item">Комментарий</span>
+                <span className="statistics__menu-item">Сумма</span>
+                <span className="statistics__menu-item">Баланс</span>
+              </li>
+              {transactions.map(row => {
                   return (
-                    <TableRow key={row.id}>
-                      <TableCell component="th" scope="row">
-                        {row.createdAt.$date}
-                      </TableCell>
-                      <TableCell>{row.type}</TableCell>
-                      <TableCell>{row.category}</TableCell>
-                      <TableCell>{row.comment}</TableCell>
-                      <TableCell>{row.sum}</TableCell>
-                      <TableCell>{row.balance}</TableCell>
-                    </TableRow>
-                  );
-                })}
-              </TableBody>
-            </Table>
-          </Paper>
+                      <li className="statistics__item" id={row._id}>
+                        <span className="statistics__costs">{row.date}</span>
+                        <span className="statistics__costs">{row.type}</span>
+                        <span className="statistics__costs">{row.category}</span>
+                        <span className="statistics__costs">{row.comment}</span>
+                        <span className="statistics__costs">{row.sum}</span>
+                        <span className="statistics__costs">{row.balance}</span>
+                      </li>
+              )})}
+            </ul>
         )}
       </div>
     );

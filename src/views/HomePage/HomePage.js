@@ -41,6 +41,7 @@ export default function HomePage() {
             />
             <Media query="(min-width: 1280px)" render={() =>
             (<> <AuthBar />
+            <div className="page" style={{ "display": "flex"}}>
                 <div className="left-side-block" style={{"width" : "465px"}}>                    
                     <NavigationBtns />
                     <Balance /> 
@@ -51,6 +52,7 @@ export default function HomePage() {
                 <div className="right-side-block" style={{"width" : "815px"}}>                    
                     <TableTransactions/>
                 </div>
+            </div>
             </>
             )}
             />

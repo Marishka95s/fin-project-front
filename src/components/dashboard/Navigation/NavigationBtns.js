@@ -1,10 +1,6 @@
-import { Route, NavLink, Link, Switch } from 'react-router-dom';
-import { Suspense, lazy } from "react";
+import { NavLink } from 'react-router-dom';
 import Icons from '../../../Icons';
 import S from './Navigation.module.scss';
-
-const HomePage = lazy(() => import('../../../views/HomePage/HomePage' /* webpackChunkName: "HomePage"*/),)
-const StatisticPage = lazy(() => import('../../../views/StatisticPage/StatisticPage' /* webpackChunkName: "StatisticPage"*/),)
 
 const Navigation = () => {
   return (
@@ -23,17 +19,6 @@ const Navigation = () => {
         <NavLink to="/fin-project-front/currency" className={S.navigation_link}>
           <Icons name="dollar" className={S.navigation_dollar_icon} />
         </NavLink>
-
-        <Suspense fallback={<h1>Loading...</h1>}>
-            <Switch>
-                <Route path="/fin-project-front/home">
-                    <HomePage />
-                </Route>
-                <Route path="/fin-project-front/statistics">
-                    <StatisticPage />
-                </Route>
-            </Switch>
-        </Suspense>
       </nav>
     </div>
   );
