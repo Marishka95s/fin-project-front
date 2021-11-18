@@ -1,4 +1,5 @@
-.Modal__backdrop {
+@media screen and (min-width: 768px) {
+  .Modal__backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -6,18 +7,23 @@
     height: 100vh;
     background: rgba(0, 0, 0, 0.25);
   }
-  
-  .Modal__content {
-    position: absolute;
-    width: 540px;
-    min-height: 540px;
-    left: 50%;
+}
+
+.Modal__content {
+  position: absolute;
+  width: 100%;
+  min-height: 540px;
+  top: 60px;
+  padding: 20px 10px 40px 10px;
+  background-color: #fff;
+
+  @media screen and (min-width: 768px) {
+    max-height: 620px;
+    max-width: 540px;
     top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: #fff;
+    padding: 40px 65px 60px 65px;
     border-radius: 20px;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
   }
+}
