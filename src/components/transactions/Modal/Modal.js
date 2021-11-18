@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import './Modal.scss';
 
@@ -19,11 +19,14 @@ export default function Modal({ onClose, children }) {
         };
     }, [onClose]);
 
-    const handleBackdropClick = event => {
-        if (event.currentTarget === event.target) {
-            onClose();
-        }
-    };
+    const handleBackdropClick = useCallback(
+        event => {
+            if (event.currentTarget === event.target) {
+                onClose();
+            }
+        },
+        [onClose],
+    );
 
     return createPortal(
         <div className="Modal__backdrop" onClick={handleBackdropClick}>

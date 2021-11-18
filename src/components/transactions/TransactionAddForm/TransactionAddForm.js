@@ -6,7 +6,7 @@ import Datatime from 'react-datetime';
 import moment from 'moment';
 import 'moment/locale/ru';
 import { closeModalTransaction } from "../../../redux/transactions/transactions-actions";
-import { addTransaction } from "../../../redux/transactions/transactions-operations";
+import { transactionsOperations } from "../../../redux/transactions";
 import './TransactionAddForm.scss';
 
 
@@ -62,7 +62,7 @@ export default function TransactionAddForm() {
             e.preventDefault();
             const validSum = Number(sum).toFixed(2);
             dispatch(
-                addTransaction({
+                transactionsOperations.addTransaction({
                     date,
                     month: date.slice(3, 5),
                     year: date.slice(6),
@@ -78,6 +78,8 @@ export default function TransactionAddForm() {
     );
 
     return (
+        // <p>M O D A L</p>
+
         <Modal onClose={onClose}>
             <button type="button" className="TransactionAddForm__closeBtn" onClick={onClose}>
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -88,7 +90,7 @@ export default function TransactionAddForm() {
 
             <p className="TransactionAddForm__title">Добавить транзакцию</p>
 
-            <form onSubmit={handleSubmit}>
+            <form className="TransactionAddForm__form" onSubmit={handleSubmit}>
                 <div className="TransactionAddForm__radio">
                         <label className="TransactionAddForm__text">Доход
                         <input
