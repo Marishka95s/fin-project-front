@@ -9,9 +9,9 @@ import NavigationBtns from '../../components/dashboard/Navigation';
 import Balance from '../../components/dashboard/Balance/Balance';
 import TableTransactions from '../../components/dashboard/TableTransactions';
 import ButtonAddTransaction from '../../components/transactions/ButtonAddTransaction';
-import Modal from '../../components/transactions/Modal';
-// import TransactionAddForm from '../../components/transactions/TransactionAddForm';
+// import Modal from '../../components/transactions/Modal';
 import TransactionAddForm from '../../components/transactions/TransactionAddForm/TransactionAddForm';
+import ModalAddTransaction from '../../components/transactions/ModalAddTransaction';
 
 import { transactionsOperations } from '../../redux/transactions';
 
@@ -20,7 +20,16 @@ import { getIsModalAddTransactionOpen } from '../../redux/transactions/transacti
 import './HomePage.scss';
 
 export default function HomePage() {
-    // const isModalAddTransactionOpen = useSelector(getIsModalAddTransactionOpen);
+    // const [isModalAddTransactionOpen, setIsModalAddTransactionOpen] = useState(false);
+
+    // const onOpenModal = (isModalAddTransactionOpen) => {
+    //     setIsModalAddTransactionOpen(isModalAddTransactionOpen);
+    // };
+
+    // const toogleModal = () => {
+    //     setIsModalAddTransactionOpen(false);
+    // }
+    const isModalAddTransactionOpen = useSelector(getIsModalAddTransactionOpen);
     
     // const dispatch = useDispatch();
     // const onClose = useCallback(() => {
@@ -88,10 +97,8 @@ export default function HomePage() {
             />
 
             <ButtonAddTransaction />
-
-            
-            <TransactionAddForm />
-            {/* {isModalAddTransactionOpen && <TransactionAddForm onClose={toggleModal} />} */}
+    
+            {isModalAddTransactionOpen && <TransactionAddForm />}
 
         </>
 

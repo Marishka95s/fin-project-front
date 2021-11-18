@@ -4,7 +4,7 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import transactionsReducer from './transactions/transactions-reducer';
 import { authReducer } from './auth';
 // import { balance } from './balance';
-import { logger } from 'redux-logger';
+// import { logger } from 'redux-logger';
 import {
   persistStore,
   persistReducer,

@@ -80,7 +80,7 @@ export default function TransactionAddForm() {
     return (
         // <p>M O D A L</p>
 
-        <Modal onClose={onClose}>
+        <>
             <button type="button" className="TransactionAddForm__closeBtn" onClick={onClose}>
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 1L17 17" stroke="black"/>
@@ -160,7 +160,7 @@ export default function TransactionAddForm() {
 
 
             </form>
-        </Modal>
+        </>
     )
 }
 
