@@ -3,7 +3,7 @@ import * as actions from './auth-actions'
 axios.defaults.baseURL = 'https://fin-project-group4.herokuapp.com/api';
 const token = {
   set(token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    axios.defaults.headers.common.Authorization = `${token}`;
   },
   unset(token) {
     axios.defaults.headers.common.Authorization = '';
@@ -14,7 +14,7 @@ const registration = ({ email, password, name }) => dispatch => {
   axios.post('/auth/signup', { email, password, name })
     .then((data) => {
       token.set(data.token);
-      // dispatch(actions.registrationSuccess(data))
+      dispatch(actions.registrationSuccess(data))
     }).catch((error) => {
       dispatch(actions.registrationError(error.message))
     })
@@ -29,7 +29,6 @@ const login = ({ email, password }) => dispatch => {
       dispatch(actions.loginError(error.message))
     })
 }
-
 
 const logout = () => dispatch => {
   dispatch(actions.loginRequest())
@@ -47,19 +46,20 @@ const getCurrentUser = () => async (dispatch, getState) => {
   const {
     auth: { token: persistedToken },
   } = getState();
-
-  if (!persistedToken) return;
+  if (!persistedToken) {
+    return;
+  }
   token.set(persistedToken);
-  dispatch(actions.getCurrentUserRequest());
+  await dispatch(actions.getCurrentUserRequest());
 
-  axios.get('/users/current')
-    .then((data) => {
-      dispatch(actions.getCurrentUserSuccess(data))
-    }).catch((error) => {
-      token.unset();
-      dispatch(actions.getCurrentUserError(error.message))
+  axios.get('/auth/current')
+    .then((response) => {
+      dispatch(actions.getCurrentUserSuccess(response))
     })
-};
+    .catch((error) => {
+      dispatch(actions.getCurrentUserRequest(error.message));
+    })
+}
 
 const operations = {
   registration,
@@ -67,4 +67,5 @@ const operations = {
   logout,
   getCurrentUser
 };
+
 export default operations;
