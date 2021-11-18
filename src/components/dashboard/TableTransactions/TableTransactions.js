@@ -57,16 +57,46 @@ const transactions = [
 
 class TableTransactions extends Component {
   state = {
-    transactions: null,
+    transactions: [],
+    filter: '',
   };
-  // componentDidMount() {
-  //    fetch('http://localhost:3030/api/transactions/', )
-  //     .then(res => res.json())
-  //     .then(transactions => {
-  //       this.setState({ transactions :  transactions.data.transactions})
-  //       console.log(this.state);
-  //     });
-  // }
+  
+  // state = {
+  //   transactions: null,
+  // };
+  componentDidMount() {
+    const TOKEN = JSON.parse(localStorage.getItem('persist:auth'))
+    // console.log(TOKEN)
+    const { token } = TOKEN
+    // console.log(token)
+    const [_, jwt] = token.split(' ')
+    // console.log(jwt) 
+    const [ jwtClear, znak ] = jwt.split('"')
+    console.log(jwtClear) 
+
+    const URL = 'https://fin-project-group4.herokuapp.com/api/transactions/';
+    const CONFIG = {
+      method: 'GET', 
+      // body: JSON.stringify(data), // данные могут быть 'строкой' или {объектом}!
+      headers: {
+        'Authorization': `Bearer ${jwtClear}`
+      },
+    }
+    console.log(CONFIG)
+
+
+     fetch(`${URL}`, CONFIG)
+      .then(res => res.json())
+      .then(transactions => {
+        console.log(transactions.data.transactions)
+        const newTransactions = transactions.data.transactions
+        this.setState(prevState => ({
+          transactions: [...newTransactions, ...prevState.transactions],
+        }));
+        // this.setState({ transactions:  transactions.data.transactions})
+        console.log(this.state.transactions);
+      });
+  }
 
   render() {
     return (
@@ -77,7 +107,7 @@ class TableTransactions extends Component {
         {/* {this.state.transactions && ( */}
         {window.matchMedia('( max-width:767px)').matches ? (
           <ul style={{paddingLeft:0, paddingTop:0, margin:0}}>
-            {transactions.map(row => {
+            {this.state.transactions.map(row => {
               return (
                 <ul className={"transactions__list__mobile " + "transactions__list__mobile" + row.type}  id={row._id}>
                   <li className="transactions__item__mobile">                    
@@ -121,7 +151,7 @@ class TableTransactions extends Component {
               <span className="transactions__menu-item">Сумма</span>
               <span className="transactions__menu-item">Баланс</span>
             </li>
-            {transactions.map(row => {
+            {this.state.transactions.map(row => {
               return (
                 <li className="transactions__item" id={row._id}>
                   <span className="transactions__costs">{row.date}</span>
