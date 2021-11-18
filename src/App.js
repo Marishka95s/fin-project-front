@@ -54,19 +54,19 @@ export default function App() {
             </PublicRoute>
 
             {/* CHANGE INTO PrivateRoute */}
-            <PublicRoute path="/fin-project-front/home" redirectTo="/fin-project-front/login">
+            <PrivateRoute path="/fin-project-front/home" redirectTo="/fin-project-front/login">
               <HomePage />
-            </PublicRoute>
+            </PrivateRoute>
 
             {/* CHANGE INTO PrivateRoute */}
-            <PublicRoute path="/fin-project-front/statistics" redirectTo="/fin-project-front/login">
+            <PrivateRoute path="/fin-project-front/statistics" redirectTo="/fin-project-front/login">
               <StatisticPage />
-            </PublicRoute>
+            </PrivateRoute>
 
             {/* CHANGE INTO PrivateRoute */}
-            <PublicRoute path="/fin-project-front/currency" redirectTo="/fin-project-front/login">
+            <PrivateRoute path="/fin-project-front/currency" redirectTo="/fin-project-front/login">
               <CurrencyPage />
-            </PublicRoute>
+            </PrivateRoute>
 
             <PublicRoute>
               <Redirect to="/fin-project-front/registration" />

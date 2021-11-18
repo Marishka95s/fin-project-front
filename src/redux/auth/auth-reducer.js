@@ -46,46 +46,8 @@ export default combineReducers({
     isLoggedIn,
     error
 });
-
-// const authSlice = createSlice({
-//     name: 'auth',
-//     initialState,
-//     extraReducers: {
-//         [authOperations.registration.fulfilled](state, action) {
-//             state.user = action.payload.user;
-//             state.token = action.payload.token;
-//         },
-//         [authOperations.registration.rejected](state, action) {
-//             state.regError = action.payload;
-//         },
-
-//         [authOperations.login.fulfilled](state, action) {
-//             state.user = action.payload.user;
-//             state.token = action.payload.token;
-//             state.isLoggedIn = true;
-//         },
-//         [authOperations.login.rejected](state, action) {
-//             state.authError = action.payload;
-//         },
-
         // [authOperations.logOut.fulfilled](state) {
         //     state.user = { name: null, email: null };
         //     state.token = null;
         //     state.isLoggedIn = false;
         // },
-
-        // [authOperations.fetchCurrentUser.pending](state) {
-        //     state.isFetchingCurrentUser = true;
-        // },
-        // [authOperations.fetchCurrentUser.fulfilled](state, action) {
-        //     state.user = action.payload;
-        //     state.isLoggedIn = true;
-        //     state.isFetchingCurrentUser = false;
-        // },
-        // [authOperations.fetchCurrentUser.rejected](state) {
-        //     state.isFetchingCurrentUser = false;
-        // },
-//     },
-// });
-
-// export default authSlice.reducer;

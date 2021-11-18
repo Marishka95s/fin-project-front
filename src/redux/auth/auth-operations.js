@@ -32,7 +32,7 @@ const login = ({ email, password }) => dispatch => {
 
 const logout = () => dispatch => {
   dispatch(actions.loginRequest())
-  axios.post('/auth/logout')
+  axios.get('/auth/logout')
     .then(() => {
       token.unset();
       dispatch(actions.logoutSuccess());
