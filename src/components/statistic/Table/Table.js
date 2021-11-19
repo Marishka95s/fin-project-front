@@ -27,7 +27,10 @@ export default function Table(props) {
         </div>
 
         <ul className="statistics list">
-          {props.statistics.expenceList.map((expence, idx) => {
+          {props.statistics.expenseList.map((expense, idx) => {
+            if (expense === 0) {
+              return;
+            }
             return (
               <li key={idx} className="statistics__list-item">
                 <span
@@ -37,7 +40,7 @@ export default function Table(props) {
                   {' '}
                 </span>
                 {schemas.categoriesSchema[idx]}
-                <span className="statistics__costs">{expence}</span>
+                <span className="statistics__costs">{expense}</span>
               </li>
             );
           })}
@@ -47,7 +50,7 @@ export default function Table(props) {
           <li className="outcome__item">
             <span className="outcome__type">Расходы:</span>
             <span className="outcome__total outcome__total--expenses">
-              {props.statistics.expenceAll}
+              {props.statistics.expenseAll}
             </span>
           </li>
           <li className="outcome__item">
