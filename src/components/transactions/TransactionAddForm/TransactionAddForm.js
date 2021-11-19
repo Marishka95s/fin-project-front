@@ -218,6 +218,7 @@ export default function TransactionAddForm({ onClose }) {
                                 maxLength="6"
                                 className="input sum__input"
                                 placeholder="0.00"
+                                // pattern = '#^[0-9]+$#'
                                 required
                             ></input>
                         </label>
@@ -231,6 +232,7 @@ export default function TransactionAddForm({ onClose }) {
                             inputProps={inputProps}
                             isValidDate={valid}
                             onChange={handleChangeDate}
+                            required
                         />
                         {/* <svg className="date__icon" id="calendar-icon" width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_4_1061)">
@@ -259,6 +261,7 @@ export default function TransactionAddForm({ onClose }) {
                             onChange={handleChange}
                             className="input text__input"
                             placeholder="Комментарий"
+                            pattern="^[a-zA-Zа-яА-ЯІіЇїҐґ]+(([' -][a-zA-Zа-яА-ЯІіЇїҐґ ])?[a-zA-Zа-яА-ЯІіЇїҐґ]*)*$"
                         ></input>
                     </label>
 
