@@ -1,3 +1,6 @@
-import fetchStatisticsAPI from './statisticsApi';
+import { fetchStatisticsAPI } from './statisticsApi';
 
-export { fetchStatisticsAPI };
+const Api = { fetchStatisticsAPI };
+console.log('Show index import:', fetchStatisticsAPI);
+
+export default Api;
