@@ -15,11 +15,9 @@ const modalTransaction = createReducer(false, {
 });
 
 const allTransactions = createReducer([], {
+    [addTransactionSuccess]: (state, { payload }) => {return [...state, payload]},
     [fetchTransactionSuccess]: (_, { payload }) => payload,
-});
-
-const addTransactions = createReducer([], {
-    [addTransactionSuccess]: (state, { payload }) => [...state, payload],
+    
 });
 
 const queryStatistics = createReducer([], {
@@ -34,7 +32,6 @@ const transactionCategories = createReducer([], {
 export default combineReducers({
     modalTransaction,
     allTransactions,
-    addTransactions,
     queryStatistics,
     transactionCategories
 }) 

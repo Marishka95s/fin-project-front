@@ -34,8 +34,9 @@ const addTransaction = transactionData => async dispatch => {
 
     try {
         const { data } = await axios.post('/transactions', transactionData);
-
-        dispatch(addTransactionSuccess(data));
+        console.log("data", data.data.result)
+        dispatch(addTransactionSuccess(data.data.result));
+        
     } catch (error) {
     dispatch(addTransactionError(error.message));
     }
