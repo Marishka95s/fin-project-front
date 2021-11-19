@@ -53,6 +53,8 @@
 
   &__button {
     margin: 0 20px;
+    margin-left: 15px;
+    margin-right: 15px;
   }
 }
 
@@ -66,6 +68,14 @@
 
 .switch-icon__spend {
   width: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.add-transaction__icon {
+  width: 20px;
+  height: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -199,6 +209,7 @@
   border: none;
   border-bottom: 1px solid #bdbdbd;
   cursor: pointer;
+  width: 190px;
 
   &:hover {
     border-color: #4a56e2;
@@ -217,8 +228,8 @@
   &__wrapper {
     position: relative;
     display: flex;
-    flex-direction: column;
-    margin-bottom: 40px;
+    // flex-direction: column;
+    // margin-bottom: 40px;
   }
 
   &__sum {
@@ -231,13 +242,13 @@
 }
 
 .text__input {
-  width: 280px;
-  height: 74px;
+  width: 410px;
+  // height: 74px;
   font-size: 18px;
   line-height: 26px;
   font-weight: 400;
   padding-left: 20px;
-  padding-bottom: 50px;
+  // padding-bottom: 50px;
 
   &::placeholder {
     color: #bdbdbd;
@@ -245,7 +256,7 @@
 }
 
 .sum__input {
-  width: 280px;
+  // width: 280px;
   height: 34px;
   font-size: 18px;
   line-height: 27px;
@@ -260,13 +271,14 @@
 
 .date {
   &__input {
-    width: 280px;
+    // width: 280px;
     height: 34px;
     padding-left: 20px;
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
     color: #000000;
+    margin-left: 35px;
   }
 
   &__icon {
@@ -297,7 +309,7 @@
   }
 }
 
-.checkbox {
+.Checkbox {
   &__wrapper {
     margin-bottom: 40px;
     display: flex;
