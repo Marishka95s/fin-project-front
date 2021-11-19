@@ -13,7 +13,7 @@ export default function UserMenu() {
     return (
         <div className="user-menu">
             <span className="user-name">{username}</span>
-            <button className="logout-button" type="button" onClock={onLogout}>
+            <button className="logout-button" type="button" onClick={onLogout}>
                 <svg className="logout-icon">
                     <use href="../../../../images/icons/logout-icon.svg"></use>
                 </svg>

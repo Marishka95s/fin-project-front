@@ -22,9 +22,8 @@ const token = createReducer(null, {
 });
 
 const isLoggedIn = createReducer(false, {
-    [actions.registrationSuccess]: () => true,
+    [actions.registrationSuccess]: () => false,
     [actions.loginSuccess]: () => true,
-    [actions.getCurrentUserRequest]: () => true,
     [actions.getCurrentUserSuccess]: () => true,
     [actions.logoutSuccess]: () => false,
     [actions.registrationError]: false,

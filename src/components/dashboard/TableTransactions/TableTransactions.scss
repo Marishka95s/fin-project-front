@@ -1,23 +1,20 @@
 @import '../../../assets/fonts/poppins-v15-latin/stylesheet.css';
 @import '../../../stylesheet/vars.scss';
 
-  
 /* список  транзакций*/
 .transactions {
-  width: 700px;
-  margin-top: 20px;
   padding-left: 0px;
-
+  margin-top: 0;
+  margin-bottom: 0;
   /* меню списка транзакций(хедер таблицы) */
   &__menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 16px 21px 15px 20px;
-    height: 58px; 
+    height: 58px;
     background-color: $inversion-text-color;
     border-radius: 30px;
-    margin-top: 20px;  
   }
 
   /* Категория . Сумма li */
@@ -30,7 +27,6 @@
   }
   /* иконка категории */
   &__item {
-    height: 54px;
     border-bottom: 1px solid #dcdcdf;
     box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
     display: flex;
@@ -40,51 +36,127 @@
     line-height: 18px;
     color: $main-text-color;
     font-family: $circe;
+    align-items: center;
 
     &:first-of-type {
       margin-top: 9px;
     }
   }
-
   /* суммы расходов */
   &__costs {
     font-size: 16px;
     line-height: 24px;
-    // margin-left: auto;
-    margin-right: 30px;
-    min-width: 60px;
     text-align: left;
+    max-width: 118px;
   }
 }
 
+.transactions__costs {
+  &__income {
+    color: #24cca7;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+  }
+  &__expense {
+    color: #ff6596;
+    font-size: 16px;
+    line-height: 24px;
+    margin-right: 30px;
+    text-align: left;
+  }
+}
 @media screen and (min-width: 768px) {
-  .table {
-    width: 350px;
-    margin-top: 0;
-
-    .filter {
-      width: 350px;
-      &__input {
-        width: 166px;
-
-        &::placeholder {
-          font-size: 16px;
-          line-height: 24px;
-        }
-
-        &:last-of-type {
-          margin-left: 18px;
-          margin-top: 0;
-        }
-      }
-    }
+  .transactionscContainer {
+    margin-top: 40px;
+  }
+  .transactions {
+    width: 700px;
+  }
+  .transactions__item :first-child {
+    margin-right: 50px;
   }
 
-  .transactions {
-    &__item {
-      height: 54px;
-      font-size: 16px;
-      line-height: 24px;
-    }
+  .transactions__item :nth-child(2) {
+    margin-right: 60px;
+    min-width: 10px;
+  }
+  .transactions__item :nth-child(3) {
+    margin-right: 24px;
+    min-width: 118px;
+    word-wrap: break-word;
+  }
+  .transactions__item :nth-child(4) {
+    min-width: 118px;
+    word-wrap: break-word;
+    margin-right: 54px;
+  }
+  .transactions__item :nth-child(5) {
+    min-width: 62px;
+    word-wrap: break-word;
+    margin-right: 46px;
+    text-align: right;
+  }
+  .transactions__item :nth-child(6) {
+    text-align: right;
+
+    min-width: 67px;
+  }
+}
+//desctop//
+@media screen and (min-width: 1280px) {
+  .transactionscContainer {
+    margin-top: 46px;
+  }
+}
+//mobile version//
+@media screen and (max-width: 767px) {
+  .transactionscContainer {
+    margin-top: 30px;
+  }
+}
+
+.transactions__list__mobile {
+  display: block;
+  color: $main-text-color;
+  font-family: $circe;
+  padding-left: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.transactions__list__mobile {
+  &income {
+    border-left: 5px solid #24cca7;
+  }
+  &expense {
+    border-left: 5px solid #ff6596;
+  }
+}
+.transactions__item__mobile {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-bottom: 1px solid #dcdcdf;
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+}
+.transactions__item__mobile__data {
+  text-align: right;
+  &__income {
+    color: #24cca7;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  &__expense {
+    color: #ff6596;
+    font-size: 16px;
+    line-height: 24px;
   }
 }

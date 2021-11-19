@@ -1,1 +1,1 @@
-export {default} from './TransactionAddForm'
+export { default } from './TransactionAddForm';

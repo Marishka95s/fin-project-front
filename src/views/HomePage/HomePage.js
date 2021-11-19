@@ -1,14 +1,43 @@
 import Media from 'react-media';
 
+import React, { useState, useEffect, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { closeModalTransaction } from '../../redux/transactions/transactions-actions';
 import AuthBar from '../../components/authorization/AuthBar/AuthBar';
 import Currency from '../../components/currency/Currency';
 import NavigationBtns from '../../components/dashboard/Navigation';
 import Balance from '../../components/dashboard/Balance/Balance';
 import TableTransactions from '../../components/dashboard/TableTransactions';
+import ButtonAddTransaction from '../../components/transactions/ButtonAddTransaction';
+import Modal from '../../components/transactions/Modal';
+// import TransactionAddForm from '../../components/transactions/TransactionAddForm';
+import TransactionAddForm from '../../components/transactions/TransactionAddForm/TransactionAddForm';
+
+import { transactionsOperations } from '../../redux/transactions';
+
+import { getIsModalAddTransactionOpen } from '../../redux/transactions/transactions-selectors';
 
 import './HomePage.scss';
 
 export default function HomePage() {
+    // const isModalAddTransactionOpen = useSelector(getIsModalAddTransactionOpen);
+    
+    // const dispatch = useDispatch();
+    // const onClose = useCallback(() => {
+    // return dispatch(closeModalTransaction());
+    // }, [dispatch]);
+
+    // const dispatch = useDispatch();
+    // const [isModalAddTransactionOpen , setIsModalAddTransactionOpen ] = useState(false);
+
+    // useEffect(() => {
+    //     dispatch(transactionsOperations.fetchTransactions());
+    // }, [dispatch]);
+
+    // const toggleModal = useCallback(() => {
+    //     setIsModalAddTransactionOpen(prevIsModalAddTransactionOpen => !prevIsModalAddTransactionOpen);
+    // }, []);
+
     return (
         <>
             <Media query="(max-width: 767px)" render={() =>
@@ -57,6 +86,13 @@ export default function HomePage() {
             </>
             )}
             />
+
+            <ButtonAddTransaction />
+
+            
+            <TransactionAddForm />
+            {/* {isModalAddTransactionOpen && <TransactionAddForm onClose={toggleModal} />} */}
+
         </>
 
 
@@ -70,7 +106,7 @@ export default function HomePage() {
 
 // import ButtonAddTransaction from '../../components/transactions/ButtonAddTransaction/ButtonAddTransaction';
 // import Modal from '../../components/transactions/Modal/Modal';
-// import TransactionAddForm from '../../components/transactions/TransactionAddForm/TransactionAddForm';
+//import TransactionAddForm from '../../components/transactions/TransactionAddForm/TransactionAddForm';
 
 // import {fetchTransactions} from '../../redux/transactions/transactions-operations'
 

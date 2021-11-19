@@ -8,17 +8,20 @@ export default function Table(props) {
     <div>
       <div className="table">
         <div className="table_select">
-          <Dropdown
-            selected={props.selectedMonth}
-            setSelected={props.setSelectedMonth}
-            options={schemas.monthOptions}
-          />
-
-          <Dropdown
-            selected={props.selectedYear}
-            setSelected={props.setSelectedYear}
-            options={schemas.yearOptions}
-          />
+          <div className="component_select_m">
+            <Dropdown
+              selected={props.selectedMonth}
+              setSelected={props.setSelectedMonth}
+              options={schemas.monthOptions}
+            />
+          </div>
+          <div className="component_select_y">
+            <Dropdown
+              selected={props.selectedYear}
+              setSelected={props.setSelectedYear}
+              options={schemas.yearOptions}
+            />
+          </div>
         </div>
 
         <div className="statistics__menu">
@@ -39,8 +42,12 @@ export default function Table(props) {
                 >
                   {' '}
                 </span>
-                {schemas.categoriesSchema[idx]}
-                <span className="statistics__costs">{expense}</span>
+                <div className="statistics__category_wrap">
+                  <span className="statistics__category">
+                    {schemas.categoriesSchema[idx]}
+                  </span>
+                </div>
+                <span className="statistics__costs">{expence}</span>
               </li>
             );
           })}

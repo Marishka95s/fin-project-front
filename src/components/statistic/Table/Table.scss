@@ -7,8 +7,24 @@
   margin-top: 30px;
 
   .table_select {
-    display: flex;
-    justify-content: space-between;
+    @media screen and (min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .component_select_m {
+      margin-bottom: 20px;
+    }
+
+    .component_select_y {
+    }
+    .component_select_m,
+    .component_select_y {
+      width: 100%;
+      @media screen and (min-width: 768px) {
+        width: 45%;
+      }
+    }
   }
 
   .filter {
@@ -43,6 +59,13 @@
   margin-top: 20px;
   padding-left: 0px;
 
+  @media screen and (max-width: 767px) {
+    margin-top: 0;
+    .list {
+      margin-top: 0;
+    }
+  }
+
   /* меню списка статистики(Категория и Сумма) */
   &__menu {
     display: flex;
@@ -66,28 +89,54 @@
   }
   /* иконка категории */
   &__list-item {
+    display: flex;
+    align-items: center;
+
     height: 54px;
+
     border-bottom: 1px solid #dcdcdf;
     box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
-    display: flex;
-    align-items: flex-end;
+
     padding: 15px;
     font-size: 16px;
+    font-weight: 400;
     line-height: 18px;
     color: $main-text-color;
     font-family: $circe;
 
     &:first-of-type {
       margin-top: 9px;
+      @media screen and (max-width: 767px) {
+        margin-top: 0;
+      }
     }
   }
 
   /* цвет иконок заинлайнен в реакт-компоненте*/
+  &__color {
+    margin-right: 15px;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+  }
+
+  /* category style */
+
+  @media screen and (max-width: 767px) {
+    &__category_wrap {
+      display: flex;
+      // flex-direction: column;
+    }
+    &__category {
+      text-align: left;
+      max-width: 120px;
+    }
+  }
 
   /* суммы расходов */
   &__costs {
     font-size: 16px;
-    line-height: 24px;
+    // line-height: 24px;
     margin-left: auto;
     min-width: 60px;
     text-align: right;
@@ -98,6 +147,7 @@
   width: 100%;
   margin-top: 15px;
   padding-left: 0;
+  font-family: $circe;
   /* total li */
   &__item {
     display: flex;
@@ -117,14 +167,14 @@
     line-height: 24px;
     color: $main-text-color;
     font-weight: bold;
-    font-size: $circe;
+    font-family: $circe;
   }
   /* сумма расходы доходы */
   &__total {
     font-size: 16px;
     line-height: 24px;
     font-weight: bold;
-    font-size: $circe;
+    font-family: $circe;
 
     &--expenses {
       color: $additional-accent-color;
