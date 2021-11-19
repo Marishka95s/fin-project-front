@@ -20,6 +20,13 @@ import { getIsModalAddTransactionOpen } from '../../redux/transactions/transacti
 import './HomePage.scss';
 
 export default function HomePage() {
+    const [modalIsOpen, setmodalIsOpen] = useState(false);
+    const onCloseModal = () =>{
+        setmodalIsOpen(false)
+    }
+    const onOpenModal = () =>{
+        setmodalIsOpen(true)
+    }
     // const isModalAddTransactionOpen = useSelector(getIsModalAddTransactionOpen);
     
     // const dispatch = useDispatch();
@@ -75,11 +82,11 @@ export default function HomePage() {
                 <div className="left-side-block" style={{"width" : "465px"}}>                    
                     <NavigationBtns />
                     <Balance /> 
-                    <div style={{"width" : "348px", "display": "inline-flex", "marginTop": "30px"}}>
+                    <div style={{"width" : "348px", "display": "inline-flex"}}>
                         <Currency/>
                     </div>
                 </div>
-                <div className="right-side-block" >                    
+                <div className="right-side-block" style={{"width" : "815px", borderLeft: "1px #fff solid"}}>                    
                     <TableTransactions/>
                 </div>
             </div>
@@ -87,10 +94,10 @@ export default function HomePage() {
             )}
             />
 
-            <ButtonAddTransaction />
+            <ButtonAddTransaction onOpen={onOpenModal} />
 
             
-            <TransactionAddForm />
+            {modalIsOpen && <TransactionAddForm onClose={onCloseModal}/>}
             {/* {isModalAddTransactionOpen && <TransactionAddForm onClose={toggleModal} />} */}
 
         </>

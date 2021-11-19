@@ -10,11 +10,11 @@ import { transactionsOperations } from "../../../redux/transactions";
 import './TransactionAddForm.scss';
 
 
-export default function TransactionAddForm() {
+export default function TransactionAddForm({onClose}) {
     const dispatch = useDispatch();
-    const onClose = useCallback(() => {
-        return dispatch(closeModalTransaction());
-    }, [dispatch]);
+    // const onClose = useCallback(() => {
+    //     return dispatch(closeModalTransaction());
+    // }, [dispatch]);
 
     const [optionSelect, setOptionSelect] = useState({
         value: null,
