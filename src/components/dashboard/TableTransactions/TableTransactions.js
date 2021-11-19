@@ -99,10 +99,9 @@ class TableTransactions extends Component {
   }
 
   render() {
-    return (
-      <div
-        className="transactionscContainer"
-        style={{ display: 'flex', justifyContent: 'center' }}
+    return (transactions ? (<><h1>Welcome to your wallet! Here would be shown your transactios</h1> 
+      <h2 style={{ color: 'LightSeaGreen'}}> Click "+" to add one </h2></>) :
+      (<div className="transactionscContainer" style={{ display: 'flex', justifyContent: 'center' }}
       >
         {/* {this.state.transactions && ( */}
         {window.matchMedia('( max-width:767px)').matches ? (
@@ -198,7 +197,7 @@ class TableTransactions extends Component {
             })}
           </ul>
         )} */}
-      </div>
+      </div>)
     );
   }
 }
