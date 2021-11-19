@@ -72,7 +72,7 @@ class TableTransactions extends Component {
     const [_, jwt] = token.split(' ')
     // console.log(jwt) 
     const [ jwtClear, znak ] = jwt.split('"')
-    console.log(jwtClear) 
+    // console.log(jwtClear) 
 
     const URL = 'https://fin-project-group4.herokuapp.com/api/transactions/';
     const CONFIG = {
@@ -82,19 +82,19 @@ class TableTransactions extends Component {
         'Authorization': `Bearer ${jwtClear}`
       },
     }
-    console.log(CONFIG)
+    // console.log(CONFIG)
 
 
      fetch(`${URL}`, CONFIG)
       .then(res => res.json())
       .then(transactions => {
-        console.log(transactions.data.transactions)
+        // console.log(transactions.data.transactions)
         const newTransactions = transactions.data.transactions
         this.setState(prevState => ({
           transactions: [...newTransactions, ...prevState.transactions],
         }));
         // this.setState({ transactions:  transactions.data.transactions})
-        console.log(this.state.transactions);
+        // console.log(this.state.transactions);
       });
   }
 

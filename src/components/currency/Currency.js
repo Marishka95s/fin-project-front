@@ -16,7 +16,7 @@ const fetchCurrency = () => {
     )
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         return data;
       });
 };
@@ -50,7 +50,7 @@ const Currency = () => {
     try {
       const results = await fetchCurrency();
       const filtertdRes = results.filter(result => result.ccy !== "BTC");
-      console.log(filtertdRes);
+      // console.log(filtertdRes);
       setCourses(prev => [...prev, ...filtertdRes]);
     } catch (error) {
       console.error('Smth wrong with search fetch', error);
