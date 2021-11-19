@@ -1,12 +1,13 @@
-import { useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import './userMenu.scss'
 import operations from '../../../redux/auth/auth-operations'
 import { useDispatch, useSelector } from 'react-redux'
-import { authSelectors } from '../../../redux/auth'
+import { authSelectors, authOperations } from '../../../redux/auth'
 
 export default function UserMenu() {
     const dispatch = useDispatch()
     const username = useSelector(authSelectors.getUserName);
+
     const onLogout = useCallback(() => {
         dispatch(operations.logout());
     }, [dispatch]);

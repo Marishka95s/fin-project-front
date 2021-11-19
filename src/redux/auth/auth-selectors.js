@@ -9,5 +9,6 @@ const authSelectors = {
     getIsLoggedIn,
     getUserName,
     getUserEmail,
+
 };
 export default authSelectors;
