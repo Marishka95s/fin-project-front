@@ -153,19 +153,31 @@
 }
 
 .auth-block {
-  background-color: #e7eaf2;
+  // background-color: #e7eaf2; 
   margin-left: auto;
   margin-right: auto;
 
   @media screen and(min-width:768px) {
     width: 768px;
     padding: 60px 114px 48px 114px;
+    // z-index: 1;
+
+    // background: url('../../images/tablet/ellipse-rose-tablet.svg')
+    // 100% 0 no-repeat,
+    //     url('../../images/tablet/ellipse-purple-tablet.svg') 0 100% no-repeat ;
+    //   background-color: $background-color-main;
+      // padding: 0 0 48px;
   }
   @media screen and(min-width:1280px) {
     width: 1280px;
     padding: 0;
     display: flex;
     justify-content: space-between;
+    // background: url('../../images/desktop/ellipse-rose-desktop.svg')
+    //     no-repeat 100% 0,
+    //   url('../../images/desktop/ellipse-purple-desktop.svg') no-repeat 0 100%;
+    // background-color: $background-color-main;
+    padding: 0;
   }
 }
 
