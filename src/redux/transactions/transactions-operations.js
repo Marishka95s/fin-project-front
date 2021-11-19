@@ -7,7 +7,10 @@ import { fetchTransactionRequest,
     addTransactionError,
     getQueryStatisticsRequest,
     getQueryStatisticsSuccess,
-    getQueryStatisticsError
+    getQueryStatisticsError,
+    getTransactionCategoriesRequest,
+    getTransactionCategoriesSuccess,
+    getTransactionCategoriesError
     } from './transactions-actions'
 
 
@@ -51,7 +54,19 @@ const getQueryStatistics = ({ month, year }) => async dispatch => {
         }
     };
 
-export { fetchTransactions, addTransaction, getQueryStatistics };
+// getCategories
+const getCategories = () => async dispatch => {
+    dispatch(getTransactionCategoriesRequest());
+
+    try {
+        const { data } = await axios.get('/transactions/categories');
+        dispatch(getTransactionCategoriesSuccess(data.data));
+    } catch (error) {
+        dispatch(getTransactionCategoriesError(error.message));
+    }
+};
+
+export { fetchTransactions, addTransaction, getQueryStatistics, getCategories };
 
 
 

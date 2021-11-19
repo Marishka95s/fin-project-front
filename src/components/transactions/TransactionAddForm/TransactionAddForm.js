@@ -1,12 +1,12 @@
-import { useState, useCallback } from "react";
-import { useDispatch } from 'react-redux';
+import { useState, useCallback, useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from "../Modal";
 import Select from 'react-select';
 import Datatime from 'react-datetime';
 import moment from 'moment';
 import 'moment/locale/ru';
 import { closeModalTransaction } from "../../../redux/transactions/transactions-actions";
-import { transactionsOperations } from "../../../redux/transactions";
+import { transactionsOperations, transactionsSelectors } from "../../../redux/transactions";
 import './TransactionAddForm.scss';
 
 
@@ -16,10 +16,20 @@ export default function TransactionAddForm({onClose}) {
     //     return dispatch(closeModalTransaction());
     // }, [dispatch]);
 
-    const [optionSelect, setOptionSelect] = useState({
-        value: null,
-        label: ''
-    });
+    useEffect(() => {
+        dispatch(transactionsOperations.getCategories());
+      }, [dispatch]);
+
+    const transactionCategories = useSelector(transactionsSelectors.getTransactionCategories);
+    const optionSelect = transactionCategories.map(e=>{return {
+        value: e, label: e
+        }
+    })
+
+    // const [optionSelect, setOptionSelect] = useState({
+    //     value: null,
+    //     label: ''
+    // });
 
     const [fullState, setFullState] = useState({
         type: 'income',
@@ -115,7 +125,6 @@ export default function TransactionAddForm({onClose}) {
 
                     <Select
                     name="optionSelect"
-                    onChange={setOptionSelect}
                     options={optionSelect}
                     placeholder="Выберите категорию"
                     />

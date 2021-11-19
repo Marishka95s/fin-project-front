@@ -49,8 +49,7 @@ export default function HomePage() {
         <>
             <Media query="(max-width: 767px)" render={() =>
             (<> <AuthBar />
-                <div className="left-side-block" style={{"width" : "320px"}}>
-                    
+                <div className="left-side-block" style={{"width" : "320px"}}>                    
                     <NavigationBtns />
                     <Balance /> 
                 </div>
