@@ -1,25 +1,33 @@
 import { useCallback, useEffect, useState } from 'react'
 import './userMenu.scss'
-import operations from '../../../redux/auth/auth-operations'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { authSelectors, authOperations } from '../../../redux/auth'
+import ModalLogout from '../ModalLogout/ModalLogout'
 
 export default function UserMenu() {
-    const dispatch = useDispatch()
+    const [openModal, setOpenModal] = useState(false)
+
     const username = useSelector(authSelectors.getUserName);
 
-    const onLogout = useCallback(() => {
-        dispatch(operations.logout());
-    }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const onOpenModal = useCallback(() => {
+        setOpenModal(true)
+    });
+    const closeModal = useCallback(() => {
+        setOpenModal(false)
+    });
+
     return (
         <div className="user-menu">
             <span className="user-name">{username}</span>
-            <button className="logout-button" type="button" onClick={onLogout}>
+            <button className="logout-button" type="button" onClick={onOpenModal}>
                 <svg className="logout-icon">
                     <use href="../../../../images/icons/logout-icon.svg"></use>
                 </svg>
                 <span className="exit-button-text">Выйти</span>
             </button>
+            {openModal ? <ModalLogout onClose={closeModal} /> : null}
         </div>
     )
 }
