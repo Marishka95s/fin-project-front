@@ -127,6 +127,7 @@ export default function TransactionAddForm({onClose}) {
                     />Расход
                     </label>
                     </div>
+
                     <Select
                     name="optionSelect"
                     onChange={onChangeSelect}
@@ -234,6 +235,7 @@ export default function TransactionAddForm({onClose}) {
 //                         </svg>
 //                     </button>
                     // <p className="TransactionAddForm__title">Добавить транзакцию</p>
+
                     // <div className="TransactionAddForm__radio">
                     //     <label className="TransactionAddForm__text">Доход
                     //     <input

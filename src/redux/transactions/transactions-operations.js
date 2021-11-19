@@ -21,7 +21,7 @@ const fetchTransactions = () => async dispatch => {
     try {
         const { data } = await axios.get('/transactions');
 
-        dispatch(fetchTransactionSuccess(data));
+        dispatch(fetchTransactionSuccess(data.data.transactions));
     } catch (error) {
         dispatch(fetchTransactionError(error.message));
     }
