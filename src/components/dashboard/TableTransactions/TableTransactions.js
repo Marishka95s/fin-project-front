@@ -99,7 +99,7 @@ class TableTransactions extends Component {
   }
 
   render() {
-    return (transactions ? (<><h1 style={{ padding: '20px'}}>Welcome to your wallet! Here would be shown your transactios</h1> 
+    return ((transactions===[]) ? (<><h1 style={{ padding: '20px'}}>Welcome to your wallet! Here would be shown your transactios</h1> 
       <h2 style={{ color: 'LightSeaGreen'}}> Click "+" to add one </h2></>) :
       (<div className="transactionscContainer" style={{ display: 'flex', justifyContent: 'center' }}
       >

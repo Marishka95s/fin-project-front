@@ -20,12 +20,12 @@ import { getIsModalAddTransactionOpen } from '../../redux/transactions/transacti
 import './HomePage.scss';
 
 export default function HomePage() {
-    const [modalIsOpen, setmodalIsOpen] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
     const onCloseModal = () =>{
-        setmodalIsOpen(false)
+        setModalIsOpen(false)
     }
     const onOpenModal = () =>{
-        setmodalIsOpen(true)
+        setModalIsOpen(true)
     }
     // const isModalAddTransactionOpen = useSelector(getIsModalAddTransactionOpen);
     
