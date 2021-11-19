@@ -9,6 +9,7 @@ const token = {
     axios.defaults.headers.common.Authorization = '';
   },
 };
+
 const registration = ({ email, password, name }) => dispatch => {
   dispatch(actions.registrationRequest())
   axios.post('/auth/signup', { email, password, name })
@@ -21,7 +22,7 @@ const registration = ({ email, password, name }) => dispatch => {
 }
 const login = ({ email, password }) => dispatch => {
   dispatch(actions.loginRequest())
-  axios.post('auth/login', { email, password })
+  axios.post('/auth/login', { email, password })
     .then(data => {
       token.set(data.token)
       dispatch(actions.loginSuccess(data))
@@ -31,8 +32,8 @@ const login = ({ email, password }) => dispatch => {
 }
 
 const logout = () => dispatch => {
-  dispatch(actions.loginRequest())
-  axios.post('/auth/logout')
+  dispatch(actions.logoutRequest())
+  axios.get('/auth/logout')
     .then(() => {
       token.unset();
       dispatch(actions.logoutSuccess());
@@ -53,8 +54,9 @@ const getCurrentUser = () => async (dispatch, getState) => {
   await dispatch(actions.getCurrentUserRequest());
 
   axios.get('/auth/current')
-    .then((response) => {
-      dispatch(actions.getCurrentUserSuccess(response))
+    .then((data) => {
+      dispatch(actions.getCurrentUserSuccess(data))
+      console.log(data)
     })
     .catch((error) => {
       dispatch(actions.getCurrentUserRequest(error.message));
