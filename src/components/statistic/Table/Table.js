@@ -47,7 +47,7 @@ export default function Table(props) {
                     {schemas.categoriesSchema[idx]}
                   </span>
                 </div>
-                <span className="statistics__costs">{expence}</span>
+                {/* <span className="statistics__costs">{expence}</span> */}
               </li>
             );
           })}
