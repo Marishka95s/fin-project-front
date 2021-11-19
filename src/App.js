@@ -1,4 +1,4 @@
-import logo from './wallet-logo.svg';
+// import logo from './wallet-logo.svg';
 
 import React, { Suspense, lazy, useEffect } from 'react';
 import { Switch, Redirect } from 'react-router-dom';
@@ -10,11 +10,6 @@ import PublicRoute from './components/PublicRoute'
 import PrivateRoute from './components/PrivateRoute'
 
 import './App.scss';
-
-// import { Routes, Route } from 'react-router';
-// import RegistrationPage from './views/RegistrationPage/RegistrationPage';
-// import LoginPage from './views/LoginPage/LoginPage';
-
 
 import TableTransactions from './components/dashboard/TableTransactions';
 
@@ -54,96 +49,25 @@ export default function App() {
             </PublicRoute>
 
             {/* CHANGE INTO PrivateRoute */}
-            <PublicRoute path="/fin-project-front/home" redirectTo="/fin-project-front/login">
+            <PrivateRoute path="/fin-project-front/home" redirectTo="/fin-project-front/login">
               <HomePage />
-            </PublicRoute>
+            </PrivateRoute>
 
             {/* CHANGE INTO PrivateRoute */}
-            <PublicRoute path="/fin-project-front/statistics" redirectTo="/fin-project-front/login">
+            <PrivateRoute path="/fin-project-front/statistics" redirectTo="/fin-project-front/login">
               <StatisticPage />
-            </PublicRoute>
+            </PrivateRoute>
 
             {/* CHANGE INTO PrivateRoute */}
-            <PublicRoute path="/fin-project-front/currency" redirectTo="/fin-project-front/login">
+            <PrivateRoute path="/fin-project-front/currency" redirectTo="/fin-project-front/login">
               <CurrencyPage />
-            </PublicRoute>
+            </PrivateRoute>
 
             <PublicRoute>
               <Redirect to="/fin-project-front/registration" />
             </PublicRoute>
           </Switch>
         </Suspense>
-
-
-
-        {/* 
-          <Navigation />
-          <Diagram />
-          <Balance /> 
-          <Currency/>
-          */}
-
-        {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello) I'm a wallet and I believe in you!
-        </p>
-         */}
-        {/* <Routes>
-          <Route
-            path="/fin-project-front/"
-            element={<p>Допиши /registration или /login или /statistics</p>}
-          />
-          <Route
-            path="/fin-project-front/registration"
-            element={<RegistrationPage />}
-          />
-          <Route path="/fin-project-front/login" element={<LoginPage />} />
-          <Route path="/fin-project-front/statistics" element={<Diagram />} />
-        </Routes> */}
-        {/* </header> */}
       </div>
     ));
 }
-// class App extends Component {
-//   state = {
-//     transactions: [],
-//     isModalAddTransactionOpen: false,
-//   };
-
-//   // componentDidMount() {
-//   //   const transactions = localStorage.getItem('transactins');
-//   //   const parsedTransactions = JSON.parse(this.transactions);
-
-//   //   if (parsedTransactions) {
-//   //     this.setState({ transactions: parsedTransactions });
-//   //   }
-//   // }
-
-//   tooggleModal = () => {
-//     this.setState(({ isModalAddTransactionOpen }) => ({
-//       isModalAddTransactionOpen: !isModalAddTransactionOpen,
-//     }));
-//   };
-//   render() {
-//     const { isModalAddTransactionOpen } = this.state;
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <p>
-//             Hello! I'm a wallet and I believe in you!
-//           </p>
-
-//         </header>
-//         <ButtonAddTransaction onClick={this.tooggleModal} />
-
-//         {isModalAddTransactionOpen && (
-//           <TransactionAddForm onClose={this.tooggleModal} /> )}
-//         {/* <TransactionAddForm onSubmit={this.formSubmitHandler} /> */}
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
