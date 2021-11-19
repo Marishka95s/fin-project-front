@@ -25,6 +25,7 @@ export default function TransactionAddForm({onClose}) {
         value: e, label: e
         }
     })
+   
 
     // const [optionSelect, setOptionSelect] = useState({
     //     value: null,
@@ -34,38 +35,45 @@ export default function TransactionAddForm({onClose}) {
     const [fullState, setFullState] = useState({
         type: 'income',
         sum: '',
-        date: moment().format('DD.MM.YYYY'),
-        coment: ''
+        coment: '',
+        category:'',
     });
+    
 
-    const { type, sum, date, comment } = fullState;
-    const { value } = optionSelect;
+    const { type, sum, comment, category } = fullState;
+    // const { value } = optionSelect;
 
+    const onChangeSelect = (e)=>{
+        console.log(e.value)
+        setFullState(prev => ({
+            ...prev,
+            category: e.value,
+        }))
+    }
     const handleChange = e => {
     const { name, value } = e.target;
-
     setFullState(prev => ({
         ...prev,
         [name]: value,
     }));
     };
 
-    let yesterday = moment().subtract( 1, 'day' );
-    let valid = function( current ){
-        return current.isAfter( yesterday );
-    };
+    // let yesterday = moment().subtract( 1, 'day' );
+    // let valid = function( current ){
+    //     return current.isAfter( yesterday );
+    // };
 
-    const handleChangeDate = e => {
-    typeof e === 'string'
-        ? setFullState(prev => ({
-            ...prev,
-            date: e,
-        }))
-        : setFullState(prev => ({
-            ...prev,
-            date: e.format('DD.MM.YYYY'),
-        }));
-    };
+    // const handleChangeDate = e => {
+    // typeof e === 'string'
+    //     ? setFullState(prev => ({
+    //         ...prev,
+    //         date: e,
+    //     }))
+    //     : setFullState(prev => ({
+    //         ...prev,
+    //         date: e.format('DD.MM.YY'),
+    //     }));
+    // };
 
     const handleSubmit = useCallback(
         e => {
@@ -73,18 +81,15 @@ export default function TransactionAddForm({onClose}) {
             const validSum = Number(sum).toFixed(2);
             dispatch(
                 transactionsOperations.addTransaction({
-                    date,
-                    month: date.slice(3, 5),
-                    year: date.slice(6),
-                    validSum,
+                    sum: validSum,
                     comment,
                     type,
-                    category: value,
+                    category,
                 }),
             );
             onClose();
         },
-        [type, comment, date, value, sum, onClose, dispatch]
+        [type, comment, sum, category, onClose, dispatch]
     );
 
     return (
@@ -122,9 +127,9 @@ export default function TransactionAddForm({onClose}) {
                     />Расход
                     </label>
                     </div>
-
                     <Select
                     name="optionSelect"
+                    onChange={onChangeSelect}
                     options={optionSelect}
                     placeholder="Выберите категорию"
                     />
@@ -147,8 +152,8 @@ export default function TransactionAddForm({onClose}) {
                         initialValue={moment()}
                         closeOnSelect={true}
                         timeFormat={false}
-                        isValidDate={valid}
-                        onChange={handleChangeDate}
+                        // isValidDate={valid}
+                        // onChange={handleChangeDate}
                     />
                     </div>
 
@@ -229,7 +234,6 @@ export default function TransactionAddForm({onClose}) {
 //                         </svg>
 //                     </button>
                     // <p className="TransactionAddForm__title">Добавить транзакцию</p>
-
                     // <div className="TransactionAddForm__radio">
                     //     <label className="TransactionAddForm__text">Доход
                     //     <input
