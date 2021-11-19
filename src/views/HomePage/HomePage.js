@@ -75,11 +75,11 @@ export default function HomePage() {
                 <div className="left-side-block" style={{"width" : "465px"}}>                    
                     <NavigationBtns />
                     <Balance /> 
-                    <div style={{"width" : "348px", "display": "inline-flex", "marginTop": "30px"}}>
+                    <div style={{"width" : "348px", "display": "inline-flex"}}>
                         <Currency/>
                     </div>
                 </div>
-                <div className="right-side-block" >                    
+                <div className="right-side-block" style={{"width" : "815px", borderLeft: "1px #fff solid"}}>                    
                     <TableTransactions/>
                 </div>
             </div>
