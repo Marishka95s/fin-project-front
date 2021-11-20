@@ -6,8 +6,6 @@ import Switch from 'react-switch';
 import Datetime from 'react-datetime';
 import moment from 'moment';
 import 'moment/locale/ru';
-// import { getCategories } from '../../../redux/categories/categories-operations';
-// import { getAllCategories } from '../../../redux/categories/categories-selectors';
 import { closeModalTransaction } from "../../../redux/transactions/transactions-actions";
 import customStyles from './SelectStyles';
 import "react-datetime/css/react-datetime.css";
@@ -33,6 +31,7 @@ export default function TransactionAddForm({ onClose }) {
 
     const [fullState, setFullState] = useState({
         checked: true,
+        type: '',
         sum: '',
         coment: '',
         category:'',
@@ -71,7 +70,6 @@ export default function TransactionAddForm({ onClose }) {
         };
         
     let optionsIncome = [];
-    let optionsSpend = [];
 
         //   const sort = array => {
         //     array.forEach(({ _id, name }) =>
@@ -133,7 +131,7 @@ export default function TransactionAddForm({ onClose }) {
                 transactionsOperations.addTransaction({
                     sum: validSum,
                     comment,
-                    type,
+                    type: !checked ? 'income' : 'expense',
                     category,
                 }),
             );
@@ -195,9 +193,9 @@ export default function TransactionAddForm({ onClose }) {
                             offColor="#fff"
                             boxShadow={boxShadow}
                             checkedHandleIcon={
-                             <svg className="add-transaction__icon" id="add-icon" width="20" height="2" viewBox="0 0 20 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 1L20 0.999999" stroke="white" stroke-width="2"/>
-</svg>
+                        <svg className="add-transaction__icon" id="add-icon" width="20" height="2" viewBox="0 0 20 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 1L20 0.999999" stroke="white" stroke-width="2"/>
+                        </svg>
                             }
                             uncheckedHandleIcon={
                                 <svg className="switch-icon__spend" id="spend-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -215,8 +213,8 @@ export default function TransactionAddForm({ onClose }) {
                         <div className="select__wrapper">
                             <Select
                                 name="selectedOption"
-                                onChange={setSelectedOption}
-                                options={optionsSpend}
+                                onChange={onChangeSelect}
+                                options={optionSelect}
                                 placeholder="Выберите категорию"
                                 styles={customStyles}
                             />
@@ -230,7 +228,7 @@ export default function TransactionAddForm({ onClose }) {
                             <Select
                                 name="selectedOption"
                                 onChange={onChangeSelect}
-                                options={optionsIncome}
+                                options={optionSelect}
                                 placeholder="Выберите категорию"
                                 styles={customStyles}
                             />
