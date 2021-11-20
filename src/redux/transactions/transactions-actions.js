@@ -14,7 +14,9 @@ export const getQueryStatisticsRequest = createAction('transactions/getQueryStat
 export const getQueryStatisticsSuccess = createAction('transactions/getQueryStatisticsSuccess');
 export const getQueryStatisticsError = createAction('transactions/getQueryStatisticsError');
 
-
+export const getTransactionCategoriesRequest = createAction('transactions/getTransactionCategoriesRequest');
+export const getTransactionCategoriesSuccess = createAction('transactions/getTransactionCategoriesSuccess');
+export const getTransactionCategoriesError = createAction('transactions/getTransactionCategoriesError');
 
 // import { createAction } from '@reduxjs/toolkit';
 

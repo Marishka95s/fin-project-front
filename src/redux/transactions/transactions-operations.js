@@ -7,7 +7,10 @@ import { fetchTransactionRequest,
     addTransactionError,
     getQueryStatisticsRequest,
     getQueryStatisticsSuccess,
-    getQueryStatisticsError
+    getQueryStatisticsError,
+    getTransactionCategoriesRequest,
+    getTransactionCategoriesSuccess,
+    getTransactionCategoriesError
     } from './transactions-actions'
 
 
@@ -18,7 +21,7 @@ const fetchTransactions = () => async dispatch => {
     try {
         const { data } = await axios.get('/transactions');
 
-        dispatch(fetchTransactionSuccess(data));
+        dispatch(fetchTransactionSuccess(data.data.transactions));
     } catch (error) {
         dispatch(fetchTransactionError(error.message));
     }
@@ -31,8 +34,9 @@ const addTransaction = transactionData => async dispatch => {
 
     try {
         const { data } = await axios.post('/transactions', transactionData);
-
-        dispatch(addTransactionSuccess(data));
+        console.log("data", data.data.result)
+        dispatch(addTransactionSuccess(data.data.result));
+        
     } catch (error) {
     dispatch(addTransactionError(error.message));
     }
@@ -51,7 +55,19 @@ const getQueryStatistics = ({ month, year }) => async dispatch => {
         }
     };
 
-export { fetchTransactions, addTransaction, getQueryStatistics };
+// getCategories
+const getCategories = () => async dispatch => {
+    dispatch(getTransactionCategoriesRequest());
+
+    try {
+        const { data } = await axios.get('/transactions/categories');
+        dispatch(getTransactionCategoriesSuccess(data.data));
+    } catch (error) {
+        dispatch(getTransactionCategoriesError(error.message));
+    }
+};
+
+export { fetchTransactions, addTransaction, getQueryStatistics, getCategories };
 
 
 

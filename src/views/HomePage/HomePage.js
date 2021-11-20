@@ -20,12 +20,12 @@ import { getIsModalAddTransactionOpen } from '../../redux/transactions/transacti
 import './HomePage.scss';
 
 export default function HomePage() {
-    const [modalIsOpen, setmodalIsOpen] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
     const onCloseModal = () =>{
-        setmodalIsOpen(false)
+        setModalIsOpen(false)
     }
     const onOpenModal = () =>{
-        setmodalIsOpen(true)
+        setModalIsOpen(true)
     }
     // const isModalAddTransactionOpen = useSelector(getIsModalAddTransactionOpen);
     
@@ -49,8 +49,7 @@ export default function HomePage() {
         <>
             <Media query="(max-width: 767px)" render={() =>
             (<> <AuthBar />
-                <div className="left-side-block" style={{"width" : "320px"}}>
-                    
+                <div className="left-side-block" style={{"width" : "320px"}}>                    
                     <NavigationBtns />
                     <Balance /> 
                 </div>

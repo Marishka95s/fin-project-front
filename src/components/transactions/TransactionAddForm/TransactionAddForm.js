@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from "../Modal";
 import Select from 'react-select';
@@ -9,9 +9,9 @@ import 'moment/locale/ru';
 // import { getCategories } from '../../../redux/categories/categories-operations';
 // import { getAllCategories } from '../../../redux/categories/categories-selectors';
 import { closeModalTransaction } from "../../../redux/transactions/transactions-actions";
-import { transactionsOperations } from "../../../redux/transactions";
 import customStyles from './SelectStyles';
 import "react-datetime/css/react-datetime.css";
+import { transactionsOperations, transactionsSelectors } from "../../../redux/transactions";
 import './TransactionAddForm.scss';
 
 
@@ -21,22 +21,27 @@ export default function TransactionAddForm({ onClose }) {
     //     return dispatch(closeModalTransaction());
     // }, [dispatch]);
 
-    const [selectedOption, setSelectedOption] = useState({
-        value: null,
-        label: ''
-    });
+    useEffect(() => {
+        dispatch(transactionsOperations.getCategories());
+      }, [dispatch]);
+
+    const transactionCategories = useSelector(transactionsSelectors.getTransactionCategories);
+    const optionSelect = transactionCategories.map(e=>{return {
+        value: e, label: e
+        }
+    })
 
     const [fullState, setFullState] = useState({
         checked: true,
         sum: '',
-        date: moment().format('DD.MM.YYYY'),
         coment: '',
+        category:'',
         boxShadow: '0px 6px 15px rgba(255, 101, 150, 0.5)'
     });
-
-    const { checked, sum, date, comment, boxShadow } = fullState;
-    const { value } = selectedOption;
-
+    
+    const { type, sum, comment, category, checked, boxShadow } = fullState;
+    // const { value } = optionSelect;
+    
     useEffect(() => {
         if (checked) {
             setFullState(prev => ({
@@ -51,7 +56,7 @@ export default function TransactionAddForm({ onClose }) {
             boxShadow: '0px 6px 15px rgba(36, 204, 167, 0.5)',
         }));
     }, [checked]);
-
+    
     const handleChangeCheckbox = nextChecked => {
         setFullState(prev => ({
             ...prev,
@@ -60,62 +65,13 @@ export default function TransactionAddForm({ onClose }) {
             label: '',
         }));
     };
-
-    //     useEffect(() => {
-    //     dispatch(getCategories());
-    //   }, [dispatch]);
-    //   const categories = useSelector(getAllCategories);
-
-    const handleChange = e => {
-        const { name, value } = e.target;
-
-        setFullState(prev => ({
-            ...prev,
-            [name]: value,
-        }));
-    };
-
-    const yesterday = moment().subtract(1, 'day');
-  const valid = current => current.isAfter(yesterday);
-  const inputProps = {
+    
+    const inputProps = {
       className: 'input date__input',
         };
-  
-
-        const handleChangeDate = e => {
-            typeof e === 'string'
-                ? setFullState(prev => ({
-                    ...prev,
-                    date: e,
-                }))
-                : setFullState(prev => ({
-                    ...prev,
-                    date: e.format('DD.MM.YYYY'),
-                }));
-        };
-
-        const handleSubmit = useCallback(
-            e => {
-                e.preventDefault();
-                const validSum = Number(sum).toFixed(2);
-                dispatch(
-                    transactionsOperations.addTransaction({
-                        date,
-                        month: date.slice(3, 5),
-                        year: date.slice(6),
-                        validSum,
-                        comment,
-                        type: !checked ? 'income' : 'spend',
-                        category: value,
-                    }),
-                );
-                onClose();
-            },
-            [checked, comment, date, value, sum, onClose, dispatch]
-        );
-
-        let optionsIncome = [];
-        let optionsSpend = [];
+        
+    let optionsIncome = [];
+    let optionsSpend = [];
 
         //   const sort = array => {
         //     array.forEach(({ _id, name }) =>
@@ -132,22 +88,96 @@ export default function TransactionAddForm({ onClose }) {
         //   };
         //   sort(categories);
 
-        return (
-            // <p>M O D A L</p>
+        
+        
+        
 
-            <Modal onClose={onClose}>
-                <button type="button" className="TransactionAddForm__closeBtn" onClick={onClose}>
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1L17 17" stroke="black" />
-                        <path d="M1 17L17 0.999999" stroke="black" />
-                    </svg>
-                </button>
 
-                <p className="TransactionAddForm__title">Добавить транзакцию</p>
+    const onChangeSelect = (e)=>{
+        console.log(e.value)
+        setFullState(prev => ({
+            ...prev,
+            category: e.value,
+        }))
+    }
+    const handleChange = e => {
+    const { name, value } = e.target;
+    setFullState(prev => ({
+        ...prev,
+        [name]: value,
+    }));
+    };
 
-                <form className="TransactionAddForm__form" onSubmit={handleSubmit}>
-                    <div className="checkbox__wrapper">
-                        <span className={`checkbox__span ${!checked && 'active-income'}`}>
+    // let yesterday = moment().subtract( 1, 'day' );
+    // let valid = function( current ){
+    //     return current.isAfter( yesterday );
+    // };
+
+    // const handleChangeDate = e => {
+    // typeof e === 'string'
+    //     ? setFullState(prev => ({
+    //         ...prev,
+    //         date: e,
+    //     }))
+    //     : setFullState(prev => ({
+    //         ...prev,
+    //         date: e.format('DD.MM.YY'),
+    //     }));
+    // };
+
+    const handleSubmit = useCallback(
+        e => {
+            e.preventDefault();
+            const validSum = Number(sum).toFixed(2);
+            dispatch(
+                transactionsOperations.addTransaction({
+                    sum: validSum,
+                    comment,
+                    type,
+                    category,
+                }),
+            );
+            onClose();
+        },
+        [type, comment, sum, category, onClose, dispatch]
+    );
+    
+    // const handleSubmit = useCallback(
+    //         e => {
+    //             e.preventDefault();
+    //             const validSum = Number(sum).toFixed(2);
+    //             dispatch(
+    //                 transactionsOperations.addTransaction({
+    //                     date,
+    //                     month: date.slice(3, 5),
+    //                     year: date.slice(6),
+    //                     validSum,
+    //                     comment,
+    //                     type: !checked ? 'income' : 'spend',
+    //                     category: value,
+    //                 }),
+    //             );
+    //             onClose();
+    //         },
+    //         [checked, comment, date, value, sum, onClose, dispatch]
+    //     );
+
+    return (
+        // <p>M O D A L</p>
+
+        <Modal onClose={onClose}>
+            <button type="button" className="TransactionAddForm__closeBtn" onClick={onClose}>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L17 17" stroke="black"/>
+                    <path d="M1 17L17 0.999999" stroke="black"/>
+                </svg>
+            </button>
+
+            <p className="TransactionAddForm__title">Добавить транзакцию</p>
+
+            <form className="TransactionAddForm__form" onSubmit={handleSubmit}>
+                <div className="checkbox__wrapper">
+                       <span className={`checkbox__span ${!checked && 'active-income'}`}>
                             Доход
                         </span>
                         <Switch
@@ -199,7 +229,7 @@ export default function TransactionAddForm({ onClose }) {
                         <div className="select__wrapper">
                             <Select
                                 name="selectedOption"
-                                onChange={setSelectedOption}
+                                onChange={onChangeSelect}
                                 options={optionsIncome}
                                 placeholder="Выберите категорию"
                                 styles={customStyles}
@@ -230,9 +260,9 @@ export default function TransactionAddForm({ onClose }) {
                             closeOnSelect={true}
                             timeFormat={false}
                             inputProps={inputProps}
-                            isValidDate={valid}
-                            onChange={handleChangeDate}
-                            required
+                            // isValidDate={valid}
+                            // onChange={handleChangeDate}
+                            // required
                         />
                         {/* <svg className="date__icon" id="calendar-icon" width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_4_1061)">
@@ -251,7 +281,7 @@ export default function TransactionAddForm({ onClose }) {
 </filter>
 </defs>
 </svg> */}
-                        </div>
+                    </div>
 
                     <label className="form__text">
                         <input
