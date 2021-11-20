@@ -44,7 +44,14 @@
     display: none;
   }
 }
-
+.active_link {
+  font-weight: bold;
+}
+@media screen and (min-width: 1280px) {
+  .navigation_link:hover {
+    color: #4a56e2;
+  }
+}
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .navigation_container {
     // width: 768px;
@@ -90,8 +97,8 @@
     line-height: 27px;
   }
   .navigation_page_stat {
-margin: 0;
-}
+    margin: 0;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -125,11 +132,12 @@ margin: 0;
     margin-bottom: 10px;
   }
   .navigation_page_home,
-  .navigation_page_stat{
+  .navigation_page_stat {
     font-family: $poppins;
     font-size: 18px;
     line-height: 27px;
   }
-    .navigation_page_stat {
-        margin: 0;
-}}
+  .navigation_page_stat {
+    margin: 0;
+  }
+}
