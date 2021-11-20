@@ -34,11 +34,13 @@
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.3",
     "react-select": "^5.2.1",
+    "react-switch": "^6.0.0",
     "react-toastify": "^8.1.0",
     "redux": "^4.1.2",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
-    "shortid": "^2.2.16"
+    "shortid": "^2.2.16",
+    "toastr": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

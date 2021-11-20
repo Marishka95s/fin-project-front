@@ -2,15 +2,18 @@
 
 .TransactionAddForm__closeBtn {
   border: none;
+  position: absolute;
+  right: 20px;
+  top: 20px;
   background-color: #fff;
   display: flex;
-  margin-left: auto;
+  cursor: pointer;
 }
 
 .TransactionAddForm__title {
   font-family: $poppins;
-  margin-top: 20px;
   margin-bottom: 40px;
+  margin-top: 0;
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
@@ -20,6 +23,11 @@
   text-align: center;
   justify-content: center;
   color: #000;
+
+  @media screen and (min-width: 768px) {
+    font-size: 30px;
+    line-height: 26px;
+  }
 }
 
 .TransactionAddForm__form {
@@ -28,22 +36,75 @@
   align-items: center;
 }
 
-.TransactionAddForm__radio {
-  margin-bottom: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+//Checkbox
+.checkbox {
+  &__wrapper {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__span {
+    font-weight: 700;
+    font-style: 16px;
+    line-height: 24px;
+    color: #e0e0e0;
+  }
+
+  &__button {
+    margin: 0 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 }
 
-.TransactionAddForm__text {
-  // font-family: Circe;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 24px;
-  color: #e0e0e0;
+.active-income {
+  color: #24cca7;
 }
 
+.active-spend {
+  color: #ff6596;
+}
+
+.switch-icon__spend {
+  width: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.add-transaction__icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.react-switch-bg {
+  border: 1px solid #e0e0e0;
+}
+
+// .Checkbox {
+//   margin-bottom: 40px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .TransactionAddForm__text {
+//   // font-family: Circe;
+//   font-style: normal;
+//   font-weight: 700;
+//   font-size: 16px;
+//   line-height: 24px;
+//   color: #e0e0e0;
+// }
+
+// .active-income {
+//   color: #24cca7;
+// }
 .TransactionAddForm__input {
   border: none;
   border-bottom: 1px solid #e0e0e0;
@@ -101,3 +162,235 @@
 //   margin: 0;
 //   padding: 0;
 // }
+
+.transaction {
+  &__title {
+    font-family: $poppins;
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__wrapper,
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__button {
+    display: inline-block;
+    width: 300px;
+    height: 50px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+    border: none;
+    background-color: #24cca7;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+
+  &__button--cancel {
+    background-color: inherit;
+    border: 1px solid #4a56e2;
+    color: #4a56e2;
+    margin-bottom: 0;
+  }
+}
+
+.input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #bdbdbd;
+  cursor: pointer;
+  width: 190px;
+
+  &:hover {
+    border-color: #4a56e2;
+  }
+
+  &:focus {
+    border-color: #4a56e2;
+  }
+}
+
+.form {
+  &__checkbox {
+    margin-bottom: 40px;
+  }
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    // flex-direction: column;
+    // margin-bottom: 40px;
+  }
+
+  &__sum {
+    margin-bottom: 40px;
+  }
+
+  &__text {
+    margin-bottom: 50px;
+  }
+}
+
+.text__input {
+  width: 410px;
+  // height: 74px;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  padding-left: 20px;
+  // padding-bottom: 50px;
+
+  &::placeholder {
+    color: #bdbdbd;
+  }
+}
+
+.sum__input {
+  // width: 280px;
+  height: 34px;
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 400;
+  padding-left: 20px;
+
+  &::placeholder {
+    color: #bdbdbd;
+    padding-bottom: 10px;
+  }
+}
+
+.date {
+  &__input {
+    // width: 280px;
+    height: 34px;
+    padding-left: 20px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: #000000;
+    margin-left: 35px;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    fill: #4a56e2;
+    position: absolute;
+    right: 20px;
+    top: 78px;
+    pointer-events: none;
+  }
+}
+
+.select {
+  &__wrapper {
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  &__icon {
+    position: absolute;
+    right: 5px;
+    top: 15px;
+    width: 18px;
+    height: 9px;
+    cursor: pointer;
+    pointer-events: none;
+  }
+}
+
+.Checkbox {
+  &__wrapper {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__span {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #e0e0e0;
+  }
+
+  &__button {
+    margin: 0 20px;
+  }
+}
+
+.active-income {
+  color: #24cca7;
+}
+
+.active-spend {
+  color: #ff6596;
+
+  .switch-icon__spend {
+    width: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .react-switch-bg {
+    border: 1px solid #e0e0e0;
+  }
+
+  @media screen and (min-width: 768px) {
+    .transaction {
+      &__title {
+        font-size: 30px;
+        line-height: 45px;
+      }
+    }
+
+    .form {
+      &__wrapper {
+        flex-direction: row;
+      }
+
+      &__sum {
+        margin-right: 30px;
+        margin-bottom: 0;
+      }
+    }
+
+    .text__input {
+      width: 408px;
+      height: 34px;
+      padding-bottom: 10px;
+    }
+
+    .sum__input {
+      width: 190px;
+      padding-left: 75px;
+    }
+
+    .date {
+      &__input {
+        width: 190px;
+      }
+
+      &__icon {
+        width: 24px;
+        height: 24px;
+        fill: #4a56e2;
+        position: absolute;
+        right: 20px;
+        top: 4px;
+        pointer-events: none;
+      }
+    }
+  }
+}
