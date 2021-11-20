@@ -3,10 +3,13 @@
 
 /* список  транзакций*/
 .statisticsPage {
+    @media screen and (min-width: 768px){
+        backdrop-filter: blur(50px);
     // width: 700px;
     // margin-top: 20px;
     // padding-left: 0px;
-}
+
+}}
 @media screen and (min-width: 1280px) {
     .statisticsPage {
         display: flex;

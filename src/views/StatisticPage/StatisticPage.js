@@ -30,6 +30,7 @@ export default function StatisticPage() {
             />
             <Media query="(min-width: 768px) and (max-width: 1279px)" render={() =>
             (<> <AuthBar />
+            <div className="statisticsPage"> 
                 <div className="left-side-block tablet-placement" style={{"width" : "768px"}}>         
                     <div className="sub-division-tablet">           
                         <NavigationBtns />
@@ -41,6 +42,7 @@ export default function StatisticPage() {
                 </div>
                 <div className="right-side-block" style={{"width" : "768px"}}>                    
                     <Diagram />
+                </div>
                 </div>
             </>)}
             />
