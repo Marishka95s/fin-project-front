@@ -64,7 +64,7 @@ export default function TableTransactions() {
               <span className="transactions__menu-item">Сумма</span>
               <span className="transactions__menu-item">Баланс</span>
             </li>
-            <div className="transactions__container" style={{ overflow: "scroll", maxHeight: "60vh"}}>
+            <div className="transactions__container" style={{ overflow: "scroll", maxHeight: "80vh"}}>
             {transactions.map(row => {
               return (
                 <li className="transactions__item" id={row._id} >

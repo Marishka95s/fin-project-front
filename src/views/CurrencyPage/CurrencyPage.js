@@ -22,7 +22,7 @@ export default function CurrencyPage() {
           <>
             {' '}
             <AuthBar />
-            <div className="statisticsPage">
+            <div style={{ overflow: "scroll", height: "90vh"}}>
                 <div className="left-side-block" >                    
                     <NavigationBtns />                    
                 </div>
