@@ -33,7 +33,7 @@ export default function RegistrationForm() {
         password === confirmPassword ?
             dispatch(operations.registration({ email, password, name })) :
             alert('Пароли должны совпадать!')
-
+        // dispatch(operations.login({ email, password }))
         setName('')
         setEmail('')
         setPassword('')

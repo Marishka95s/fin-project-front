@@ -16,7 +16,9 @@ const registration = ({ email, password, name }) => dispatch => {
     .then((data) => {
       token.set(data.token);
       dispatch(actions.registrationSuccess(data))
-    }).catch((error) => {
+
+    })
+    .catch((error) => {
       dispatch(actions.registrationError(error.message))
     })
 }

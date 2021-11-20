@@ -1,18 +1,22 @@
-@media screen and (min-width: 768px) {
-  .Modal__backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.25);
-  }
+@import '../../../stylesheet/vars.scss';
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.25);
+  //     @media screen and (min-width: 768px) {
+
+  // }
 }
 
-.Modal__content {
+.modal-content {
   position: absolute;
   width: 100%;
-  min-height: 540px;
+  max-width: 320px;
+  min-height: 300px;
   top: 60px;
   padding: 20px 10px 40px 10px;
   background-color: #fff;
@@ -23,7 +27,58 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 40px 65px 60px 65px;
+    padding: 60px 65px;
     border-radius: 20px;
   }
+}
+.logout-modalBtn {
+  font-family: $circe;
+  text-transform: uppercase;
+  background-color: #dc0808;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  color: #fff;
+  width: 180px;
+  height: 50px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+
+  // @media screen and (min-width: 768px) {
+  //   width: 150px;
+  // }
+}
+.close-modalBtn {
+  font-family: $circe;
+  text-transform: uppercase;
+  background-color: $main-accent-color;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  color: #fff;
+  width: 180px;
+  height: 50px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  // @media screen and (min-width: 768px) {
+  //   width: 150px;
+  // }
+}
+.logout-modal-text {
+  display: block;
+  text-align: center;
+  font-family: $circe;
+  font-size: 24px;
+
+  margin-bottom: 80px;
+}
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
 }

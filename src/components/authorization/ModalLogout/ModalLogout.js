@@ -36,11 +36,13 @@ export default function ModalLogout({ onClose }) {
     );
 
     return createPortal(
-        <div className="Modal__backdrop" onClick={handleBackdropClick}>
-            <div className="Modal__content" onClose={onClose}>
-                <span>Ну гудбай</span>
-                <button onClick={onLogout}>Ок</button>
-                <button onClick={handleBackdropClick}>Отмена</button>
+        <div className="modal-backdrop" onClick={handleBackdropClick}>
+            <div className="modal-content" onClose={onClose}>
+                <span className="logout-modal-text">Вы действительно хотите выйти?</span>
+                <div className="modal-buttons">
+                    <button className="logout-modalBtn" onClick={onLogout}>Выйти</button>
+                    <button className="close-modalBtn" onClick={handleBackdropClick}>Отмена</button>
+                </div>
             </div>
         </div>,
         modalRoot,
