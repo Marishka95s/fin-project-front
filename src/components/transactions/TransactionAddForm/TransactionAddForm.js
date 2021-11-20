@@ -252,7 +252,7 @@ export default function TransactionAddForm({ onClose }) {
                                 maxLength="6"
                                 className="input sum__input"
                                 placeholder="0.00"
-                                pattern = '#^[0-9]+$#'
+                                // pattern = '#^[0-9]+$#'
                                 required
                             ></input>
                         </label>
