@@ -304,6 +304,62 @@ export default function TransactionAddForm({ onClose }) {
             // required
           />
           {/* <svg className="date__icon" id="calendar-icon" width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {checked && (
+                        <div className="select__wrapper">
+                            <Select
+                                name="selectedOption"
+                                onChange={onChangeSelect}
+                                options={optionSelect}
+                                placeholder="Выберите категорию"
+                                styles={customStyles}
+                            />
+                            <svg className="select__icon" id="arrow-icon" width="20" height="11" viewBox="0 0 20 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 1L10 10L19 1" stroke="black"/>
+</svg>
+                        </div>
+                    )}
+                    {!checked && (
+                        <div className="select__wrapper">
+                            <Select
+                                name="selectedOption"
+                                onChange={onChangeSelect}
+                                options={optionSelect}
+                                placeholder="Выберите категорию"
+                                styles={customStyles}
+                            />
+                            <svg className="select__icon" id="arrow-icon" width="20" height="11" viewBox="0 0 20 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 1L10 10L19 1" stroke="black"/>
+</svg>
+                        </div>
+                    )}
+
+                    <div className="form__wrapper">
+                        <label className="form__sum">
+                            <input
+                                name="sum"
+                                value={sum}
+                                onChange={handleChange}
+                                type="text"
+                                maxLength="6"
+                                className="input sum__input"
+                                placeholder="0.00"
+                                pattern = '#^[0-9]+$#'
+                                required
+                            ></input>
+                        </label>
+
+                        <Datetime
+                            className="date__wrapper"
+                            locale="ru"
+                            initialValue={moment()}
+                            closeOnSelect={true}
+                            timeFormat={false}
+                            inputProps={inputProps}
+                            // isValidDate={valid}
+                            // onChange={handleChangeDate}
+                            // required
+                        />
+                        <svg className="date__icon" id="calendar-icon" width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_4_1061)">
 <path d="M10 11H8V13H10V11ZM14 11H12V13H14V11ZM18 11H16V13H18V11ZM20 4H19V2H17V4H9V2H7V4H6C4.89 4 4.01 4.9 4.01 6L4 20C4 21.1 4.89 22 6 22H20C21.1 22 22 21.1 22 20V6C22 4.9 21.1 4 20 4ZM20 20H6V9H20V20Z" fill="#4A56E2"/>
 </g>
@@ -319,8 +375,24 @@ export default function TransactionAddForm({ onClose }) {
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_4_1061" result="shape"/>
 </filter>
 </defs>
-</svg> */}
-        </div>
+</svg>
+                    </div>
+
+                    <label className="form__text">
+                        <input
+                            name="comment"
+                            value={comment}
+                            type="text"
+                            onChange={handleChange}
+                            className="input text__input"
+                            placeholder="Комментарий"
+                            pattern="^[a-zA-Zа-яА-ЯІіЇїҐґ]+(([' -][a-zA-Zа-яА-ЯІіЇїҐґ ])?[a-zA-Zа-яА-ЯІіЇїҐґ]*)*$"
+                        ></input>
+                    </label>
+
+
+                    <button type="submit" className="TransactionAddForm__addBtn">ДОБАВИТЬ</button>
+                    <button type="submit" className="TransactionAddForm__cancelBtn" onClick={onClose}>ОТМЕНА</button>
 
         <label className="form__text">
           <input
