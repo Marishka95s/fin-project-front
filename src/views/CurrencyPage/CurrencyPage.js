@@ -32,7 +32,6 @@ export default function CurrencyPage() {
                 </div> 
                 </div>
               </div>
-            </div>
           </>
         )}
       />
