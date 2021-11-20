@@ -11,8 +11,6 @@ import PrivateRoute from './components/PrivateRoute'
 
 import './App.scss';
 
-import TableTransactions from './components/dashboard/TableTransactions';
-
 const HomePage = lazy(() => import('./views/HomePage/HomePage'))
 const StatisticPage = lazy(() => import('./views/StatisticPage/StatisticPage'))
 const CurrencyPage = lazy(() => import('./views/CurrencyPage/CurrencyPage'))
@@ -34,7 +32,6 @@ export default function App() {
 
 
   return (
-    /* !isFetchingCurrentUser && */
     (
       <div className="App">
         <Suspense fallback={<Loader type="ThreeDots" color="brown" height={80} width={80} />}>
@@ -48,17 +45,14 @@ export default function App() {
               <LoginPage />
             </PublicRoute>
 
-            {/* CHANGE INTO PrivateRoute */}
             <PrivateRoute path="/fin-project-front/home" redirectTo="/fin-project-front/login">
               <HomePage />
             </PrivateRoute>
 
-            {/* CHANGE INTO PrivateRoute */}
             <PrivateRoute path="/fin-project-front/statistics" redirectTo="/fin-project-front/login">
               <StatisticPage />
             </PrivateRoute>
 
-            {/* CHANGE INTO PrivateRoute */}
             <PrivateRoute path="/fin-project-front/currency" redirectTo="/fin-project-front/login">
               <CurrencyPage />
             </PrivateRoute>

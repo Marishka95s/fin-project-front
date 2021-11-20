@@ -11,6 +11,7 @@ export default function TableTransactions() {
     dispatch(transactionsOperations.fetchTransactions());
   }, [dispatch]);
   const transactions = useSelector(transactionsSelectors.getAllTransactions);
+  console.log(transactions)
   
     return ((!transactions.length) && (<><h1 style={{ padding: '20px'}}>Добро пожаловать в ваш кошелек! Здесь будут показаны ваши транзакции</h1> 
       <h2 style={{ color: 'LightSeaGreen'}}> Нажмите «+», чтобы добавить свою первую транзакцию. </h2></>) ||
