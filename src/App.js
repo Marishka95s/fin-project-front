@@ -6,6 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from './redux/auth';
 import Loader from 'react-loader-spinner';
 
+
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
 import PublicRoute from './components/PublicRoute'
 import PrivateRoute from './components/PrivateRoute'
 
@@ -46,6 +50,7 @@ export default function App() {
             </PublicRoute>
 
             <PrivateRoute path="/fin-project-front/home" redirectTo="/fin-project-front/login">
+              <ToastContainer />
               <HomePage />
             </PrivateRoute>
 
