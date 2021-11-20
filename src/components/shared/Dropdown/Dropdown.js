@@ -17,7 +17,7 @@ export default function Dropdown({ selected, setSelected, options }) {
 
   const handleClick = () => {
     //document.addEventListener('click', handleClickOutside);
-    console.log('listener outside added');
+    //console.log('listener outside added');
     setIsActive(!isActive);
   };
 
@@ -27,7 +27,7 @@ export default function Dropdown({ selected, setSelected, options }) {
         className="dropdown-btn"
         onClick={e => {
           handleClick();
-          console.log('btn click isActive', isActive);
+          //console.log('btn click isActive', isActive);
         }}
       >
         {selected}
@@ -41,11 +41,11 @@ export default function Dropdown({ selected, setSelected, options }) {
               onClick={e => {
                 setSelected(option);
                 setIsActive(false);
-                console.log('option click isActive', isActive);
+                //console.log('option click isActive', isActive);
               }}
               onBlur={e => {
                 setIsActive(false);
-                console.log('onBlur', isActive);
+                //console.log('onBlur', isActive);
               }}
               className="dropdown-item"
             >

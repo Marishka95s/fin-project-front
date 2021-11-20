@@ -1,19 +1,21 @@
 const getAllTransactions = state => state.transactions.allTransactions;
 const getAddTransactions = state => state.transactions.addTransactions;
 const getAllQueryStatistics = state => state.transactions.queryStatistics;
-const getIsModalAddTransactionOpen = state => state.transactions.modalTransaction;
-const getTransactionCategories = state => state.transactions.transactionCategories;
-
+const getIsModalAddTransactionOpen = state =>
+  state.transactions.modalTransaction;
+const getTransactionCategories = state =>
+  state.transactions.transactionCategories;
+const getCurrentBalance = state =>
+  state.transactions.allTransactions[0].balance;
 
 export {
   getAllTransactions,
   getAddTransactions,
   getAllQueryStatistics,
   getIsModalAddTransactionOpen,
-  getTransactionCategories
+  getTransactionCategories,
+  getCurrentBalance,
 };
-
-
 
 // import { createSelector } from "@reduxjs/toolkit";
 
@@ -26,7 +28,7 @@ export {
 // export const getFiltredTransactions = createSelector(
 //     [getTransactions, getFilter],
 //     (transactions, filter) => {
-//       const normalizedFilter = filter.toLowerCase();  
+//       const normalizedFilter = filter.toLowerCase();
 //       return transactions.filter(transaction => transaction.name.includes(normalizedFilter),
 //       );
 //     },
@@ -36,6 +38,5 @@ export {
 //     const transactions = getTransactions(state);
 //     const filter = getFilter(state);
 //     const normalizedFilter = filter.toLowerCase();
-   
-//     return transactions.filter(transaction => transaction.name.includes(normalizedFilter))};
 
+//     return transactions.filter(transaction => transaction.name.includes(normalizedFilter))};

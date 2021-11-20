@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { authSelectors } from '../../redux/auth';
+import { transactionsSelectors } from '../../redux/transactions';
 
+import Error from '../shared/Error';
 import Chart from './Chart';
 import Table from './Table';
 import './Diagram.scss';
@@ -11,70 +13,94 @@ import React from 'react';
 
 export default function Diagram() {
   const initialDataStat = {
-    income: 123.0,
-    expenseAll: 12,
+    income: '-',
+    expenseAll: '-',
     expenseCategory: {
-      Basic: 6,
-      Food: 2,
-      Auto: 1,
-      Development: 0,
-      Children: 2,
-      Home: 1,
-      Education: 0,
-      Others: 0,
+      Basic: '-',
+      Food: '-',
+      Auto: '-',
+      Development: '-',
+      Children: '-',
+      Home: '-',
+      Education: '-',
+      Others: '-',
     },
   };
 
-  const [statistics, setStatistics] = useState(initialDataStat);
-  const [monthSelected, setMonthSelected] = useState('Месяц');
-  const [yearSelected, setYearSelected] = useState('Год');
-  const [error, setError] = useState(null);
-
-  console.log('useState(Месяц)', monthSelected);
-  console.log('useState(Год)', yearSelected);
+  let balance = useSelector(authSelectors.getBalance);
+  const curBalance = useSelector(transactionsSelectors.getCurrentBalance);
+  balance = curBalance ? curBalance : balance; //if in transactions 'balance' missing - take it from user Obj
 
   const token = useSelector(authSelectors.getToken);
 
+  const [statistics, setStatistics] = useState(initialDataStat); //initialDataStat
+  const [monthSelected, setMonthSelected] = useState('Месяц');
+  const [yearSelected, setYearSelected] = useState('Год');
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
+
   useEffect(() => {
+    //console.log('useEffect start', Date.now());
     let month = monthSelected;
     let year = yearSelected;
     month = month === 'Месяц' ? 11 : monthSelected;
     year = year === 'Год' ? 2021 : yearSelected;
-    //console.log('Who art thou: Api', Api.fetchStatisticsAPI);
 
+    setIsLoading(true);
     Api.fetchStatisticsAPI(month, year, token)
       .then(res => {
-        console.log('stats request started, resolve res:', res);
-
         if (res?.data) {
           setStatistics(res?.data);
-        } else throw new Error(`Ошибка при запросе данных!!! ${res}`);
+        } else {
+          throw new Error(`Ошибка при получении данных: ${res} !`);
+        }
       })
       .catch(error => {
         setError(error);
-        //console.log('не фартануло', error);
-        //console.log('не фартануло', error.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, [monthSelected, yearSelected, token]);
 
-  if (statistics) {
-    const expenseList = Object.values(statistics?.expenseCategory);
-    const income = statistics?.income;
-    const expenseAll = statistics?.expenseAll;
-    const stats = { expenseList, expenseAll, income };
+  const expenseList = Object.values(statistics?.expenseCategory);
+  const income = statistics?.income;
+  const expenseAll = statistics?.expenseAll;
+  const stats = { expenseList, expenseAll, income };
 
-    //console.log('error', error.message);
+  if (isLoading === true) {
+    //error && console.log('isLoading before Toastify:', Date.now(), ':', error);
+    const expenseList = Object.values(initialDataStat.expenseCategory);
+    const income = initialDataStat.income;
+    const expenseAll = initialDataStat.expenseAll;
+    const stats = { expenseList, expenseAll, income };
 
     return (
       <section className="diagram">
         <h1 className="diagram__title">Статистика</h1>
-        {error && (
-          <p style={{ fontSize: '12px', color: 'red' }}>
-            Подставленны локальные данные {error.message}
-          </p>
-        )}
         <div className="diagram__data">
-          {stats && <Chart statistics={stats.expenseList} />}
+          {stats && <Chart statistics={stats.expenseList} balance={balance} />}
+
+          <Table
+            selectedMonth={monthSelected}
+            setSelectedMonth={setMonthSelected}
+            selectedYear={yearSelected}
+            setSelectedYear={setYearSelected}
+            statistics={stats}
+          />
+        </div>
+      </section>
+    );
+  } else {
+    //console.log('before return data Toastify:', Date.now(), ':', error);
+    return (
+      <section className="diagram">
+        <h1 className="diagram__title">Статистика</h1>
+
+        <div className="diagram__data">
+          {stats && <Chart statistics={stats.expenseList} balance={balance} />}
+
+          {error && <Error errorMessage={error.message} />}
 
           <Table
             selectedMonth={monthSelected}
@@ -87,19 +113,4 @@ export default function Diagram() {
       </section>
     );
   }
-
-  //console.log('stats :', statistics);
-
-  return (
-    <>
-      <h1 style={{ fontSize: '50px', color: 'red' }}>
-        Статистику не подвезли. Проблема с токеном, перелогинься!
-      </h1>
-      <p style={{ fontSize: '20px', color: 'red' }}>
-        {' '}
-        Сырые данные таковы
-        {statistics}{' '}
-      </p>
-    </>
-  );
 }

@@ -6,19 +6,11 @@ const fetchStatisticsAPI = async (month, year, token) => {
   try {
     axios.defaults.headers.common.Authorization = `${token}`; //Bearer  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
     const { data } = await axios.get(
-      `/transactions/statistics`, //`/transactions/statistics?month=${month}&year=${year}`
-      {
-        body: JSON.stringify({
-          month: 8,
-          year: 2020,
-        }),
-      },
+      `transactions/statistics?month=${Number(month)}&year=${year}`,
     );
-    //console.log('data in request', data);
     return data;
   } catch (error) {
-    console.log('Error in stats fetch occurred...', error.message);
-    return error.message;
+    throw new Error(`${error.message}`);
   }
 };
 

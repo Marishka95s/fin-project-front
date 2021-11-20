@@ -1,9 +1,10 @@
 import React from 'react';
+
 import './Chart.scss';
 import { Doughnut } from 'react-chartjs-2';
 import schemas from '../../../assets/templates/categoriesSchema';
 
-export default function Chart({ statistics }) {
+export default function Chart({ statistics, balance }) {
   const data = {
     datasets: [
       {
@@ -20,7 +21,7 @@ export default function Chart({ statistics }) {
   return (
     <div className="chart">
       <Doughnut className="chart__contents" data={data} />
-      <span className="chart__ballance">&#8372; {250000}</span>
+      <span className="chart__ballance">&#8372; {balance}</span>
     </div>
   );
 }
