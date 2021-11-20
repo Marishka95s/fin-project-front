@@ -15,7 +15,7 @@ const modalTransaction = createReducer(false, {
 });
 
 const allTransactions = createReducer([], {
-    [addTransactionSuccess]: (state, { payload }) => {return [...state, payload]},
+    [addTransactionSuccess]: (state, { payload }) => {return [payload, ...state]},
     [fetchTransactionSuccess]: (_, { payload }) => payload,
     
 });

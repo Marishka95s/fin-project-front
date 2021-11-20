@@ -1,103 +1,114 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { Formik } from 'formik'
+import * as yup from 'yup'
 import operations from '../../../redux/auth/auth-operations';
 import '../authForm.scss'
-
-
 export default function RegistrationForm() {
     const dispatch = useDispatch()
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-
-    const handleChange = ({ target: { name, value } }) => {
-        switch (name) {
-            case 'email':
-                return setEmail(value);
-            case 'password':
-                return setPassword(value);
-            case 'confirmPassword':
-                return setConfirmPassword(value);
-            case 'name':
-                return setName(value);
-            default:
-                return;
-        }
-    };
-
-    const handleSubmit = e => {
-        e.preventDefault();
-
-        password === confirmPassword ?
-            dispatch(operations.registration({ email, password, name })) :
-            alert('Пароли должны совпадать!')
-
-        setName('')
-        setEmail('')
-        setPassword('')
-        setConfirmPassword('')
-    };
+    const [count, setCount] = useState(0)
+    const countUp = () => {
+        setCount(prevState => prevState + 1)
+        console.log(count)
+    }
+    // useEffect(() => {
+    //     console.log(count)
+    // }, [count]);
+    const validationsSchema = yup.object().shape({
+        email: yup.string().email('Введите корректный email').required('Обязательноe поле'),
+        password: yup.string().matches(
+            // /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]/,
+            /[0-9a-zA-Z!@#$%^&*]/,
+            'Недопустимые символы для пароля'
+        ).min(6, 'Пароль должен быть не менее 6 символов').max(12, 'Максимальная длина пароля 12 символов').typeError('Должно быть строкой').required('Обязательноe поле'),
+        confirmPassword: yup.string().oneOf([yup.ref('password')], 'Пароли не совпадают').required('Обязательноe поле'),
+        name: yup.string().min(1, 'Минимальная длина имени 1 символ').typeError('Должно быть строкой').required('Обязательноe поле'),
+    })
     return (
-        <div className="form-block">
-            <div className="form-container">
-                <span className="logo"></span>
-                <form
-                    className="auth-form"
-                    onSubmit={handleSubmit}>
-                    <label className="form-label" type="email">
-                        <input
-                            className="form-input"
-                            placeholder="E-mail"
-                            type="email"
-                            name="email"
-                            value={email}
-                            onChange={handleChange}
-                        />
-                    </label>
-                    <label className="form-label" type="password">
-                        <input
-                            className="form-input"
-                            placeholder="Пароль"
-                            type="password"
-                            name="password"
-                            value={password}
-                            onChange={handleChange}
-                        />
-                    </label>
-                    <label className="form-label" type="password">
-                        <input
-                            className="form-input"
-                            placeholder="Подтвердите пароль"
-                            type="password"
-                            name="confirmPassword"
-                            value={confirmPassword}
-                            onChange={handleChange}
-                        />
-                    </label>
-                    <progress value="1" max="4"></progress>
-                    <label className="form-label" type="text">
-                        <input
-                            className="form-input"
-                            placeholder="Ваше имя"
-                            type="text"
-                            name="name"
-                            value={name}
-                            onChange={handleChange}
-                        />
-                    </label>
-                    <button className="login-button" type="submit">Регистрация</button>
-                    <NavLink
-                        className="nav-button"
-                        to="/fin-project-front/login"
-                    // exact
-                    >
-                        Вход
-                    </NavLink>
-                </form>
-            </div>
-        </div>
+        <Formik
+            initialValues={{
+                email: '',
+                password: '',
+                confirmPassword: '',
+                name: '',
+            }}
+            validateOnBlur
+            validateOnChange={false}
+            onSubmit={({ email, password, name }, { resetForm }) => {
+                dispatch(operations.registration({ email, password, name }))
+                resetForm();
+            }}
+            validationSchema={validationsSchema}
+        >
+            {({ values, errors, touched, handleSubmit, handleChange, handleBlur, isValid, dirty }) => (
+                <div className="form-block">
+                    <div className="form-container">
+                        <span className="logo"></span>
+                        <form
+                            className="auth-form"
+                            onSubmit={handleSubmit}>
+                            <label className="form-label" type="email">
+                                <input
+                                    className="form-input"
+                                    placeholder="E-mail"
+                                    type="email"
+                                    name="email"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.email}
+                                />
+                                {touched.email && errors.email && <p className={'input-error'}>{errors.email}</p>}
+                            </label>
+                            <label className="form-label" type="password">
+                                <input
+                                    className="form-input"
+                                    placeholder="Пароль"
+                                    type="password"
+                                    name="password"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.password}
+                                />
+                                {touched.password && errors.password && <p className={'input-error'}>{errors.password}</p>}
+                            </label>
+                            <label className="form-label" type="password">
+                                <input
+                                    className="form-input"
+                                    placeholder="Подтвердите пароль"
+                                    type="password"
+                                    name="confirmPassword"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.confirmPassword}
+                                />
+                                {touched.confirmPassword && errors.confirmPassword && <p className={'input-error'}>{errors.confirmPassword}</p>}
+                            </label>
+                            <progress value="1" max="4"></progress>
+                            <label className="form-label" type="text">
+                                <input
+                                    className="form-input"
+                                    placeholder="Ваше имя"
+                                    type="text"
+                                    name="name"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.name}
+                                />
+                                {touched.name && errors.name && <p className={'input-error'}>{errors.name}</p>}
+                            </label>
+                            <button className="login-button" type="submit">Регистрация</button>
+                            <NavLink
+                                className="nav-button"
+                                to="/fin-project-front/login"
+                            // exact
+                            >
+                                Вход
+                            </NavLink>
+                        </form>
+                    </div>
+                </div>
+            )}
+        </Formik>
     )
-
 }

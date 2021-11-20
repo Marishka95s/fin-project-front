@@ -6,12 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from './redux/auth';
 import Loader from 'react-loader-spinner';
 
+
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
 import PublicRoute from './components/PublicRoute'
 import PrivateRoute from './components/PrivateRoute'
 
 import './App.scss';
-
-import TableTransactions from './components/dashboard/TableTransactions';
 
 const HomePage = lazy(() => import('./views/HomePage/HomePage'))
 const StatisticPage = lazy(() => import('./views/StatisticPage/StatisticPage'))
@@ -34,7 +36,6 @@ export default function App() {
 
 
   return (
-    /* !isFetchingCurrentUser && */
     (
       <div className="App">
         <Suspense fallback={<Loader type="ThreeDots" color="brown" height={80} width={80} />}>
@@ -48,17 +49,15 @@ export default function App() {
               <LoginPage />
             </PublicRoute>
 
-            {/* CHANGE INTO PrivateRoute */}
             <PrivateRoute path="/fin-project-front/home" redirectTo="/fin-project-front/login">
+              <ToastContainer />
               <HomePage />
             </PrivateRoute>
 
-            {/* CHANGE INTO PrivateRoute */}
             <PrivateRoute path="/fin-project-front/statistics" redirectTo="/fin-project-front/login">
               <StatisticPage />
             </PrivateRoute>
 
-            {/* CHANGE INTO PrivateRoute */}
             <PrivateRoute path="/fin-project-front/currency" redirectTo="/fin-project-front/login">
               <CurrencyPage />
             </PrivateRoute>
