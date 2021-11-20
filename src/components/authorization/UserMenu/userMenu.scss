@@ -50,3 +50,9 @@
   height: 18px;
   margin-right: 10px;
 }
+
+.exit-button-text {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }; 
+}
