@@ -120,7 +120,7 @@ export default function TransactionAddForm({ onClose }) {
             const validSum = Number(sum).toFixed(2);
             dispatch(
                 transactionsOperations.addTransaction({
-                    sum: validSum,
+                    sum: Number(validSum),
                     comment,
                     type: !checked ? 'income' : 'expense',
                     category,
