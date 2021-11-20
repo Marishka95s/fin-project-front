@@ -170,7 +170,6 @@ export default function TransactionAddForm({ onClose }) {
   //     );
 
   return (
-    // <p>M O D A L</p>
 
     <Modal onClose={onClose}>
       <button
