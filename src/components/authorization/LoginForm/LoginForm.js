@@ -5,9 +5,6 @@ import { Formik } from 'formik'
 import * as yup from 'yup'
 import operations from '../../../redux/auth/auth-operations';
 import '../authForm.scss'
-
-
-
 export default function LoginForm() {
     const dispatch = useDispatch();
     const validationsSchema = yup.object().shape({
@@ -17,7 +14,6 @@ export default function LoginForm() {
             'Недопустимые символы для пароля'
         ).min(6, 'Пароль должен быть не менее 6 символов').max(12, 'Максимальная длина пароля 12 символов').typeError('Должно быть строкой').required('Обязательноe поле'),
     })
-
     return (
         <Formik
             initialValues={{
@@ -51,8 +47,8 @@ export default function LoginForm() {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
+                                {touched.email && errors.email && <p className={'input-error'}>{errors.email}</p>}
                             </label>
-                            {touched.email && errors.email && <p className={'error'}>{errors.email}</p>}
                             <label className="form-label" type="password">
                                 <input
                                     className="form-input"
@@ -63,8 +59,8 @@ export default function LoginForm() {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
+                                {touched.password && errors.password && <p className={'input-error'}>{errors.password}</p>}
                             </label>
-                            {touched.password && errors.password && <p className={'error'}>{errors.password}</p>}
                             <button className="login-button" type="submit">Вход</button>
                             <NavLink
                                 className="nav-button"
@@ -78,8 +74,5 @@ export default function LoginForm() {
                 </div>
             )}
         </Formik>
-
-
-
     );
 };

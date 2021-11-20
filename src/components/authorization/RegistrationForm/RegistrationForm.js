@@ -5,12 +5,9 @@ import { Formik } from 'formik'
 import * as yup from 'yup'
 import operations from '../../../redux/auth/auth-operations';
 import '../authForm.scss'
-
-
 export default function RegistrationForm() {
     const dispatch = useDispatch()
     const [count, setCount] = useState(0)
-
     const countUp = () => {
         setCount(prevState => prevState + 1)
         console.log(count)
@@ -27,9 +24,7 @@ export default function RegistrationForm() {
         ).min(6, 'Пароль должен быть не менее 6 символов').max(12, 'Максимальная длина пароля 12 символов').typeError('Должно быть строкой').required('Обязательноe поле'),
         confirmPassword: yup.string().oneOf([yup.ref('password')], 'Пароли не совпадают').required('Обязательноe поле'),
         name: yup.string().min(1, 'Минимальная длина имени 1 символ').typeError('Должно быть строкой').required('Обязательноe поле'),
-
     })
-
     return (
         <Formik
             initialValues={{
@@ -63,8 +58,8 @@ export default function RegistrationForm() {
                                     onBlur={handleBlur}
                                     value={values.email}
                                 />
+                                {touched.email && errors.email && <p className={'input-error'}>{errors.email}</p>}
                             </label>
-                            {touched.email && errors.email && <p className={'error'}>{errors.email}</p>}
                             <label className="form-label" type="password">
                                 <input
                                     className="form-input"
@@ -75,8 +70,8 @@ export default function RegistrationForm() {
                                     onBlur={handleBlur}
                                     value={values.password}
                                 />
+                                {touched.password && errors.password && <p className={'input-error'}>{errors.password}</p>}
                             </label>
-                            {touched.password && errors.password && <p className={'error'}>{errors.password}</p>}
                             <label className="form-label" type="password">
                                 <input
                                     className="form-input"
@@ -87,8 +82,8 @@ export default function RegistrationForm() {
                                     onBlur={handleBlur}
                                     value={values.confirmPassword}
                                 />
+                                {touched.confirmPassword && errors.confirmPassword && <p className={'input-error'}>{errors.confirmPassword}</p>}
                             </label>
-                            {touched.confirmPassword && errors.confirmPassword && <p className={'error'}>{errors.confirmPassword}</p>}
                             <progress value="1" max="4"></progress>
                             <label className="form-label" type="text">
                                 <input
@@ -100,8 +95,8 @@ export default function RegistrationForm() {
                                     onBlur={handleBlur}
                                     value={values.name}
                                 />
+                                {touched.name && errors.name && <p className={'input-error'}>{errors.name}</p>}
                             </label>
-                            {touched.name && errors.name && <p className={'error'}>{errors.name}</p>}
                             <button className="login-button" type="submit">Регистрация</button>
                             <NavLink
                                 className="nav-button"
@@ -116,5 +111,4 @@ export default function RegistrationForm() {
             )}
         </Formik>
     )
-
 }

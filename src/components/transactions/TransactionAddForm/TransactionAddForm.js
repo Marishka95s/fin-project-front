@@ -105,10 +105,10 @@ export default function TransactionAddForm({ onClose }) {
     }));
   };
 
-  // let yesterday = moment().subtract( 1, 'day' );
-  // let valid = function( current ){
-  //     return current.isAfter( yesterday );
-  // };
+  let yesterday = moment().subtract( 1, 'day' );
+  let valid = function( current ){
+      return current.isAfter( yesterday );
+  };
 
   // const handleChangeDate = e => {
   // typeof e === 'string'
@@ -311,7 +311,7 @@ export default function TransactionAddForm({ onClose }) {
             closeOnSelect={true}
             timeFormat={false}
             inputProps={inputProps}
-            // isValidDate={valid}
+            isValidDate={valid}
             // onChange={handleChangeDate}
             // required
           />

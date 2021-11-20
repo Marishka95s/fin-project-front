@@ -3,7 +3,6 @@
   padding-left: 20px;
   padding-right: 20px;
   width: 320px;
-
   @media screen and (min-width: 768px) {
     width: 540px;
     padding-left: 65px;
@@ -18,7 +17,6 @@
   background-image: url('../../images/icons/logo-icon.svg');
   background-size: contain;
   background-repeat: no-repeat;
-
   @media screen and (min-width: 768px) {
     width: 180px;
     height: 40px;
@@ -34,7 +32,6 @@
   background-color: #ffffff;
   padding-top: 36px;
   padding-bottom: 36px;
-
   @media screen and (min-width: 768px) {
     padding-top: 40px;
     padding-bottom: 60px;
@@ -48,6 +45,7 @@
   width: 100%;
 }
 .form-input {
+  // position: absolute;
   display: block;
   width: 100%;
   height: 100%;
@@ -65,7 +63,6 @@
     color: #bdbdbd;
   }
 }
-
 .form-label {
   width: 100%;
   height: 34px;
@@ -153,7 +150,7 @@
 }
 
 .auth-block {
-  // background-color: #e7eaf2; 
+  // background-color: #e7eaf2;
   margin-left: auto;
   margin-right: auto;
 
@@ -161,12 +158,11 @@
     width: 768px;
     padding: 60px 114px 48px 114px;
     // z-index: 1;
-
     // background: url('../../images/tablet/ellipse-rose-tablet.svg')
     // 100% 0 no-repeat,
     //     url('../../images/tablet/ellipse-purple-tablet.svg') 0 100% no-repeat ;
     //   background-color: $background-color-main;
-      // padding: 0 0 48px;
+    // padding: 0 0 48px;
   }
   @media screen and(min-width:1280px) {
     width: 1280px;
@@ -180,23 +176,19 @@
     padding: 0;
   }
 }
-
 .auth-image {
   display: block;
   margin-right: 40px;
-
   @media screen and(min-width:1280px) {
     margin-right: 0px;
   }
 }
-
 .reg-image {
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url('../../images/icons/registration.svg');
   width: 250px;
   height: 250px;
-
   @media screen and(min-width:1280px) {
     width: 410px;
     height: 412px;
@@ -209,7 +201,6 @@
   background-image: url('../../images/icons/login.svg');
   width: 260px;
   height: 250px;
-
   @media screen and(min-width:1280px) {
     width: 435px;
     height: 420px;
@@ -224,7 +215,6 @@
   }
   @media screen and(min-width:1280px) {
     display: block;
-
     margin-bottom: 0px;
   }
 }
@@ -283,4 +273,14 @@ progress {
 }
 .reg-blur {
   padding: 52px 85px 52px 95px;
+}
+.input-error {
+  font-family: $circe;
+  margin: 0px;
+  font-size: 12px;
+  color: red;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
 }
