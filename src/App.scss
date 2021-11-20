@@ -4,7 +4,7 @@
   text-align: center;
   // background-color: #FFD8D0;
   color: $button-text-color; // Приклад використання змінних з загального scss файлу
-  
+  background-color: $background-color-main;
   
   @media screen and (min-width: 768px) {
     background: url('../src/images/tablet/ellipse-rose-tablet.svg')
@@ -75,7 +75,7 @@ body {
 
   
 
-#root{
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(50px);
-}
+// #root{
+//   background: rgba(255, 255, 255, 0.4);
+//   backdrop-filter: blur(50px);
+// }
