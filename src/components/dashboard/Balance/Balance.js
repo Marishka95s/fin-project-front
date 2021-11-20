@@ -7,10 +7,10 @@ import S from './Balance.module.scss';
 
 const Balance = () => {
   let balance = useSelector(authSelectors.getBalance);
-  const curBalance = useSelector(transactionsSelectors.getCurrentBalance);
-  console.log('curBal', curBalance);
+  // const curBalance = useSelector(transactionsSelectors.getCurrentBalance);
+  // console.log('curBal', curBalance);
 
-  balance = curBalance ? curBalance : balance; //if in transactions 'balance' missing - take it from user Obj
+  // balance = curBalance ? curBalance : balance; //if in transactions 'balance' missing - take it from user Obj
 
   return (
     <div className={S.wrapper}>
