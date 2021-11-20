@@ -284,3 +284,8 @@ progress {
 .reg-blur {
   padding: 52px 85px 52px 95px;
 }
+.exit-button-text{
+  @media screen and(max-width:767px) {
+    display: none;
+}
+}

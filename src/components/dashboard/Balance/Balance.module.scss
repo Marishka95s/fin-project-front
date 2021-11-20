@@ -2,9 +2,10 @@
 
 .wrapper {
     width: 280px;
-    margin-top: 13px;
-    padding: 8px 40px 13px 40px;
-    margin: 0 auto;
+    margin-top: 10px;
+    padding: 8px auto 13px auto;
+    margin-left:auto;
+    margin-right: auto;
     background-color: #ffffff;
     border-radius: 30px;
     margin-top: 13px;
@@ -12,11 +13,18 @@
     @media screen and (min-width: 768px) {
       margin-top: 20px;
       width: 334px;
+      padding-top: 8px;
+      padding-bottom: 13px;
+      padding-left: 40px;
+      height: 80px;
+      text-align: left;
+
     }
   
     @media screen and (min-width: 1280px) {
       margin-top: 30px;
       margin-bottom: 30px;
+      margin-left: 0px;
       width: 350px;
     }
   }
@@ -30,6 +38,8 @@
   
     @media screen and (min-width: 768px) {
       margin-bottom: 10px;
+      margin-top: 0;
+
     }
   }
   

@@ -69,7 +69,8 @@ const Currency = () => {
       "border-top-right-radius": 20,
       padding: 0,
       "border-bottom-left-radius": 20,
-      "border-bottom-right-radius": 20
+      "border-bottom-right-radius": 20,
+      // "margin-top":20,
     },
     table: {
       "@media (min-width: 320px) and (max-width:767px )": {
@@ -103,7 +104,7 @@ const Currency = () => {
     tableBody: {
       
       "@media (min-width: 320px) and (max-width:1279px )": {
-
+        
       },
       
     },
