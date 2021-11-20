@@ -277,7 +277,6 @@ export default function TransactionAddForm({ onClose }) {
             {/* <Icons className="select__icon" id="arrow-icon" /> */}
           </div>
         )}
-
         <div className="form__wrapper">
           <label className="form__sum">
             <input
