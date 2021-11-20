@@ -12,8 +12,8 @@ export default function TableTransactions() {
   }, [dispatch]);
   const transactions = useSelector(transactionsSelectors.getAllTransactions);
   
-    return ((!transactions.length) && (<><h1 style={{ padding: '20px'}}>Welcome to your wallet! Here would be shown your transactios</h1> 
-      <h2 style={{ color: 'LightSeaGreen'}}> Click "+" to add one </h2></>) ||
+    return ((!transactions.length) && (<><h1 style={{ padding: '20px'}}>Добро пожаловать в ваш кошелек! Здесь будут показаны ваши транзакции</h1> 
+      <h2 style={{ color: 'LightSeaGreen'}}> Нажмите «+», чтобы добавить свою первую транзакцию. </h2></>) ||
       (transactions.length) &&
       (<div className="transactionscContainer" style={{ display: 'flex', justifyContent: 'center' }}
       >
