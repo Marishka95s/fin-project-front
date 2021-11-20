@@ -63,8 +63,8 @@ export default function RegistrationForm() {
                                     onBlur={handleBlur}
                                     value={values.email}
                                 />
+                                {touched.email && errors.email && <p className={'input-error'}>{errors.email}</p>}
                             </label>
-                            {touched.email && errors.email && <p className={'error'}>{errors.email}</p>}
                             <label className="form-label" type="password">
                                 <input
                                     className="form-input"
@@ -75,8 +75,8 @@ export default function RegistrationForm() {
                                     onBlur={handleBlur}
                                     value={values.password}
                                 />
+                                {touched.password && errors.password && <p className={'input-error'}>{errors.password}</p>}
                             </label>
-                            {touched.password && errors.password && <p className={'error'}>{errors.password}</p>}
                             <label className="form-label" type="password">
                                 <input
                                     className="form-input"
@@ -87,8 +87,8 @@ export default function RegistrationForm() {
                                     onBlur={handleBlur}
                                     value={values.confirmPassword}
                                 />
+                                {touched.confirmPassword && errors.confirmPassword && <p className={'input-error'}>{errors.confirmPassword}</p>}
                             </label>
-                            {touched.confirmPassword && errors.confirmPassword && <p className={'error'}>{errors.confirmPassword}</p>}
                             <progress value="1" max="4"></progress>
                             <label className="form-label" type="text">
                                 <input
@@ -100,8 +100,8 @@ export default function RegistrationForm() {
                                     onBlur={handleBlur}
                                     value={values.name}
                                 />
+                                {touched.name && errors.name && <p className={'input-error'}>{errors.name}</p>}
                             </label>
-                            {touched.name && errors.name && <p className={'error'}>{errors.name}</p>}
                             <button className="login-button" type="submit">Регистрация</button>
                             <NavLink
                                 className="nav-button"

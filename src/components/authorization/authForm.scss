@@ -48,6 +48,7 @@
   width: 100%;
 }
 .form-input {
+  // position: absolute;
   display: block;
   width: 100%;
   height: 100%;
@@ -153,7 +154,7 @@
 }
 
 .auth-block {
-  // background-color: #e7eaf2; 
+  // background-color: #e7eaf2;
   margin-left: auto;
   margin-right: auto;
 
@@ -166,7 +167,7 @@
     // 100% 0 no-repeat,
     //     url('../../images/tablet/ellipse-purple-tablet.svg') 0 100% no-repeat ;
     //   background-color: $background-color-main;
-      // padding: 0 0 48px;
+    // padding: 0 0 48px;
   }
   @media screen and(min-width:1280px) {
     width: 1280px;
@@ -283,4 +284,14 @@ progress {
 }
 .reg-blur {
   padding: 52px 85px 52px 95px;
+}
+.input-error {
+  font-family: $circe;
+  margin: 0px;
+  font-size: 12px;
+  color: red;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
 }

@@ -51,8 +51,8 @@ export default function LoginForm() {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
+                                {touched.email && errors.email && <p className={'input-error'}>{errors.email}</p>}
                             </label>
-                            {touched.email && errors.email && <p className={'error'}>{errors.email}</p>}
                             <label className="form-label" type="password">
                                 <input
                                     className="form-input"
@@ -63,8 +63,8 @@ export default function LoginForm() {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
+                                {touched.password && errors.password && <p className={'input-error'}>{errors.password}</p>}
                             </label>
-                            {touched.password && errors.password && <p className={'error'}>{errors.password}</p>}
                             <button className="login-button" type="submit">Вход</button>
                             <NavLink
                                 className="nav-button"
