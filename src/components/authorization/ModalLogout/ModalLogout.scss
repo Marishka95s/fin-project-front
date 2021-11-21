@@ -16,18 +16,19 @@
   position: absolute;
   width: 100%;
   max-width: 320px;
-  min-height: 300px;
+  min-height: 220px;
   top: 60px;
-  padding: 20px 10px 40px 10px;
+  padding: 40px 20px;
   background-color: #fff;
+  border-radius: 20px;
   @media screen and (min-width: 768px) {
+    min-height: 300px;
     max-height: 620px;
     max-width: 540px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 60px 65px;
-    border-radius: 20px;
   }
 }
 .logout-modalBtn {
@@ -38,7 +39,7 @@
   outline: none;
   border-radius: 20px;
   color: #fff;
-  width: 180px;
+  width: 130px;
   height: 50px;
   font-style: normal;
   font-weight: normal;
@@ -46,9 +47,9 @@
   line-height: 1.5;
   letter-spacing: 0.1em;
 
-  // @media screen and (min-width: 768px) {
-  //   width: 150px;
-  // }
+  @media screen and (min-width: 768px) {
+    width: 180px;
+  }
 }
 .close-modalBtn {
   font-family: $circe;
@@ -58,16 +59,16 @@
   outline: none;
   border-radius: 20px;
   color: #fff;
-  width: 180px;
+  width: 130px;
   height: 50px;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 1.5;
   letter-spacing: 0.1em;
-  // @media screen and (min-width: 768px) {
-  //   width: 150px;
-  // }
+  @media screen and (min-width: 768px) {
+    width: 180px;
+  }
 }
 .logout-modal-text {
   display: block;
@@ -75,7 +76,11 @@
   font-family: $circe;
   font-size: 24px;
 
-  margin-bottom: 80px;
+  margin-bottom: 55px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 80px;
+  }
 }
 .modal-buttons {
   display: flex;
