@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/views/CurrencyPage/CurrencyPage.scss"],"names":[],"mappings":"AACI,2DADJ,gBAEA,kBAAmB,CAElB","file":"11.1833a944.chunk.css","sourcesContent":[".currency-block{\r\n    @media screen and (min-width: 768px) and (max-width: 1279px) {\r\nalign-items: center;\r\n    };\r\n}"]}
