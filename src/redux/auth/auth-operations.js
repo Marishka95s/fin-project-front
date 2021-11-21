@@ -1,5 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 import * as actions from './auth-actions'
+import toastr from 'toastr';
+
 axios.defaults.baseURL = 'https://fin-project-group4.herokuapp.com/api';
 const token = {
   set(token) {
@@ -15,10 +17,11 @@ const registration = ({ email, password, name }) => dispatch => {
     .then((data) => {
       token.set(data.token);
       dispatch(actions.registrationSuccess(data))
-
+      toastr.success('Регистрация прошла успешно!');
     })
     .catch((error) => {
       dispatch(actions.registrationError(error.message))
+      toastr.error(error.message);
     })
 }
 const login = ({ email, password }) => dispatch => {
@@ -27,18 +30,22 @@ const login = ({ email, password }) => dispatch => {
     .then(data => {
       token.set(data.token)
       dispatch(actions.loginSuccess(data))
+      toastr.success('Авторизация прошла успешно!');
     }).catch((error) => {
       dispatch(actions.loginError(error.message))
+      toastr.error(error.message)
     })
 }
 const logout = () => dispatch => {
   dispatch(actions.logoutRequest())
+  toastr.success('Вы вышли из учетной записи');
   axios.get('/auth/logout')
     .then(() => {
       token.unset();
       dispatch(actions.logoutSuccess());
     }).catch(error => {
       dispatch(actions.logoutError(error.message));
+      toastr.error(error.message)
     })
 }
 const getCurrentUser = () => async (dispatch, getState) => {
@@ -53,10 +60,10 @@ const getCurrentUser = () => async (dispatch, getState) => {
   axios.get('/auth/current')
     .then((data) => {
       dispatch(actions.getCurrentUserSuccess(data))
-      // console.log(data)
     })
     .catch((error) => {
       dispatch(actions.getCurrentUserRequest(error.message));
+      toastr.error(error.message)
     })
 }
 const operations = {
