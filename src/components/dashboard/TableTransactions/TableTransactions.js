@@ -67,7 +67,7 @@ export default function TableTransactions() {
             <div className="transactions__container" style={{ overflow: "scroll", maxHeight: "80vh"}}>
             {transactions.map(row => {
               return (
-                <li className="transactions__item" id={row._id} >
+                <li className="transactions__item" key={row._id} >
                   <span className="transactions__costs">{row.date}</span>
                   <span className="transactions__costs">
                     {row.type === 'expense' ? '-' : '+'}

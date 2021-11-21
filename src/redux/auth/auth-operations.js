@@ -11,6 +11,7 @@ const token = {
     axios.defaults.headers.common.Authorization = '';
   },
 };
+
 const registration = ({ email, password, name }) => dispatch => {
   dispatch(actions.registrationRequest())
   axios.post('/auth/signup', { email, password, name })
@@ -47,7 +48,11 @@ const logout = () => dispatch => {
       dispatch(actions.logoutError(error.message));
       toastr.error(error.message)
     })
-}
+    .catch(error => {
+      dispatch(actions.logoutError(error.message));
+    });
+};
+
 const getCurrentUser = () => async (dispatch, getState) => {
   const {
     auth: { token: persistedToken },
@@ -61,15 +66,17 @@ const getCurrentUser = () => async (dispatch, getState) => {
     .then((data) => {
       dispatch(actions.getCurrentUserSuccess(data))
     })
-    .catch((error) => {
+    .catch(error => {
       dispatch(actions.getCurrentUserRequest(error.message));
       toastr.error(error.message)
     })
 }
+
 const operations = {
   registration,
   login,
   logout,
-  getCurrentUser
+  getCurrentUser,
 };
+
 export default operations;
