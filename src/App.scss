@@ -1,5 +1,9 @@
 @import './stylesheet/vars.scss'; // Приклад імпорту змінних з загального scss файлу
 
+html, body {
+  scrollbar-color: $main-accent-color $additional-accent-color;     /* «цвет ползунка» «цвет полосы скроллбара» */
+  scrollbar-width: thin;  /* толщина */
+}
 .App {
   text-align: center;
   // background-color: #FFD8D0;

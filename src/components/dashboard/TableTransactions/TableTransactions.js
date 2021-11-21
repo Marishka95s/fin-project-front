@@ -19,7 +19,7 @@ export default function TableTransactions() {
       (<div className="transactionscContainer" style={{ display: 'flex', justifyContent: 'center' }}
       >
         {window.matchMedia('( max-width:767px)').matches ? (
-          <ul style={{paddingLeft:0, paddingTop:0, margin:0, overflow: "scroll", maxHeight: "60vh"}}>
+          <ul style={{paddingLeft:0, paddingTop:0, margin:0, overflow: "auto", maxHeight: "60vh"}}>
             {transactions.map(row => {
               return (
                 <ul className={"transactions__list__mobile " + "transactions__list__mobile" + row.type}  id={row._id}>
@@ -64,7 +64,7 @@ export default function TableTransactions() {
               <span className="transactions__menu-item">Сумма</span>
               <span className="transactions__menu-item">Баланс</span>
             </li>
-            <div className="transactions__container" style={{ overflow: "scroll", maxHeight: "80vh"}}>
+            <div className="transactions__container" style={{ overflowY: "auto", maxHeight: "80vh"}}>
             {transactions.map(row => {
               return (
                 <li className="transactions__item" key={row._id} >
