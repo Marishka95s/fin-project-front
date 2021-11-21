@@ -1,14 +1,16 @@
 @import './stylesheet/vars.scss'; // Приклад імпорту змінних з загального scss файлу
 @import 'toastr';
 
-html, body {
-  scrollbar-color: $main-accent-color $additional-accent-color;     /* «цвет ползунка» «цвет полосы скроллбара» */
-  scrollbar-width: thin;  /* толщина */
+html,
+body {
+  scrollbar-color: $main-accent-color $additional-accent-color; /* «цвет ползунка» «цвет полосы скроллбара» */
+  scrollbar-width: thin; /* толщина */
+  font-family: $circe;
+  font-style: normal;
 }
 .App {
   text-align: center;
-  // background-color: #FFD8D0;
-  color: $button-text-color; // Приклад використання змінних з загального scss файлу
+  color: $button-text-color;
   background-color: $background-color-main;
 
   @media screen and (min-width: 768px) {
@@ -55,28 +57,12 @@ html, body {
   }
 }
 
-body {
-  font-family: $circe;
-  font-style: normal;
-  // background: rgba(255, 255, 255, 0.4);
-  // backdrop-filter: blur(5px);
-  // background-color: $background-color-main;
-  // @media screen and (min-width: 768px) {
-  //       background: url('../src/images/tablet/ellipse-rose-tablet.svg')
-  //           100% 0 no-repeat,
-  //         url('../src/images/tablet/ellipse-purple-tablet.svg')
-  //         0 100% no-repeat ;
-  //       background-color: $background-color-main;
-  //   // z-index: 999;
-  //     }
-  //     @media screen and (min-width: 1280px) {
-  //       background: url('../src/images/desktop/ellipse-rose-desktop.svg')
-  //           100% 0  no-repeat,
-  //         url('../src/images/desktop/ellipse-purple-desktop.svg') 0 100% no-repeat;
-  //       background-color: $background-color-main;
+.loader {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
 }
-
-// #root{
-//   background: rgba(255, 255, 255, 0.4);
-//   backdrop-filter: blur(50px);
-// }

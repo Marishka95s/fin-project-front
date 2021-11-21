@@ -37,8 +37,9 @@ export default function App() {
 
   return (
     (
-      <div className="App">
-        <Suspense fallback={<Loader type="ThreeDots" color="brown" height={80} width={80} />}>
+      <div className="App" >
+        <Suspense fallback={<Loader className="loader" type="ThreeDots" color="brown" height={80} width={80}/>
+        }>
 
           <Switch>
             <PublicRoute exact path="/fin-project-front/registration" redirectTo="/fin-project-front/home">
