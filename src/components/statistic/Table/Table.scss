@@ -76,7 +76,7 @@
     background-color: $inversion-text-color;
     border-radius: 30px;
     margin-top: 20px;
-    outline: none; //  Временно.Убрать!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    outline: none;
   }
 
   /* Категория . Сумма li */
@@ -125,7 +125,6 @@
   @media screen and (max-width: 767px) {
     &__category_wrap {
       display: flex;
-      // flex-direction: column;
     }
     &__category {
       text-align: left;
@@ -136,7 +135,6 @@
   /* суммы расходов */
   &__costs {
     font-size: 16px;
-    // line-height: 24px;
     margin-left: auto;
     min-width: 60px;
     text-align: right;
