@@ -1,10 +1,6 @@
-// import { combineReducers, createStore } from 'redux';
-// import { composeWithDevTools } from 'redux-devtools-extension';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import transactionsReducer from './transactions/transactions-reducer';
 import { authReducer } from './auth';
-//import { balance } from './balance';
-import { logger } from 'redux-logger';
 import {
   persistStore,
   persistReducer,
@@ -23,18 +19,7 @@ const middleware = [
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
-  // logger,
 ];
-
-// const transactionsPersistConfig = {
-//     key: 'transactions',
-//     storage,
-//     blacklist: ['filter'],
-// };
-// const rootReducer = combineReducers({
-//     transactions: transactionsReducer,
-// });
-// const store = createStore(rootReducer, composeWithDevTools());
 
 const authPersistConfig = {
   key: 'auth',
