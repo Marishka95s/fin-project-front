@@ -49,7 +49,7 @@ export default function StatisticPage() {
             <Media query="(min-width: 1280px)" render={() =>
             (<> <AuthBar />
             <div className="statisticsPage" style={{ "display": "flex"}}>
-                <div className="left-side-block" style={{"width" : "465px"}}>                    
+                <div className="left-side-block" style={{"width" : "378px"}}>                    
                     <NavigationBtns />
                     <Balance /> 
                     <div style={{"width" : "348px", "display": "inline-flex"}}>
