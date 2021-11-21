@@ -13,6 +13,8 @@ import { fetchTransactionRequest,
     getTransactionCategoriesError
     } from './transactions-actions'
 
+    import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
     //GET 
 const fetchTransactions = () => async dispatch => {
@@ -38,7 +40,17 @@ const addTransaction = transactionData => async dispatch => {
         dispatch(addTransactionSuccess(data.data.result));
         
     } catch (error) {
-    dispatch(addTransactionError(error.message));
+        dispatch(addTransactionError(error.message));
+        toast.error(' Недостаточно средств на счету', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
     }
 };
 
@@ -52,6 +64,7 @@ const getQueryStatistics = ({ month, year }) => async dispatch => {
         dispatch(getQueryStatisticsSuccess(data));
     } catch (error) {
         dispatch(getQueryStatisticsError(error));
+        
         }
     };
 

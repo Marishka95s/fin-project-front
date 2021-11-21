@@ -14,9 +14,6 @@ import {
 } from '../../../redux/transactions';
 import './TransactionAddForm.scss';
 
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
 export default function TransactionAddForm({ onClose }) {
   const dispatch = useDispatch();
 
@@ -40,23 +37,22 @@ export default function TransactionAddForm({ onClose }) {
     sum: '',
     coment: '',
     category: '',
-    boxShadow: '0px 6px 15px rgba(255, 101, 150, 0.5)',
+    
   });
 
-  const { type, sum, comment, category, checked, boxShadow } = fullState;
+  const { type, sum, comment, category, checked } = fullState;
 
   useEffect(() => {
     if (checked) {
       setFullState(prev => ({
         ...prev,
-        boxShadow: '0px 6px 15px rgba(255, 101, 150, 0.5)',
       }));
       return;
     }
 
     setFullState(prev => ({
       ...prev,
-      boxShadow: '0px 6px 15px rgba(36, 204, 167, 0.5)',
+    
     }));
   }, [checked]);
 
@@ -105,10 +101,10 @@ export default function TransactionAddForm({ onClose }) {
     }));
   };
 
-  // let yesterday = moment().subtract( 1, 'day' );
-  // let valid = function( current ){
-  //     return current.isAfter( yesterday );
-  // };
+  let yesterday = moment().subtract( 1, 'day' );
+  let valid = function( current ){
+      return current.isAfter( yesterday );
+  };
 
   // const handleChangeDate = e => {
   // typeof e === 'string'
@@ -134,16 +130,7 @@ export default function TransactionAddForm({ onClose }) {
           category,
         }),
       );
-      toast.error('🦄 Недостаточно средств на счету', {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'colored',
-      });
+      
       onClose();
     },
     [type, comment, sum, category, onClose, dispatch],
@@ -170,7 +157,7 @@ export default function TransactionAddForm({ onClose }) {
   //     );
 
   return (
-    // <p>M O D A L</p>
+    
 
     <Modal onClose={onClose}>
       <button
@@ -210,7 +197,6 @@ export default function TransactionAddForm({ onClose }) {
             offHandleColor="#24cca7"
             onColor="#fff"
             offColor="#fff"
-            boxShadow={boxShadow}
             checkedHandleIcon={
               <svg
                 className="add-transaction__icon"
@@ -311,7 +297,7 @@ export default function TransactionAddForm({ onClose }) {
             closeOnSelect={true}
             timeFormat={false}
             inputProps={inputProps}
-            // isValidDate={valid}
+            isValidDate={valid}
             // onChange={handleChangeDate}
             // required
           />
