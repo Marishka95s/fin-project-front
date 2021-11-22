@@ -4,7 +4,7 @@ import { authSelectors } from '../redux/auth';
 
 export default function PublicRoute({ 
     component: Component,
-    redirectTo,
+    redirectTo="/fin-project-front/home",
     children,
     ...routeProps
  }) {

@@ -42,11 +42,11 @@ export default function App() {
         }>
 
           <Switch>
-            <PublicRoute exact path="/fin-project-front/registration" redirectTo="/fin-project-front/home">
+            <PublicRoute exact path="/fin-project-front/registration" restricted>
               <RegistrationPage />
             </PublicRoute>
 
-            <PublicRoute path="/fin-project-front/login" restricted redirectTo="/fin-project-front/home">
+            <PublicRoute path="/fin-project-front/login" restricted>
               <LoginPage />
             </PublicRoute>
 
