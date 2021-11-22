@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom'
 import { Formik } from 'formik'
@@ -65,7 +65,6 @@ export default function LoginForm() {
                             <NavLink
                                 className="nav-button"
                                 to="/fin-project-front/registration"
-                            // exact
                             >
                                 Регистрация
                             </NavLink>
