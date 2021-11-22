@@ -5,7 +5,6 @@ import {
   transactionsOperations,
   transactionsSelectors,
 } from '../../../redux/transactions';
-import { balanceOperations } from '../../../redux/balance';
 
 // import PropTypes from 'prop-types';
 
@@ -14,9 +13,6 @@ export default function TableTransactions() {
 
   useEffect(() => {
     dispatch(transactionsOperations.fetchTransactions());
-
-    //added to refresh Balance component
-    dispatch(balanceOperations.fetchBalance());
   }, [dispatch]);
 
   const transactions = useSelector(transactionsSelectors.getAllTransactions);

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { balanceOperations, balanceSelectors } from '../../../redux/balance';
 import style from './Balance.module.scss';
 
-const Balance = ({ balance }) => {
+const Balance = () => {
   const dispatch = useDispatch();
   //const token = useSelector(authSelectors.getToken);
 
@@ -15,6 +15,7 @@ const Balance = ({ balance }) => {
   }, [dispatch]);
 
   const isLoading = useSelector(balanceSelectors.getBalanceIsLoading);
+  const balance = useSelector(balanceSelectors.getBalance);
 
   if (!isLoading) {
     return (

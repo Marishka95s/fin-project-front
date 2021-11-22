@@ -37,10 +37,9 @@ const registration = ({ email, password, name }) => dispatch => {
     .catch((error) => {
       dispatch(actions.registrationError(error.message))
       toastr.error(error.message);
-    })
-
-    
+    })    
 }
+
 const login = ({ email, password }) => dispatch => {
   dispatch(actions.loginRequest())
   axios.post('/auth/login', { email, password })
@@ -53,6 +52,7 @@ const login = ({ email, password }) => dispatch => {
       toastr.error(error.message)
     })
 }
+
 const logout = () => dispatch => {
   dispatch(actions.logoutRequest())
   toastr.success('Вы вышли из учетной записи');

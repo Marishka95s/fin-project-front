@@ -5,9 +5,11 @@ import {
   fetchBalanceSuccess,
   fetchBalanceError,
 } from './balance-actions';
+import {logoutSuccess} from '../auth/auth-actions'
 
 const balance = createReducer('----', {
   [fetchBalanceSuccess]: (_, { payload }) => payload,
+  [logoutSuccess]: () => '----',
 });
 
 const balanceIsLoading = createReducer(false, {
