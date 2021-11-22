@@ -1,7 +1,5 @@
-// const balance = state => state.balance.balance;
-// const balanceLoading = state => state.balance.balanceLoading;
+const getBalance = state => state.balance.balance;
+const getBalanceIsLoading = state => state.balance.balanceIsLoading;
+const getBalanceError = state => state.balance.balanceError;
 
-// export {
-//     balance,
-//     balanceLoading
-// };
+export { getBalance, getBalanceIsLoading, getBalanceError };

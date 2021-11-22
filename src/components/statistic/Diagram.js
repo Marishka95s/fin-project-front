@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { authSelectors } from '../../redux/auth';
-import { transactionsSelectors } from '../../redux/transactions';
+//import { transactionsSelectors } from '../../redux/transactions';
+import { balanceSelectors } from '../../redux/balance';
 
 import Error from '../shared/Error';
 import Chart from './Chart';
@@ -27,9 +28,9 @@ export default function Diagram() {
     },
   };
 
-  let balance = useSelector(authSelectors.getBalance);
-  const curBalance = useSelector(transactionsSelectors.getCurrentBalance);
-  balance = curBalance ? curBalance : balance; //if in transactions 'balance' missing - take it from user Obj
+  const balance = useSelector(balanceSelectors.getBalance);
+  // const curBalance = useSelector(transactionsSelectors.getCurrentBalance);
+  // balance = curBalance ? curBalance : balance; //if in transactions 'balance' missing - take it from user Obj
 
   const token = useSelector(authSelectors.getToken);
 

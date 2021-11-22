@@ -1,30 +1,28 @@
-// import { combineReducers, createReducer } from '@reduxjs/toolkit';
-// import {
-//   fetchBalancePending,
-//   fetchBalanceSuccess,
-//   fetchBalanceError,
-// } from './balance-actions';
+//import { combineReducers } from redux;
+import { combineReducers, createReducer } from '@reduxjs/toolkit';
+import {
+  fetchBalancePending,
+  fetchBalanceSuccess,
+  fetchBalanceError,
+} from './balance-actions';
 
-// const balance = createReducer([], {
-//   [fetchBalanceSuccess]: (_, { payload }) => payload,
-//   [fetchBalancePending]: _ => null,
-//   [fetchBalanceError]: _ => null,
-// });
+const balance = createReducer('----', {
+  [fetchBalanceSuccess]: (_, { payload }) => payload,
+});
 
-// const balanceLoading = createReducer(true, {
-//   [fetchBalancePending]: () => true,
-//   [fetchBalanceSuccess]: () => false,
-//   [fetchBalanceError]: () => false,
-// });
+const balanceIsLoading = createReducer(false, {
+  [fetchBalancePending]: () => true,
+  [fetchBalanceSuccess]: () => false,
+  [fetchBalanceError]: () => false,
+});
 
-// const balanceError = createReducer(null, {
-//   [fetchBalancePending]: _ => null,
-//   [fetchBalanceSuccess]: _ => null,
-//   [fetchBalanceError]: (_, { payload }) => payload,
-// });
+const balanceError = createReducer(null, {
+  [fetchBalanceError]: (_, { payload }) => payload,
+  [fetchBalancePending]: () => null,
+});
 
-// export default combineReducers({
-//   balance,
-//   balanceLoading,
-//   balanceError,
-// });
+export default combineReducers({
+  balance,
+  balanceIsLoading,
+  balanceError,
+});

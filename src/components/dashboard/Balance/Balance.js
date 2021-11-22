@@ -1,25 +1,48 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
-import { authSelectors } from '../../../redux/auth';
-import { transactionsSelectors } from '../../../redux/transactions';
-import S from './Balance.module.scss';
+//import { authSelectors } from '../../../redux/auth';
+import { balanceOperations, balanceSelectors } from '../../../redux/balance';
+import style from './Balance.module.scss';
 
-const Balance = () => {
-  let balance = useSelector(authSelectors.getBalance);
-  // const curBalance = useSelector(transactionsSelectors.getCurrentBalance);
-  // console.log('curBal', curBalance);
+const Balance = ({ balance }) => {
+  const dispatch = useDispatch();
+  //const token = useSelector(authSelectors.getToken);
 
-  // balance = curBalance ? curBalance : balance; //if in transactions 'balance' missing - take it from user Obj
+  useEffect(() => {
+    dispatch(balanceOperations.fetchBalance());
+  }, [dispatch]);
 
-  return (
-    <div className={S.wrapper}>
-      <h2 className={S.title}>Ваш баланс</h2>
-      <p className={S.txt}>
-        <span className={S.badge}>₴</span>
-        {balance}
-      </p>
-    </div>
-  );
+  const isLoading = useSelector(balanceSelectors.getBalanceIsLoading);
+
+  if (!isLoading) {
+    return (
+      <div className={style.wrapper}>
+        <h2 className={style.title}>Ваш баланс</h2>
+        <p className={style.txt}>
+          <span className={style.badge}>₴</span>
+          {balance}
+        </p>
+      </div>
+    );
+  } else {
+    return (
+      <div className={style.wrapper}>
+        <h2 className={style.title}>Ваш баланс</h2>
+        <p className={style.txtIsLoading}>
+          <span className={style.badge}>₴</span>
+          {balance}
+        </p>
+      </div>
+    );
+  }
 };
-export default Balance;
+
+const mapStateToProps = state => {
+  return {
+    balance: state.balance.balance,
+  };
+};
+
+export default connect(mapStateToProps)(Balance);
