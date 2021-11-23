@@ -38,8 +38,8 @@ export default function CurrencyPage() {
         render={() => (
           <>
             <Suspense fallback={<Loader type="ThreeDots" color="brown" height={80} width={80} />}>                
-                <PrivateRoute path="/currency" redirectTo="/home" >
-                    <Redirect to="/home" />
+                <PrivateRoute path="/fin-project-front/currency" redirectTo="/fin-project-front/home" >
+                    <Redirect to="/fin-project-front/home" />
                 </PrivateRoute>
             </Suspense>
           </>

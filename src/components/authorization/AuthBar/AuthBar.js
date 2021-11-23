@@ -6,7 +6,7 @@ import UserMenu from '../UserMenu/UserMenu'
 export default function AuthBar() {
     return (
         <div className="auth-bar">
-            <Link to="/home" className="logo bar-logo"></Link>
+            <Link to="/fin-project-front/home" className="logo bar-logo"></Link>
             <UserMenu />
         </div>
     )

@@ -64,7 +64,7 @@ export default function LoginForm() {
                             <button className="login-button" type="submit">Вход</button>
                             <NavLink
                                 className="nav-button"
-                                to="/registration"
+                                to="/fin-project-front/registration"
                             // exact
                             >
                                 Регистрация
