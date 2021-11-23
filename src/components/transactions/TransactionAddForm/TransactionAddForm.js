@@ -25,12 +25,18 @@ export default function TransactionAddForm({ onClose }) {
   const transactionCategories = useSelector(
     transactionsSelectors.getTransactionCategories,
   );
+
   const optionSelect = transactionCategories.map(e => {
     return {
       value: e,
       label: e,
     };
   });
+
+  const optionIncome = [
+    { value: "Основной", label: "Основной" },
+    { value: "Дополнительный", label: "Дополнительный"}
+  ]
 
   const [fullState, setFullState] = useState({
     checked: true,
@@ -163,7 +169,7 @@ export default function TransactionAddForm({ onClose }) {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M0 1L20 0.999999" stroke="white" stroke-width="2" />
+                <path d="M0 1L20 0.999999" stroke="white" strokeWidth="2" />
               </svg>
             }
             uncheckedHandleIcon={
@@ -176,8 +182,8 @@ export default function TransactionAddForm({ onClose }) {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M10 0V20" stroke="white" stroke-width="2" />
-                <path d="M0 10L20 10" stroke="white" stroke-width="2" />
+                <path d="M10 0V20" stroke="white" strokeWidth="2" />
+                <path d="M0 10L20 10" stroke="white" strokeWidth="2" />
               </svg>
             }
           />
@@ -213,7 +219,7 @@ export default function TransactionAddForm({ onClose }) {
             <Select
               name="selectedOption"
               onChange={onChangeSelect}
-              options={optionSelect}
+              options={optionIncome}
               placeholder="Выберите категорию"
               styles={customStyles}
             />
