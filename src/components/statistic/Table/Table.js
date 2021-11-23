@@ -32,7 +32,7 @@ export default function Table(props) {
         <ul className="statistics list">
           {props.statistics.expenseList.map((expense, idx) => {
             if (expense === 0) {
-              return // if 0 uah -- row is not rendering
+              return false// if 0 uah -- row is not rendering
             }
             return (
               <li key={idx} className="statistics__list-item">

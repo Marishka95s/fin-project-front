@@ -4,8 +4,6 @@ import { Redirect } from 'react-router-dom';
 import AuthBar from '../../components/authorization/AuthBar/AuthBar';
 import Currency from '../../components/currency/Currency';
 import NavigationBtns from '../../components/dashboard/Navigation';
-import Balance from '../../components/dashboard/Balance/Balance';
-import Diagram from '../../components/statistic/Diagram';
 import './CurrencyPage';
 import Loader from 'react-loader-spinner';
 

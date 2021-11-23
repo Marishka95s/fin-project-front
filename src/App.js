@@ -2,8 +2,8 @@
 
 import React, { Suspense, lazy, useEffect } from 'react';
 import { Switch, Redirect } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { authOperations, authSelectors } from './redux/auth';
+import { useDispatch } from 'react-redux';
+import { authOperations } from './redux/auth';
 import Loader from 'react-loader-spinner';
 
 
@@ -25,8 +25,8 @@ const LoginPage = lazy(() => import('./views/LoginPage/LoginPage' /* webpackChun
 export default function App() {
   const dispatch = useDispatch();
 
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn)
-  const name = useSelector(authSelectors.getUserName)
+  // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn)
+  // const name = useSelector(authSelectors.getUserName)
   // console.log(isLoggedIn)
   // console.log(name)
 
