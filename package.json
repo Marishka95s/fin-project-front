@@ -2,10 +2,17 @@
   "name": "fin-project-front",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://marishka95s.github.io/fin-project-front",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Marishka95s/fin-project-front.git"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "netlify deploy -p"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.3",
@@ -44,14 +51,6 @@
     "shortid": "^2.2.16",
     "toastr": "^2.1.4",
     "yup": "^0.32.11"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
