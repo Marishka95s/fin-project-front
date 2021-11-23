@@ -23,7 +23,7 @@ const registration = ({ email, password, name }) => dispatch => {
         dispatch(actions.loginRequest())
         axios.post('/auth/login', { email, password })
         .then(data => {
-          token.set(data.token)
+          token.set(data.data.token)
           dispatch(actions.loginSuccess(data))
           toastr.success('Авторизация прошла успешно!');
         }).catch((error) => {
@@ -44,7 +44,7 @@ const login = ({ email, password }) => dispatch => {
   dispatch(actions.loginRequest())
   axios.post('/auth/login', { email, password })
     .then(data => {
-      token.set(data.token)
+      token.set(data.data.token)
       dispatch(actions.loginSuccess(data))
       toastr.success('Авторизация прошла успешно!');
     }).catch((error) => {
