@@ -42,29 +42,29 @@ export default function App() {
         }>
 
           <Switch>
-            <PublicRoute exact path="/fin-project-front/registration" restricted>
+            <PublicRoute exact path="/registration" restricted>
               <RegistrationPage />
             </PublicRoute>
 
-            <PublicRoute path="/fin-project-front/login" restricted>
+            <PublicRoute path="/login" restricted>
               <LoginPage />
             </PublicRoute>
 
-            <PrivateRoute path="/fin-project-front/home" redirectTo="/fin-project-front/login">
+            <PrivateRoute path="/home" redirectTo="/login">
               <ToastContainer />
               <HomePage />
             </PrivateRoute>
 
-            <PrivateRoute path="/fin-project-front/statistics" redirectTo="/fin-project-front/login">
+            <PrivateRoute path="/statistics" redirectTo="/login">
               <StatisticPage />
             </PrivateRoute>
 
-            <PrivateRoute path="/fin-project-front/currency" redirectTo="/fin-project-front/login">
+            <PrivateRoute path="/currency" redirectTo="/login">
               <CurrencyPage />
             </PrivateRoute>
 
             <PublicRoute>
-              <Redirect to="/fin-project-front/registration" />
+              <Redirect to="/registration" />
             </PublicRoute>
           </Switch>
         </Suspense>
