@@ -27,8 +27,8 @@ export default function App() {
 
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn)
   const name = useSelector(authSelectors.getUserName)
-  console.log(isLoggedIn)
-  console.log(name)
+  // console.log(isLoggedIn)
+  // console.log(name)
 
   useEffect(() => {
     dispatch(authOperations.getCurrentUser());

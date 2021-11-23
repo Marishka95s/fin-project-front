@@ -30,7 +30,7 @@ const registration = ({ email, password, name }) => dispatch => {
           dispatch(actions.loginError(error.message))
           toastr.error(error.message)
         })
-          console.log("Second log");
+          // console.log("Second log");
         }, 3000);
 
     })

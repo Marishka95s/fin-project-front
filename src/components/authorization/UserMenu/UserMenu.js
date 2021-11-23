@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import './userMenu.scss'
 
-import { useDispatch, useSelector } from 'react-redux'
-import { authSelectors, authOperations } from '../../../redux/auth'
+import { useSelector } from 'react-redux'
+import { authSelectors } from '../../../redux/auth'
 import ModalLogout from '../ModalLogout/ModalLogout'
 
 export default function UserMenu() {
@@ -14,6 +14,7 @@ export default function UserMenu() {
     const onOpenModal = useCallback(() => {
         setOpenModal(true)
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const closeModal = useCallback(() => {
         setOpenModal(false)
     });

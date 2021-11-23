@@ -12,10 +12,10 @@ const fetchBalance = () => async dispatch => {
   dispatch(fetchBalancePending());
   //axios.defaults.baseURL = 'https://fin-project-group4.herokuapp.com/api/';
   //axios.defaults.headers.common.Authorization = `${token}`;
-  console.log(
-    'axios.defaults.headers.common.Authorization:',
-    axios.defaults.headers.common.Authorization,
-  );
+  // console.log(
+  //   'axios.defaults.headers.common.Authorization:',
+  //   axios.defaults.headers.common.Authorization,
+  // );
   try {
     const { data } = await axios.get('/auth/current');
     if (data.status === 'success') {

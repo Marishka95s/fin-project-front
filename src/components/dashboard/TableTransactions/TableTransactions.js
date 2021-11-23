@@ -16,7 +16,7 @@ export default function TableTransactions() {
   }, [dispatch]);
 
   const transactions = useSelector(transactionsSelectors.getAllTransactions);
-  console.log(transactions);
+  // console.log(transactions);
 
   return (
     (!transactions.length && (

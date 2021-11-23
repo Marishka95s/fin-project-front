@@ -14,7 +14,7 @@ export default function RegistrationForm() {
         if (progressValue <= 4) {
 
             setProgressValue(prevState => prevState + 1)
-            console.log(progressValue)
+            // console.log(progressValue)
         }
         return
     }
