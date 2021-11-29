@@ -1,6 +1,8 @@
 # Live pages
 http://fin-project-group4.netlify.app - live page on Netlify
+
 https://github.com/Marishka95s/fin-project-back/tree/dev - project repository "back" part
+
 https://fin-project-group4.herokuapp.com/api-docs/ - project documentation on Heroku
 
 ## Authors
