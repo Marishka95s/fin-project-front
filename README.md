@@ -29,10 +29,10 @@ The-A team (https://monosnap.com/file/2uj6jDgk1ba8SeugLrNRKVYem7nISp)
 Юрий (https://github.com/pro100flash) -	Верстка и стилизация компонента баланса, написание логики лоадера, написание логики и стилизация навигации, выгрузка svg 
 
 ## Main idea
-https://monosnap.com/file/2uj6jDgk1ba8SeugLrNRKVYem7nISp
+https://monosnap.com/file/VfaCC1z7UDYIpqGzPtMLkrJOW6t0fs
 
 ## Used technologies
-https://monosnap.com/file/2uj6jDgk1ba8SeugLrNRKVYem7nISp
+https://monosnap.com/file/QlTCTvXDXnkpzNT81VOLpliToEC6JM
 
 ## List of tasks
-https://monosnap.com/file/2uj6jDgk1ba8SeugLrNRKVYem7nISp
+https://monosnap.com/file/VZGuNOKL6BoG1MlmpkDL8jvOhtI6FJ
