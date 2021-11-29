@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Live pages
+http://fin-project-group4.netlify.app - live page on Netlify
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://github.com/Marishka95s/fin-project-back/tree/dev - project repository "back" part
 
-## Available Scripts
+https://fin-project-group4.herokuapp.com/api-docs/ - project documentation on Heroku
 
-In the project directory, you can run:
+## Authors
+The-A team (https://monosnap.com/file/2uj6jDgk1ba8SeugLrNRKVYem7nISp)
 
-### `yarn start`
+Маша (https://github.com/Marishka95s) -	Тим лид, создание репозиториев, базовой разметки и архитектуры каждого из проектов (фронт и бек), создание базовых вариантов наполнения объектов для последующего их создания на беке и обработки их фронтом, создание глобальных переменных для всего проекта, подключение шрифтов, подключение нормализации стилей, развертывание сервера (отлов ошибок, настройка CORS, подключение модулей и т.п.), изменение фавикона и названия приложения, реализация энд-поинтов регистрации, аутентификации, логаута, прослойка авторизации, энд-поинт на получение информации о пользователе, энд-поинт на получение новой пары токенов: токен доступа и рефреш-токен, написание логики компонента транзакций, написание страниц статистики, главной и подключение туда всех созданных командой компонентов, помощь в создании логики добавления транзакций, помощь в написании редиректа после регистрации, решение конфликтов пул реквестов, создание презентации проекта
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Алла (https://github.com/Bondarenkoalla) -	Скрам мастер, ведение трелло, организационная работа и сбор статистики по проделанной работе для подготовки к презентации проекта, создание энд-поинтов на получение категорий транзакций и на получение транзакций пользователя, верстка компонента отрисовки транзакций и их стилизация (мобилка, планшет, десктоп), стилизация домашней страницы, стилизация компонента навигации, внесение правок в бекенд, исправление ошибок стилей всего проекта, подчистка и оформление внешнего вида приложения до соответствия макету
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Женя (https://github.com/Ievgen-Rybalko) -	Написание логики компонента статистики и логики компонента баланса, стилизация компонентов (верстка мобилка, планшет, десктоп), работа с редаксом и состоянием баланса, обновление баланса в зависимости от созданных транзакций, реализация возможности получения статистики по указанному году и месяцу, помощь в стилизации компонентов приложения
 
-### `yarn test`
+Ростик (https://github.com/R0st) -	Изучение особенностей работы со swagger-ui-express и создание документации энд-поинтов с его помощью, помощь в стилизации модального окна добавления транзакций, обработка ошибок фронтенда и помощь в их внедрении в компоненты, где это было необходимо
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Вова (https://github.com/Kuzmenko-V) -	Создание  энд-поинта создания транзакции, энд-поинт на получение подробной статистики за месяц и год по транзакциям пользователя, авторское решение для статистики, работа над ошибками бекенда, внесение правок в бекенде в процессе написания фронтенда, оптимизация и чистка мертвого кода
 
-### `yarn build`
+Сергей (https://github.com/Sergey-Sidorchuk) -	Подключение и обработка логики компонента диаграммы статистики, стилизация компонента (верстка мобилка, планшет, десктоп), стилизация компонента таблицы статистики, стилизация бекграунда и круговых разноцветных акцентов всего приложения, исправление ошибок стилей всего проекта, подчистка и оформление внешнего вида приложения до соответствия макету
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Андрей (https://github.com/AndrewProsianyk) -	Написание верстки, логики и стилизации (верстка мобилка, планшет, десктоп) компонентов и страниц регистрации нового пользователя, логинизации и разлогинивания; верстка, логика и стилизация (верстка мобилка, планшет, десктоп) компонента хедера для страниц главная и статистика, работа с библиотеками Formik и Yup (валидация), отлов ошибок регистрации, логинизации и разлогинивания и их обработка с помощью toastify
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Юля	(https://github.com/YuliiaBond) - Верстка, логика и стилизация (мобилка, планшет, десктоп) компонентов кнопки открытия модального окна и самого модального окна добавления транзакций, контент-менеджер (создание и наполнение базы транзакций) презентованного юзера, исправление ошибок стилей всего проекта, подчистка и оформление внешнего вида приложения до соответствия макету, помощь в подготовке к презентации проекта, поддержка рабочей атмосферы на проекте
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ирина (https://github.com/IrinaGashevskaya) -	Работа с внешним АРІ Приватбанка, его подключение в проект, написание верстки и логики компонента актуального курса валют, его стилизация (верстка мобилка, планшет, десктоп), помощь в подготовке к презентации проекта
 
-### `yarn eject`
+Юрий (https://github.com/pro100flash) -	Верстка и стилизация компонента баланса, написание логики лоадера, написание логики и стилизация навигации, выгрузка svg 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Main idea
+https://monosnap.com/file/VfaCC1z7UDYIpqGzPtMLkrJOW6t0fs
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Used technologies
+https://monosnap.com/file/QlTCTvXDXnkpzNT81VOLpliToEC6JM
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## List of tasks
+https://monosnap.com/file/VZGuNOKL6BoG1MlmpkDL8jvOhtI6FJ
