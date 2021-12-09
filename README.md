@@ -34,5 +34,5 @@ https://monosnap.com/file/VfaCC1z7UDYIpqGzPtMLkrJOW6t0fs
 ## Used technologies
 https://monosnap.com/file/QlTCTvXDXnkpzNT81VOLpliToEC6JM
 
-## List of tasks
+## List of tasks for colaborators
 https://monosnap.com/file/VZGuNOKL6BoG1MlmpkDL8jvOhtI6FJ
